@@ -18,7 +18,7 @@
   networking.hostName = "dell"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -49,12 +49,8 @@
     };
     displayManager.defaultSession = "xfce+i3";
     windowManager.i3 = {
+      package = pkgs.i3-gaps;
       enable = true;
-      extraPackages = with pkgs; [
-	i3status
-        i3lock
-        i3blocks
-      ];
     };
   };
 
@@ -77,21 +73,29 @@
     isNormalUser = true;
     initialPassword = "init";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
+      bat
       firefox
+      tree
     ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      nodejs
+      yarn
+      vim
+      wget
+      zsh-nix-shell
+    ];
+    pathsToLink = [ "/share/zsh" ];
+  };
 
   fonts.fonts = with pkgs; [
-    recursive
-    fira-code
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -101,6 +105,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
 

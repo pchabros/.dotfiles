@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
   let
     system = "x86_64-linux";
     username = "kris";
@@ -19,19 +20,22 @@
     };
     lib = nixpkgs.lib;
   in {
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+    nixosConfigurations.dell = lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs; };
       modules = [
-        ./users/${username}/home.nix
+        ./system/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.${username}.imports = [
+            ./users/${username}/home.nix
+          ];
+        }
+        #stylix.nixosModules.stylix
+        #./modules/stylix.nix
       ];
-    };
-    nixosConfigurations = {
-      dell = lib.nixosSystem {
-        inherit system;
-        modules = [
-	  ./system/configuration.nix
-	];
-      };
+      
     };
   };
 }

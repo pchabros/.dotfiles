@@ -2,8 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      lua_ls = {},
       rust_analyzer = {},
       r_language_server = {},
+      rnix = {},
     },
   },
   init = function()
@@ -15,6 +17,7 @@ return {
         go({ severity = severity })
       end
     end
+
     -- disable a keymap
     keys[#keys + 1] = { "K", false }
     -- add a keymap

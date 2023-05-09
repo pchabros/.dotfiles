@@ -110,7 +110,7 @@ window:
 # Font configuration
 font:
   normal:
-    family: "Recursive"
+    family: "FiraCode Nerd Font"
   size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought
