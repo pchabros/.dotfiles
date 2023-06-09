@@ -1,4 +1,7 @@
 { config, pkgs, ... }: {
+  imports = [
+    ./neovim
+  ];
   home = {
     username = "kris";
     homeDirectory = "/home/kris";
@@ -10,29 +13,6 @@
       enable = true;
       userName = "pchabros";
       userEmail = "pawel.chabros@yahoo.pl";
-    };
-    neovim = {
-      enable = true;
-      plugins = with pkgs.vimPlugins; [
-        vim-nix
-        nvim-treesitter.withAllGrammars
-      ];
-      extraConfig = ''
-        luafile ~/.config/nvim/init.lua
-      '';
-      extraPackages = with pkgs; [
-        fd
-        gcc
-        ripgrep
-        xclip
-        nodejs
-        nodePackages.eslint_d
-        nodePackages.typescript
-        nodePackages.typescript-language-server
-        rnix-lsp
-        rust-analyzer
-        sumneko-lua-language-server
-      ];
     };
     alacritty = {
       enable = true;
@@ -118,10 +98,6 @@
     #avizo.enable = true;
   };
   xdg.configFile = {
-    nvim = {
-      source = ../../config/nvim;
-      recursive = true;
-    };
     "zsh/aliases".text = builtins.readFile ../../config/zsh/aliases;
     "tmux/tmux.conf".text = builtins.readFile ../../config/tmux/tmux.conf;
     alacritty = {
