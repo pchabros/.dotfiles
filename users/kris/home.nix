@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./neovim
+    ./alacritty
   ];
   home = {
     username = "kris";
@@ -13,9 +14,6 @@
       enable = true;
       userName = "pchabros";
       userEmail = "pawel.chabros@yahoo.pl";
-    };
-    alacritty = {
-      enable = true;
     };
     zsh = {
       enable = true;
@@ -100,9 +98,6 @@
   xdg.configFile = {
     "zsh/aliases".text = builtins.readFile ../../config/zsh/aliases;
     "tmux/tmux.conf".text = builtins.readFile ../../config/tmux/tmux.conf;
-    alacritty = {
-      source = ../../config/alacritty;
-    };
     "i3/config".text = builtins.readFile ../../config/i3/config;
     rofi = {
       source = ../../config/rofi;
