@@ -2,6 +2,7 @@
   imports = [
     ./alacritty
     ./git
+    ./i3
     ./neovim
     ./tmux
     ./zsh
@@ -22,7 +23,6 @@
     };
   };
   xdg.configFile = {
-    "i3/config".text = builtins.readFile ../../config/i3/config;
     rofi = {
       source = ../../config/rofi;
       recursive = true;
