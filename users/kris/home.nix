@@ -4,6 +4,7 @@
     ./git
     ./i3
     ./neovim
+    ./rofi
     ./tmux
     ./zsh
   ];
@@ -14,18 +15,9 @@
   };
   programs = {
     home-manager.enable = true;
-    rofi = {
-      enable = true;
-    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-    };
-  };
-  xdg.configFile = {
-    rofi = {
-      source = ../../config/rofi;
-      recursive = true;
     };
   };
 }

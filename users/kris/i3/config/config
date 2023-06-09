@@ -193,7 +193,6 @@ exec xset r rate 300 50 &
 for_window [class="^.*"] border pixel 0
 gaps inner 10
 gaps outer 1
-gaps top 30
 
 smart_borders on
 
