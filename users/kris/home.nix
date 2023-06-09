@@ -6,6 +6,7 @@
     ./neovim
     ./rofi
     ./tmux
+    ./wallpaper
     ./zsh
   ];
   home = {
