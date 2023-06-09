@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./alacritty
+    ./git
     ./neovim
     ./tmux
     ./zsh
@@ -12,19 +13,8 @@
   };
   programs = {
     home-manager.enable = true;
-    git = {
-      enable = true;
-      userName = "pchabros";
-      userEmail = "pawel.chabros@yahoo.pl";
-    };
     rofi = {
       enable = true;
-    };
-    gh = {
-      enable = true;
-      extensions = with pkgs; [
-        gh-dash
-      ];
     };
     direnv = {
       enable = true;
