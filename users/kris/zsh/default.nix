@@ -2,7 +2,7 @@
   programs = {
     zsh = {
       enable = true;
-      initExtra = builtins.readFile ./config/zsh/.zshrc;
+      initExtra = builtins.readFile ./config/.zshrc;
       dotDir = ".config/zsh";
       enableAutosuggestions = true;
       enableCompletion = true;
@@ -43,6 +43,6 @@
     };
   };
   xdg.configFile = {
-    "zsh/aliases".text = builtins.readFile ./config/zsh/aliases;
+    "zsh/aliases".text = builtins.readFile ./config/aliases;
   };
 }

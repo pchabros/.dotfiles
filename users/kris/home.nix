@@ -1,7 +1,9 @@
 { config, pkgs, ... }: {
   imports = [
-    ./neovim
     ./alacritty
+    ./neovim
+    ./tmux
+    ./zsh
   ];
   home = {
     username = "kris";
@@ -17,17 +19,6 @@
     };
     rofi = {
       enable = true;
-    };
-    tmux = {
-      enable = true;
-      terminal = "xterm-256color";
-      plugins = with pkgs.tmuxPlugins; [
-        copycat
-        extrakto
-        nord
-        resurrect
-        tmux-fzf
-      ];
     };
     gh = {
       enable = true;
@@ -55,7 +46,6 @@
     #avizo.enable = true;
   };
   xdg.configFile = {
-    "tmux/tmux.conf".text = builtins.readFile ../../config/tmux/tmux.conf;
     "i3/config".text = builtins.readFile ../../config/i3/config;
     rofi = {
       source = ../../config/rofi;
