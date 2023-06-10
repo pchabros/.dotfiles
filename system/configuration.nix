@@ -47,11 +47,14 @@
         enableXfwm = false;
       };
     };
-    displayManager.defaultSession = "xfce+i3";
-    windowManager.i3 = {
-      package = pkgs.i3-gaps;
+    displayManager.gdm = {
       enable = true;
+      wayland = true;
     };
+    /* windowManager.i3 = { */
+    /*   package = pkgs.i3-gaps; */
+    /*   enable = true; */
+    /* }; */
   };
 
   # Configure keymap in X11
@@ -105,7 +108,13 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.zsh.enable = true;
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    zsh.enable = true;
+  };
 
   # List services that you want to enable:
 

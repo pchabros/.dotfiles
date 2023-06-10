@@ -2,7 +2,7 @@
   imports = [
     ./alacritty
     ./git
-    ./i3
+    ./hyprland
     ./neovim
     ./rofi
     ./tmux

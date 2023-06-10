@@ -4,9 +4,7 @@
       enable = true;
     };
   };
-  xdg.configFile = {
-    alacritty = {
-      source = ./config;
-    };
+  xdg.configFile.alacritty = {
+    source = ./config;
   };
 }
