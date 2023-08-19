@@ -3,6 +3,7 @@
     ./alacritty
     ./git
     ./hyprland
+    ./kanshi
     ./neovim
     ./rofi
     ./tmux
@@ -12,7 +13,7 @@
   home = {
     username = "pawel_chabros";
     homeDirectory = "/home/pawel_chabros";
-    stateVersion = "22.11";
+    stateVersion = "23.05";
   };
   programs = {
     home-manager.enable = true;
