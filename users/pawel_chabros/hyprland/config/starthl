@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd ~
+
+MOZ_ENABLE_WAYLAND=1
+GDK_BACKEND="wayland"
+
+export $(dbus-launch)
+
+exec Hyprland
