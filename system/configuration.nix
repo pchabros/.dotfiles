@@ -68,7 +68,17 @@
   };
 
   # Enable automatic login for the user.
-  services.getty.autologinUser = "pawel_chabros";
+  # services.getty.autologinUser = "pawel_chabros";
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "$HOME/.local/bin/starthl";
+        user = "pawel_chabros";
+      };
+      default_session = initial_session;
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
