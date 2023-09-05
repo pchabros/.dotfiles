@@ -3,7 +3,6 @@
     ./alacritty
     ./git
     ./hyprland
-    ./kanshi
     ./neovim
     ./rofi
     ./tmux
