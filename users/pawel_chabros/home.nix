@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
   imports = [
     ./alacritty
+    ./fuzzel
     ./git
     ./hyprland
     ./neovim
-    ./rofi
     ./tmux
     ./wallpaper
     ./zsh
