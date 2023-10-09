@@ -74,6 +74,7 @@
       firefox
       tree
       openfortivpn
+      rocketchat-desktop
     ];
   };
 
