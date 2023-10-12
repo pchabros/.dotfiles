@@ -1,5 +1,6 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     ./alacritty
     ./fuzzel
     ./git
@@ -9,6 +10,7 @@
     ./wallpaper
     ./zsh
   ];
+  colorScheme = inputs.nix-colors.colorSchemes.nord;
   home = {
     username = "pawel_chabros";
     homeDirectory = "/home/pawel_chabros";

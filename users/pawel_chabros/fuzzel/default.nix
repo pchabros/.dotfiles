@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
     pkill fuzzel
@@ -16,6 +16,11 @@ let
     pkill fuzzel
     cliphist list | dmenu | cliphist decode | wl-copy
   '';
+  colors = config.colorScheme.colors;
+  transparency = {
+    _95 = "E6";
+    _100 = "FF";
+  };
 in
 {
   home.packages = [ appLauncher dmenu emoji clipboard ];
@@ -24,23 +29,23 @@ in
     settings = {
       main = {
         font = "monospace:style=Bold:pixelsize=12";
-        prompt = ">  ";
+        prompt = " ";
         icon-theme = "papirus";
         exit-on-keyboard-focus-loss = "no";
       };
-      # colors = {
-      # background = "${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex}";
-      # text = "${theme.colorScheme.foreground1Hex}ff";
-      # match = "${theme.colorScheme.dangerHex}${theme.colorScheme.transparencyForegroundHex}";
-      # selection = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
-      # selection-text = "${theme.colorScheme.background1Hex}ff";
-      # selection-match = "${theme.colorScheme.dangerHex}ff";
-      # border = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
-      # };
-      # border = {
-      # width = builtins.toString theme.borderWidth;
-      # radius = builtins.toString theme.borderRadius;
-      # };
+      colors = {
+        background = "${colors.base00}${transparency._95}";
+        text = "${colors.base06}${transparency._100}";
+        match = "${colors.base06}${transparency._100}";
+        selection = "${colors.base00}${transparency._95}";
+        selection-text = "${colors.base0C}${transparency._100}";
+        selection-match = "${colors.base0E}${transparency._100}";
+        border = "${colors.base0F}${transparency._100}";
+      };
+      border = {
+        width = 2;
+        radius = 5;
+      };
     };
   };
 }
