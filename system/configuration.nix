@@ -78,16 +78,23 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  # services.getty.autologinUser = "pawel_chabros";
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "$HOME/.local/bin/starthl";
-        user = "pawel_chabros";
+  security.rtkit.enable = true;
+  services = {
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "$HOME/.local/bin/starthl";
+          user = "pawel_chabros";
+        };
+        default_session = initial_session;
       };
-      default_session = initial_session;
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
   };
 
