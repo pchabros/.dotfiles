@@ -72,9 +72,10 @@
       bat
       dolphin
       firefox
-      tree
       openfortivpn
       rocketchat-desktop
+      teams
+      tree
     ];
   };
 
