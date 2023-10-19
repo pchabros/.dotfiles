@@ -3,6 +3,7 @@
     inputs.nix-colors.homeManagerModules.default
     ./alacritty
     ./fuzzel
+    ./fzf
     ./git
     ./hyprland
     ./neovim
