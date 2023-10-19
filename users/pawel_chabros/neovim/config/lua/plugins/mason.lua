@@ -1,1 +1,4 @@
-return { "williamboman/mason.nvim", enabled = false }
+return {
+  { "williamboman/mason-lspconfig.nvim", enabled = false },
+  { "williamboman/mason.nvim",           enabled = false },
+}

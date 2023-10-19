@@ -21,6 +21,7 @@
         rnix-lsp
         rust-analyzer
         sumneko-lua-language-server
+        tree-sitter
       ];
     };
   };
