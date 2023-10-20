@@ -5,6 +5,7 @@
     ./fuzzel
     ./fzf
     ./git
+    ./gtk
     ./hyprland
     ./neovim
     ./tmux
