@@ -105,6 +105,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
+    sessionVariables = rec {
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
     systemPackages = with pkgs; [
       wget
     ];
