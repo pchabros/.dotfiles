@@ -71,7 +71,6 @@
     packages = with pkgs; [
       bat
       dolphin
-      firefox
       openfortivpn
       rocketchat-desktop
       teams
@@ -105,6 +104,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
+    localBinInPath = true;
     sessionVariables = rec {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
