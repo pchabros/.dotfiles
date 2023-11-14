@@ -1,7 +1,4 @@
 local wk = require("which-key")
-local utils = require('utils')
-
-local map = utils.map
 
 require('git-conflict').setup()
 

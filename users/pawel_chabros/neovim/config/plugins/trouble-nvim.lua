@@ -1,6 +1,3 @@
-local utils = require("utils")
-local map = utils.map
-
 require("trouble").setup({
 	use_diagnostic_signs = true,
 	action_keys = {
