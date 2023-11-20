@@ -8,6 +8,7 @@
     ./gtk
     ./hyprland
     ./neovim
+    ./starship
     ./tmux
     ./wallpaper
     ./zsh

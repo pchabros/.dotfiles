@@ -42,7 +42,8 @@ let vimPlugins = pkgs.vimPlugins // {
       lazygit-nvim
       lsp-zero-nvim
       luasnip
-      #none-ls
+      # none-ls-nvim
+      null-ls-nvim
       nui-nvim
       nvim-notify
       nvim-treesitter.withAllGrammars
@@ -208,6 +209,7 @@ let vimPlugins = pkgs.vimPlugins // {
       # }
     ];
     extraPackages = with pkgs; [
+      ripgrep
       rnix-lsp
       sumneko-lua-language-server
     ];
