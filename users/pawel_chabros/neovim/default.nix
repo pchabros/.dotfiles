@@ -212,6 +212,9 @@ let vimPlugins = pkgs.vimPlugins // {
       ripgrep
       rnix-lsp
       sumneko-lua-language-server
+      nodePackages.eslint_d
+      nodePackages.typescript
+      nodePackages.typescript-language-server
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./config/utils.lua}
