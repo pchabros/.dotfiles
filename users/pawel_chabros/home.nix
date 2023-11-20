@@ -7,6 +7,7 @@
     ./git
     ./gtk
     ./hyprland
+    ./lazygit
     ./neovim
     ./starship
     ./tmux
