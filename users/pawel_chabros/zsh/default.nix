@@ -29,7 +29,6 @@
           promptContext = true;
           dotExpansion = true;
         };
-        prompt.theme = "pure";
       };
       zplug = {
         enable = true;

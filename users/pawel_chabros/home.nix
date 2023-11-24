@@ -2,13 +2,16 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./alacritty
+    ./email
     ./firefox
     ./fuzzel
     ./fzf
     ./git
     ./gtk
     ./hyprland
+    ./lazygit
     ./neovim
+    ./starship
     ./tmux
     ./wallpaper
     ./zsh

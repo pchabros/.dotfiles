@@ -9,6 +9,35 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
+    # Neovim
+    mini-indentscope = {
+      url = "github:echasnovski/mini.indentscope";
+      flake = false;
+    };
+    # indent-blankline-nvim = {
+    #   url = "github:lukas-reineke/indent-blankline.nvim";
+    #   flake = false;
+    # };
+    mini-bufremove = {
+      url = "github:echasnovski/mini.bufremove";
+      flake = false;
+    };
+    none-ls = {
+      url = "github:nvimtools/none-ls.nvim";
+      flake = false;
+    };
+    git-conflict = {
+      url = "github:akinsho/git-conflict.nvim";
+      flake = false;
+    };
+    flash = {
+      url = "github:folke/flash.nvim";
+      flake = false;
+    };
+    cutlass = {
+      url = "github:gbprod/cutlass.nvim";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, hyprland, ... }@inputs:

@@ -115,7 +115,8 @@
   };
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    recursive
   ];
 
   programs = {
