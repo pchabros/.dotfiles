@@ -20,7 +20,7 @@
         tls = {
           certificatesFile = /share/pawel_chabros_email.cer;
           useStartTls = true;
-        }
+        };
       };
       thunderbird = {
         enable = true;
