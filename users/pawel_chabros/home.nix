@@ -2,6 +2,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./alacritty
+    ./email
     ./fuzzel
     ./fzf
     ./git
