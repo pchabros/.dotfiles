@@ -21,7 +21,7 @@
   home = {
     username = "pawel_chabros";
     homeDirectory = "/home/pawel_chabros";
-    stateVersion = "23.05";
+    stateVersion = "unstable";
   };
   programs = {
     home-manager.enable = true;
