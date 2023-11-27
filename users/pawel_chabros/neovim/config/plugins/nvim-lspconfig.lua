@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 		set("n", "H", vim.lsp.buf.hover, opts)
 		set("n", "gi", vim.lsp.buf.implementation, opts)
-		set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		set("n", "<space>cs", vim.lsp.buf.signature_help, opts)
 		set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 		set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 		set("n", "<space>wl", function()
