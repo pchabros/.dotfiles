@@ -73,7 +73,7 @@
       dolphin
       openfortivpn
       rocketchat-desktop
-      teams
+      # teams
       tree
     ];
   };
@@ -114,7 +114,7 @@
     pathsToLink = [ "/share/zsh" ];
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     recursive
   ];
