@@ -4,9 +4,11 @@
     settings = {
       HDMI-A-1 = {
         path = ./pictures/3440x1440;
+        duration = "5m";
       };
       DP-1 = {
         path = ./pictures/1440x2560;
+        duration = "5m";
       };
     };
   };

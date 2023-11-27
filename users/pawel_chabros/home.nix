@@ -1,6 +1,5 @@
 { config, pkgs, inputs, ... }: {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ./alacritty
     ./email
     ./firefox
@@ -14,7 +13,9 @@
     ./starship
     ./tmux
     ./wallpaper
+    ./wpaperd
     ./zsh
+    inputs.nix-colors.homeManagerModules.default
   ];
   colorScheme = inputs.nix-colors.colorSchemes.nord;
   home = {
