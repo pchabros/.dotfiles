@@ -16,7 +16,7 @@ bindkey -a k vi-down-line-or-history
 bindkey -a l vi-up-line-or-history
 bindkey -a \; vi-forward-char
 
-bindkey ' ;' autosuggest-accept
+bindkey '^ ' autosuggest-accept
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
