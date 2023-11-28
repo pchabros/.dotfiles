@@ -28,10 +28,14 @@ in
     enable = true;
     settings = {
       main = {
-        font = "monospace:style=Bold:pixelsize=12";
+        font = "monospace:pixelsize=14";
         prompt = " ";
         icon-theme = "papirus";
         exit-on-keyboard-focus-loss = "no";
+        horizontal-pad = 80;
+        vertical-pad = 30;
+        inner-pad = 20;
+        line-height = 16;
       };
       colors = {
         background = "${colors.base00}${transparency._95}";
@@ -40,11 +44,10 @@ in
         selection = "${colors.base00}${transparency._95}";
         selection-text = "${colors.base0C}${transparency._100}";
         selection-match = "${colors.base0E}${transparency._100}";
-        border = "${colors.base0F}${transparency._100}";
       };
       border = {
-        width = 2;
-        radius = 5;
+        width = 0;
+        radius = 0;
       };
     };
   };
