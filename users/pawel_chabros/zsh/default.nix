@@ -19,8 +19,8 @@
       };
       history = {
         ignoreDups = true;
-        save = 1000000;
-        size = 1000000;
+        save = 100000;
+        size = 100000;
       };
       prezto = {
         enable = true;
