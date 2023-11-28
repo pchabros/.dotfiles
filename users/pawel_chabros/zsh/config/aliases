@@ -2,9 +2,6 @@ alias rb='sudo reboot'
 alias sd='sudo shutdown now'
 alias hb='systemctl hibernate'
 
-# alias ls='ls_extended'
-alias ll='ls -lah'
-
 alias gf='git fetch'
 alias gfa='git fetch --all'
 alias gss='git status -s'
@@ -43,8 +40,7 @@ alias hd='npx hardhat run scripts/deploy.js'
 alias hdl='npx hardhat run scripts/deploy.js --network localhost'
 alias hdr='npx hardhat run scripts/deploy.js --network rinkeby'
 
-alias ..='cd ..'
-alias ...='cd ../..'
+alias cd='z'
 
 alias pu='paru'
 alias prc='pacman -Rcns'
