@@ -9,6 +9,7 @@
     ./gtk
     ./hyprland
     ./lazygit
+    ./lf
     ./neovim
     ./starship
     ./tmux
