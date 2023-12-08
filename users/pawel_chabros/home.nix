@@ -13,7 +13,6 @@
     ./neovim
     ./starship
     ./tmux
-    ./wallpaper
     ./wpaperd
     ./zsh
     inputs.nix-colors.homeManagerModules.default
