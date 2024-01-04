@@ -1,6 +1,7 @@
 { config, pkgs, inputs, ... }: {
   imports = [
     ./alacritty
+    ./direnv
     ./email
     ./firefox
     ./fuzzel
