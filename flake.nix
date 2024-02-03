@@ -40,13 +40,8 @@
     let
       system = "x86_64-linux";
       username = "pawel_chabros";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = { allowUnfree = true; };
-      };
       lib = nixpkgs.lib;
-    in
-    {
+    in {
       nixosConfigurations.nixos = lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };
@@ -56,9 +51,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.${username}.imports = [
-              ./users/${username}/home.nix
-            ];
+            home-manager.users.${username}.imports =
+              [ ./users/${username}/home.nix ];
           }
         ];
       };

@@ -215,6 +215,7 @@ in {
     ];
     extraPackages = with pkgs; [
       nil
+      nixfmt
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
@@ -222,6 +223,7 @@ in {
       nodePackages_latest.typescript-language-server
       prettierd
       ripgrep
+      stylua
       sumneko-lua-language-server
       vscode-extensions.angular.ng-template
     ];
