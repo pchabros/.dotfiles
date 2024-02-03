@@ -71,9 +71,11 @@
     packages = with pkgs; [
       bat
       dolphin
+      libreoffice
       openfortivpn
       rocketchat-desktop
-      # teams
+      spotify
+      teams-for-linux
       tree
     ];
   };
