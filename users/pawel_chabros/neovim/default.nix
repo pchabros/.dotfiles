@@ -1,34 +1,32 @@
 { pkgs, inputs, ... }:
-let vimPlugins = pkgs.vimPlugins // {
-  git-conflict = pkgs.vimUtils.buildVimPlugin {
-    name = "git-conflict";
-    src = inputs.git-conflict;
+let
+  vimPlugins = pkgs.vimPlugins // {
+    git-conflict = pkgs.vimUtils.buildVimPlugin {
+      name = "git-conflict";
+      src = inputs.git-conflict;
+    };
+    mini-indentscope = pkgs.vimUtils.buildVimPlugin {
+      name = "mini-indentscope";
+      src = inputs.mini-indentscope;
+    };
+    indent-blankline-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "indent-blankline-nvim";
+      src = inputs.indent-blankline-nvim;
+    };
+    mini-bufremove = pkgs.vimUtils.buildVimPlugin {
+      name = "mini-bufremove";
+      src = inputs.mini-bufremove;
+    };
+    flash = pkgs.vimUtils.buildVimPlugin {
+      name = "flash";
+      src = inputs.flash;
+    };
+    cutlass = pkgs.vimUtils.buildVimPlugin {
+      name = "cutlass";
+      src = inputs.cutlass;
+    };
   };
-  mini-indentscope = pkgs.vimUtils.buildVimPlugin {
-    name = "mini-indentscope";
-    src = inputs.mini-indentscope;
-  };
-  # indent-blankline-nvim = pkgs.vimUtils.buildVimPlugin {
-  #   name = "indent-blankline-nvim";
-  #   src = inputs.indent-blankline-nvim;
-  # };
-  mini-bufremove = pkgs.vimUtils.buildVimPlugin {
-    name = "mini-bufremove";
-    src = inputs.mini-bufremove;
-  };
-  # none-ls = pkgs.vimUtils.buildVimPlugin {
-  #   name = "none-ls";
-  #   src = inputs.none-ls;
-  # };
-  flash = pkgs.vimUtils.buildVimPlugin {
-    name = "flash";
-    src = inputs.flash;
-  };
-  # cutlass = pkgs.vimUtils.buildVimPlugin {
-  #   name = "cutlass";
-  #   src = inputs.cutlass;
-  # };
-}; in {
+in {
   programs.neovim = {
     enable = true;
     vimdiffAlias = true;
@@ -37,13 +35,13 @@ let vimPlugins = pkgs.vimPlugins // {
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
-      git-conflict
       dressing-nvim
+      git-conflict
       lazygit-nvim
+      lens-vim
       lsp-zero-nvim
       luasnip
-      # none-ls-nvim
-      null-ls-nvim
+      none-ls-nvim
       nui-nvim
       nvim-notify
       nvim-treesitter.withAllGrammars
@@ -95,13 +93,13 @@ let vimPlugins = pkgs.vimPlugins // {
           require("mini.ai").setup()
         '';
       }
-      #{
-        #plugin = cutlass;
-        #type = "lua";
-        #config = ''
-          #require("cutlass").setup({ cut_key = "z" })
-        #'';
-      #}
+      {
+        plugin = cutlass;
+        type = "lua";
+        config = ''
+          require("cutlass").setup({ cut_key = "z" })
+        '';
+      }
       {
         plugin = flash;
         type = "lua";
@@ -200,21 +198,24 @@ let vimPlugins = pkgs.vimPlugins // {
           ${builtins.readFile ./config/plugins/vim-illuminate.lua}
         '';
       }
-      # {
-      #   plugin = indent-blankline-nvim;
-      #   type = "lua";
-      #   config = ''
-      #     ${builtins.readFile ./config/plugins/indent-blankline-nvim.lua}
-      #   '';
-      # }
+      {
+        plugin = indent-blankline-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/indent-blankline-nvim.lua}
+        '';
+      }
     ];
     extraPackages = with pkgs; [
+      nodePackages_latest.eslint_d
+      nodePackages_latest.nodejs
+      nodePackages_latest.typescript
+      nodePackages_latest.typescript-language-server
+      prettierd
       ripgrep
       rnix-lsp
       sumneko-lua-language-server
-      nodePackages.eslint_d
-      nodePackages.typescript
-      nodePackages.typescript-language-server
+      vscode-extensions.angular.ng-template
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./config/utils.lua}

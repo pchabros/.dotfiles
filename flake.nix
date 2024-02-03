@@ -14,16 +14,12 @@
       url = "github:echasnovski/mini.indentscope";
       flake = false;
     };
-    # indent-blankline-nvim = {
-    #   url = "github:lukas-reineke/indent-blankline.nvim";
-    #   flake = false;
-    # };
-    mini-bufremove = {
-      url = "github:echasnovski/mini.bufremove";
+    indent-blankline-nvim = {
+      url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
     };
-    none-ls = {
-      url = "github:nvimtools/none-ls.nvim";
+    mini-bufremove = {
+      url = "github:echasnovski/mini.bufremove";
       flake = false;
     };
     git-conflict = {

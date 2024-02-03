@@ -132,6 +132,22 @@
         "type": "github"
       }
     },
+    "indent-blankline-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705027513,
+        "narHash": "sha256-T0tbTyD9+J7OWcvfrPolrXbjGiXzEXhTtgC9Xj3ANFc=",
+        "owner": "lukas-reineke",
+        "repo": "indent-blankline.nvim",
+        "rev": "12e92044d313c54c438bd786d11684c88f6f78cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lukas-reineke",
+        "repo": "indent-blankline.nvim",
+        "type": "github"
+      }
+    },
     "mini-bufremove": {
       "flake": false,
       "locked": {
@@ -229,22 +245,6 @@
         "type": "indirect"
       }
     },
-    "none-ls": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1701106995,
-        "narHash": "sha256-hLQLX997MX7ed6YNPO1JdGM1KoCUIvHF29HG6yYxlRQ=",
-        "owner": "nvimtools",
-        "repo": "none-ls.nvim",
-        "rev": "fc0f6013ced00fbd61a1ee079427ad445eea0e4b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvimtools",
-        "repo": "none-ls.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "cutlass": "cutlass",
@@ -252,11 +252,11 @@
         "git-conflict": "git-conflict",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "indent-blankline-nvim": "indent-blankline-nvim",
         "mini-bufremove": "mini-bufremove",
         "mini-indentscope": "mini-indentscope",
         "nix-colors": "nix-colors",
-        "nixpkgs": "nixpkgs_2",
-        "none-ls": "none-ls"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
