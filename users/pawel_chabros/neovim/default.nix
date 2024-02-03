@@ -223,6 +223,7 @@ in {
       stylua
       sumneko-lua-language-server
       vscode-extensions.angular.ng-template
+      wl-clipboard
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./config/utils.lua}
