@@ -13,7 +13,8 @@ require("null-ls").setup({
 		diagnostics.zsh,
 		formatting.beautysh,
 		formatting.black,
-		formatting.prettierd,
+		formatting.prettier,
+		-- formatting.prettierd, -- not updated to Angular v17
 		formatting.stylua,
 	},
 	on_attach = function(client, bufnr)

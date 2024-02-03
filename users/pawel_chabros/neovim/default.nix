@@ -101,6 +101,13 @@ in {
         '';
       }
       {
+        plugin = none-ls-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/none-ls-nvim.lua}
+        '';
+      }
+      {
         plugin = flash;
         type = "lua";
         config = ''
@@ -209,9 +216,10 @@ in {
     extraPackages = with pkgs; [
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
+      nodePackages_latest.prettier
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
-      prettierd
+      # prettierd
       ripgrep
       rnix-lsp
       sumneko-lua-language-server
