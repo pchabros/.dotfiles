@@ -41,7 +41,6 @@ in {
       lens-vim
       lsp-zero-nvim
       luasnip
-      none-ls-nvim
       nui-nvim
       nvim-notify
       nvim-treesitter.withAllGrammars
@@ -218,10 +217,8 @@ in {
       nixfmt
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
-      nodePackages_latest.prettier
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
-      prettierd
       ripgrep
       stylua
       sumneko-lua-language-server
