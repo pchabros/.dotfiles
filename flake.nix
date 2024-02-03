@@ -2,9 +2,9 @@
   description = "System configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
@@ -36,7 +36,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       username = "pawel_chabros";
@@ -60,10 +60,7 @@
               ./users/${username}/home.nix
             ];
           }
-          hyprland.nixosModules.default
-          { programs.hyprland.enable = true; }
         ];
-
       };
     };
 }
