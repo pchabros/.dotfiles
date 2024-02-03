@@ -3,6 +3,7 @@ local o = vim.o
 local opt = vim.opt
 
 g.nord_borders = true
+g.nord_italic = false
 g.nord_uniform_diff_background = true
 g.r_indent_align_args = 0
 g.tmux_navigator_no_wrap = 1
