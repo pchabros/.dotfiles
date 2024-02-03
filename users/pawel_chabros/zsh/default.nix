@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{
   programs = {
     zsh = {
       enable = true;
@@ -33,9 +33,18 @@
       zplug = {
         enable = true;
         plugins = [
-          { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
-          { name = "plugins/completion"; tags = [ from:oh-my-zsh ]; }
-          { name = "plugins/tmux"; tags = [ from:oh-my-zsh ]; }
+          {
+            name = "plugins/git";
+            tags = [ "from:oh-my-zsh" ];
+          }
+          {
+            name = "plugins/completion";
+            tags = [ "from:oh-my-zsh" ];
+          }
+          {
+            name = "plugins/tmux";
+            tags = [ "from:oh-my-zsh" ];
+          }
           { name = "stedolan/jq"; }
         ];
       };
@@ -48,7 +57,5 @@
     };
     zoxide.enable = true;
   };
-  xdg.configFile = {
-    "zsh/aliases".text = builtins.readFile ./config/aliases;
-  };
+  xdg.configFile = { "zsh/aliases".text = builtins.readFile ./config/aliases; };
 }

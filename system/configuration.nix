@@ -2,14 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Enable flakes
   nix = {
@@ -31,7 +30,8 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless = {
     enable = true;
-    networks."WLAN1-105ND1".pskRaw = "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
+    networks."WLAN1-105ND1".pskRaw =
+      "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
   };
 
   # Configure network proxy if necessary
@@ -107,12 +107,8 @@
   # $ nix search wget
   environment = {
     localBinInPath = true;
-    sessionVariables = rec {
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
-    systemPackages = with pkgs; [
-      wget
-    ];
+    sessionVariables = { WLR_NO_HARDWARE_CURSORS = "1"; };
+    systemPackages = with pkgs; [ wget ];
     pathsToLink = [ "/share/zsh" ];
   };
 
@@ -133,7 +129,7 @@
     description = "kanshi daemon";
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+      ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
     };
   };
 

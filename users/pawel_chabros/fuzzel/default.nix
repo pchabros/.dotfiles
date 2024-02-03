@@ -21,8 +21,7 @@ let
     _95 = "E6";
     _100 = "FF";
   };
-in
-{
+in {
   home.packages = [ appLauncher dmenu emoji clipboard ];
   programs.fuzzel = {
     enable = true;

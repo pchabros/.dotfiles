@@ -1,11 +1,7 @@
-{ pkgs, config, current, ... }:
-
 {
   programs.thunderbird = {
     enable = true;
-    profiles.pawel_chabros = {
-      isDefault = true;
-    };
+    profiles.pawel_chabros = { isDefault = true; };
   };
 
   # accounts.email = {

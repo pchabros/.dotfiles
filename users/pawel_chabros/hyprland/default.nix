@@ -1,5 +1,1 @@
-{
-  xdg.configFile.hypr = {
-    source = ./config;
-  };
-}
+{ xdg.configFile.hypr = { source = ./config; }; }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs = {
     git = {
       enable = true;
@@ -7,9 +7,7 @@
     };
     gh = {
       enable = true;
-      extensions = with pkgs; [
-        gh-dash
-      ];
+      extensions = with pkgs; [ gh-dash ];
     };
   };
 }
