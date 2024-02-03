@@ -214,14 +214,14 @@ in {
       }
     ];
     extraPackages = with pkgs; [
+      nil
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
-      # prettierd
+      prettierd
       ripgrep
-      rnix-lsp
       sumneko-lua-language-server
       vscode-extensions.angular.ng-template
     ];
