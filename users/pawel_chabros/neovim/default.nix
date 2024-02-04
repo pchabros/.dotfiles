@@ -51,6 +51,13 @@ in {
       vim-tmux-navigator
       which-key-nvim
       {
+        plugin = nvim-highlight-colors;
+        type = "lua";
+        config = ''
+          require('nvim-highlight-colors').setup({})
+        '';
+      }
+      {
         plugin = nord-nvim;
         type = "lua";
         config = ''
