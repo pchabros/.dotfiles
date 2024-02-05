@@ -65,13 +65,6 @@ in {
         '';
       }
       {
-        plugin = friendly-snippets;
-        type = "lua";
-        config = ''
-          require("luasnip.loaders.from_vscode").lazy_load()
-        '';
-      }
-      {
         plugin = nvim-autopairs;
         type = "lua";
         config = ''
@@ -218,8 +211,16 @@ in {
           ${builtins.readFile ./config/plugins/indent-blankline-nvim.lua}
         '';
       }
+      {
+        plugin = friendly-snippets;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/friendly-snippets.lua}
+        '';
+      }
     ];
     extraPackages = with pkgs; [
+      luajitPackages.jsregexp
       nil
       nixfmt
       nodePackages_latest.eslint_d
