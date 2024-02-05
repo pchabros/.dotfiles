@@ -66,13 +66,15 @@
   users.users.pawel_chabros = {
     isNormalUser = true;
     initialPassword = "123";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "openrazer" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       bat
       dolphin
       libreoffice
       openfortivpn
+      openrazer-daemon
+      razergenie
       rocketchat-desktop
       spotify
       teams-for-linux
@@ -98,6 +100,11 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+  };
+
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
   };
 
   # Allow unfree packages

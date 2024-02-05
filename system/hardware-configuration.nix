@@ -42,5 +42,6 @@
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
     opengl.enable = true;
+    # openrazer.enable = true; # TODO: no space on initrd :(
   };
 }
