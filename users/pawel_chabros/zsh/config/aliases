@@ -83,5 +83,5 @@ nvimr() {
   Rscript -e 'install.packages("languageserver")'
 }
 
-alias brew='arch -arm64 brew'
+alias ng='npx -p @angular/cli@latest ng'
 

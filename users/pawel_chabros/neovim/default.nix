@@ -220,6 +220,7 @@ in {
       }
     ];
     extraPackages = with pkgs; [
+      emmet-ls
       luajitPackages.jsregexp
       nil
       nixfmt
@@ -230,7 +231,7 @@ in {
       ripgrep
       stylua
       sumneko-lua-language-server
-      vscode-extensions.angular.ng-template
+      vscode-langservers-extracted
       wl-clipboard
     ];
     extraLuaConfig = ''
