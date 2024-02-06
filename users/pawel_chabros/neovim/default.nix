@@ -100,6 +100,13 @@ in {
         '';
       }
       {
+        plugin = auto-session;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/auto-session.lua}
+        '';
+      }
+      {
         plugin = none-ls-nvim;
         type = "lua";
         config = ''
