@@ -43,10 +43,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
+  init_options = {
+    provideFormatter = false,
+  },
 })
-require("lspconfig").html.setup({
-  capabilities = capabilities,
-})
+-- require("lspconfig").html.setup({
+--   capabilities = capabilities,
+-- })
 require("lspconfig").emmet_ls.setup({})
 require("lspconfig").tsserver.setup({})
 require("lspconfig").angularls.setup({})
