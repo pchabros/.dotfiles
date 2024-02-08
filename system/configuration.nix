@@ -72,6 +72,7 @@
       bat
       dolphin
       libreoffice
+      nodejs
       openfortivpn
       openrazer-daemon
       razergenie
