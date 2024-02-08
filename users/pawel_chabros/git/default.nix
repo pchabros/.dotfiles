@@ -2,8 +2,13 @@
   programs = {
     git = {
       enable = true;
-      userName = "pchabros";
-      userEmail = "pawel.chabros@yahoo.pl";
+      delta.enable = true;
+      extraConfig = {
+        "includeIf \"gitdir:~/.dotfiles/\"" = {
+          path = "${./config/config-personal}";
+        };
+        "includeIf \"gitdir:~/wd/\"" = { path = "${./config/config-anx}"; };
+      };
     };
     gh = {
       enable = true;
