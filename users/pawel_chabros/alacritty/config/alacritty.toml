@@ -60,7 +60,7 @@ text = "#2e3440"
 size = 11
 
 [font.normal]
-family = "FiraCode Nerd Font Mono"
+family = "JetBrainsMono Nerd Font"
 
 [window]
 decorations = "none"
