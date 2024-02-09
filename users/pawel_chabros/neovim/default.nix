@@ -82,7 +82,9 @@ in {
         plugin = neodev-nvim;
         type = "lua";
         config = ''
-          require("neodev").setup()
+          require("neodev").setup({
+            library = { plugins = { "neotest" }, types = true },
+          })
         '';
       }
       {
@@ -225,6 +227,15 @@ in {
           ${builtins.readFile ./config/plugins/friendly-snippets.lua}
         '';
       }
+      {
+        plugin = neotest;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/neotest.lua}
+        '';
+      }
+      neotest-jest
+      FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
       emmet-ls
@@ -236,6 +247,7 @@ in {
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
       ripgrep
+      shellcheck
       stylua
       sumneko-lua-language-server
       vscode-langservers-extracted
