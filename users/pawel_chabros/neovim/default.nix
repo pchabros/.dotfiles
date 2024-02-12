@@ -238,6 +238,7 @@ in {
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
+      beautysh
       emmet-ls
       luajitPackages.jsregexp
       nil

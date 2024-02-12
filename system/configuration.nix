@@ -74,6 +74,7 @@
       dolphin
       libreoffice
       nodejs
+      nodePackages.nodemon
       openfortivpn
       openrazer-daemon
       razergenie
@@ -81,6 +82,7 @@
       spotify
       teams-for-linux
       tree
+      wl-clipboard
     ];
   };
 

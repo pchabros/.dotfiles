@@ -4,6 +4,7 @@
     settings = {
       hidden = true;
       icons = true;
+      drawbox = true;
     };
     keybindings = {
       j = "updir";
