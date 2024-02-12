@@ -66,7 +66,8 @@
   users.users.pawel_chabros = {
     isNormalUser = true;
     initialPassword = "123";
-    extraGroups = [ "networkmanager" "wheel" "audio" "openrazer" ];
+    extraGroups =
+      [ "networkmanager" "wheel" "audio" "openrazer" "openfortivpn" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       bat
@@ -83,7 +84,17 @@
     ];
   };
 
-  security.rtkit.enable = true;
+  security = {
+    sudo.extraRules = [{
+      groups = [ "openfortivpn" ];
+      commands = [
+        "/etc/profiles/per-user/pawel_chabros/bin/openfortivpn"
+        "${pkgs.openfortivpn}/bin/openfortivpn"
+      ];
+    }];
+    rtkit.enable = true;
+  };
+
   services = {
     greetd = {
       enable = true;
