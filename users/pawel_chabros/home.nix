@@ -9,6 +9,7 @@
     ./git
     ./gtk
     ./hyprland
+    ./kanshi
     ./lazygit
     ./lf
     ./neovim
