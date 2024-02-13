@@ -66,8 +66,7 @@
   users.users.pawel_chabros = {
     isNormalUser = true;
     initialPassword = "123";
-    extraGroups =
-      [ "networkmanager" "wheel" "audio" "openrazer" "openfortivpn" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "openfortivpn" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       bat
@@ -76,8 +75,7 @@
       nodejs
       nodePackages.nodemon
       openfortivpn
-      openrazer-daemon
-      razergenie
+      playerctl
       rocketchat-desktop
       spotify
       teams-for-linux
@@ -153,6 +151,8 @@
       ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
     };
   };
+
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
