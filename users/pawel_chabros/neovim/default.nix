@@ -228,6 +228,13 @@ in {
         '';
       }
       {
+        plugin = iron-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/iron-nvim.lua}
+        '';
+      }
+      {
         plugin = neotest;
         type = "lua";
         config = ''
@@ -239,14 +246,17 @@ in {
     ];
     extraPackages = with pkgs; [
       beautysh
+      black
       emmet-ls
       luajitPackages.jsregexp
       nil
       nixfmt
+      nodePackages.pyright
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
+      python311Packages.python-lsp-server
       ripgrep
       shellcheck
       stylua

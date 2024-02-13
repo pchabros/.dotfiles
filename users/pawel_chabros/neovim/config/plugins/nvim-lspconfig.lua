@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 local wk = require("which-key")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -41,19 +42,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+})
+lspconfig.html.setup({
   capabilities = capabilities,
   init_options = {
     provideFormatter = false,
   },
 })
--- require("lspconfig").html.setup({
---   capabilities = capabilities,
--- })
-require("lspconfig").emmet_ls.setup({})
-require("lspconfig").tsserver.setup({})
-require("lspconfig").angularls.setup({})
-require("lspconfig").nil_ls.setup({})
+lspconfig.emmet_ls.setup({})
+lspconfig.tsserver.setup({})
+lspconfig.angularls.setup({})
+lspconfig.nil_ls.setup({})
+lspconfig.pylsp.setup({})
+lspconfig.pyright.setup({})
 
 -- diagnostic icons
 local signs = {
