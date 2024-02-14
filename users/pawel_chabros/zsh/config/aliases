@@ -27,10 +27,13 @@ alias gt='git log --all --graph --decorate --oneline'
 alias gst='git stash'
 alias lg='lazygit'
 
-alias dcl='docker container rm -f $(docker container ls -aq)'
-alias dcr='docker container run'
-alias dcri='docker container run --interactive --tty'
-alias dib='docker image build . --tag'
+alias di='docker image'
+alias dc='docker container'
+alias dcb='docker compose build'
+alias dcu='docker compose up'
+dcr() {
+  docker compose run --rm "$1" sh -c "$2"
+}
 
 alias hc='npx hardhat compile'
 alias hn='npx hardhat node'
