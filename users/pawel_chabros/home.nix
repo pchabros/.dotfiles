@@ -1,6 +1,7 @@
 { inputs, ... }: {
   imports = [
     ./alacritty
+    ./avizo
     ./direnv
     ./email
     ./firefox
