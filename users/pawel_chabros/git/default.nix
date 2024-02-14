@@ -7,7 +7,7 @@
         "includeIf \"gitdir:~/.dotfiles/\"" = {
           path = "${./config/config-personal}";
         };
-        "includeIf \"gitdir:~/wd/\"" = { path = "${./config/config-anx}"; };
+        "includeIf \"gitdir:~/\"" = { path = "${./config/config-anx}"; };
       };
     };
     gh = {
