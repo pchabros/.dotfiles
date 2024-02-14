@@ -8,14 +8,15 @@ iron.setup({
         command = { "zsh" },
       },
       python = {
-        command = { "ipython" },
+        command = "ipython",
+        format = require("iron.fts.common").bracketed_paste,
       },
     },
-    repl_open_cmd = require("iron.view").bottom(40),
+    repl_open_cmd = require("iron.view").right(120),
   },
   keymaps = {
-    send_motion = "<space>sc",
-    visual_send = "<space>sc",
+    send_motion = "<space>ss",
+    visual_send = "<space>ss",
     send_file = "<space>sf",
     send_line = "<space>sl",
     send_until_cursor = "<space>su",
@@ -26,10 +27,10 @@ iron.setup({
     cr = "<space>s<cr>",
     interrupt = "<space>s<space>",
     exit = "<space>sq",
-    clear = "<space>cl",
+    clear = "<space>sl",
   },
   highlight = {
-    italic = true,
+    bold = false,
   },
   ignore_blank_lines = true,
 })

@@ -13,6 +13,7 @@ map("n", "Q", ":bdelete<cr>", { desc = "Delete buffer" })
 -- escape
 map("i", "jk", "<esc>")
 map("i", "kj", "<esc>")
+map("t", "<Esc>", "<C-\\><C-n><C-w>h", { silent = true })
 
 -- movement changed to jkl;
 map("v", ";", "l")
@@ -47,8 +48,8 @@ map("x", "P", '"_dp')
 
 -- tmux-navigator
 if os.getenv("TMUX") then
-	map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
-	map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
-	map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
-	map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+  map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+  map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+  map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+  map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
 end
