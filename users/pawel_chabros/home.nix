@@ -2,6 +2,7 @@
   imports = [
     ./alacritty
     ./avizo
+    ./bat
     ./direnv
     ./email
     ./firefox

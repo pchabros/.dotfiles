@@ -69,7 +69,6 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "openfortivpn" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      bat
       dolphin
       grim
       libreoffice
@@ -145,6 +144,7 @@
     };
     zsh.enable = true;
   };
+  xdg.portal.wlr.enable = true;
 
   systemd.user.services.kanshi = {
     description = "kanshi daemon";
