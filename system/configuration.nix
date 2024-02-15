@@ -71,12 +71,14 @@
     packages = with pkgs; [
       bat
       dolphin
+      grim
       libreoffice
       nodejs
       nodePackages.nodemon
       openfortivpn
       playerctl
       rocketchat-desktop
+      slurp
       spotify
       teams-for-linux
       tree
