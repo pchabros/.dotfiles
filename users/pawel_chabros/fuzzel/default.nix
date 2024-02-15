@@ -27,6 +27,7 @@ in {
     enable = true;
     settings = {
       main = {
+        output = "HDMI-A-1";
         font = "monospace:pixelsize=14";
         prompt = " ";
         icon-theme = "papirus";
