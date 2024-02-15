@@ -10,6 +10,10 @@
         path = ./pictures/1440x2560;
         duration = "5m";
       };
+      eDP-1 = {
+        path = ./pictures/1920x1200;
+        duration = "5m";
+      };
     };
   };
 }
