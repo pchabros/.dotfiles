@@ -127,7 +127,12 @@
   # $ nix search wget
   environment = {
     localBinInPath = true;
-    sessionVariables = { WLR_NO_HARDWARE_CURSORS = "1"; };
+    sessionVariables = {
+      GDK_BACKEND = "wayland";
+      MOZ_ENABLE_WAYLAND = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    };
     systemPackages = with pkgs; [ wget ];
     pathsToLink = [ "/share/zsh" ];
   };
