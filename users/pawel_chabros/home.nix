@@ -17,6 +17,7 @@
     ./neovim
     ./starship
     ./tmux
+    ./wlogout
     ./wpaperd
     ./zsh
     inputs.nix-colors.homeManagerModules.default
