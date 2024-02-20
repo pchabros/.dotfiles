@@ -69,7 +69,9 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "openfortivpn" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      discord
       dolphin
+      gimp
       grim
       libreoffice
       nodejs
@@ -140,6 +142,7 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     recursive
+    roboto-mono
   ];
 
   programs = {
