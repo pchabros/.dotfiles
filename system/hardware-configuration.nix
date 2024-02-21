@@ -41,6 +41,7 @@
   hardware = {
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
+    bluetooth.enable = true;
     opengl.enable = true;
     # openrazer.enable = true; # TODO: no space on initrd :(
   };
