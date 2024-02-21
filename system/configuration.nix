@@ -116,6 +116,10 @@
       pulse.enable = true;
     };
     blueman.enable = true;
+    xremap.config.keymap = [{
+      name = "Global";
+      remap = { "CapsLock" = "Shift-Semicolon"; };
+    }];
   };
 
   sound = {
