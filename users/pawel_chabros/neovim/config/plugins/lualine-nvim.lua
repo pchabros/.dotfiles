@@ -19,4 +19,7 @@ require("lualine").setup({
   --     }
   --   },
   -- }
+  inactive_sections = {
+    lualine_a = { "branch" },
+  },
 })

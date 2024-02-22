@@ -30,8 +30,12 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless = {
     enable = true;
-    networks."WLAN1-105ND1".pskRaw =
-      "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
+    networks = {
+      "WLAN1-105ND1".pskRaw =
+        "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
+      "Redmi Note 7".pskRaw =
+        "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
+    };
   };
 
   # Configure network proxy if necessary
@@ -145,9 +149,11 @@
   };
 
   fonts.packages = with pkgs; [
+    corefonts
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     recursive
     roboto-mono
+    vistafonts
   ];
 
   programs = {
