@@ -28,14 +28,14 @@ in {
     settings = {
       main = {
         output = "HDMI-A-1";
-        font = "monospace:pixelsize=14";
-        prompt = " ";
-        icon-theme = "papirus";
+        font = "JetBrainsMono Nerd Font:pixelsize=14,monospace:pixelsize=14";
+        prompt = "󰄾 ";
         exit-on-keyboard-focus-loss = "no";
-        horizontal-pad = 80;
-        vertical-pad = 30;
-        inner-pad = 20;
-        line-height = 16;
+        horizontal-pad = 100;
+        vertical-pad = 40;
+        inner-pad = 30;
+        line-height = 18;
+        icons-enabled = false;
       };
       colors = {
         background = "${colors.base00}${transparency._95}";
@@ -47,7 +47,7 @@ in {
       };
       border = {
         width = 0;
-        radius = 0;
+        radius = 6;
       };
     };
   };
