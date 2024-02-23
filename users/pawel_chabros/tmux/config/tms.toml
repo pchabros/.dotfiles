@@ -1,0 +1,5 @@
+excluded_dirs = ['node_modules']
+
+[[search_dirs]]
+path = '/home/pawel_chabros/dev'
+depth = 5
