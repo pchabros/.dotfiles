@@ -43,7 +43,6 @@ in {
       luasnip
       nui-nvim
       nvim-notify
-      nvim-treesitter.withAllGrammars
       nvim-ts-autotag
       nvim-web-devicons
       plenary-nvim
@@ -99,6 +98,13 @@ in {
         type = "lua";
         config = ''
           require("cutlass").setup({ cut_key = "z" })
+        '';
+      }
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/treesitter.lua}
         '';
       }
       {
