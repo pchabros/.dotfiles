@@ -1,0 +1,16 @@
+[rlang]
+format = '[R $version](blue bold) '
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = ' '
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+
+[git_branch]
+truncation_length = 8
+truncation_symbol = ''
+
+[nix_shell]
+format = '[$symbol$state( \($name\))]($style) '
