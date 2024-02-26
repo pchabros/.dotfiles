@@ -51,6 +51,7 @@ lspconfig.html.setup({
     provideFormatter = false,
   },
 })
+lspconfig.cssls.setup({})
 lspconfig.emmet_ls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.angularls.setup({})
