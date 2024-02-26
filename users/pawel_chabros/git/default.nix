@@ -3,6 +3,7 @@
     git = {
       enable = true;
       delta.enable = true;
+      aliases = { cwt = "!clone-for-worktrees"; };
       extraConfig = {
         "includeIf \"gitdir:~/.dotfiles/\"" = {
           path = "${./config/config-personal}";

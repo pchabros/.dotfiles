@@ -4,7 +4,11 @@
 
 { inputs, pkgs, ... }:
 
-{
+let
+  clone-for-worktrees = pkgs.writeScriptBin "clone-for-worktrees"
+    (builtins.readFile
+      ../users/pawel_chabros/git/aliases/clone-for-worktrees.sh);
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -73,6 +77,7 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "openfortivpn" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      clone-for-worktrees
       discord
       dolphin
       gimp
