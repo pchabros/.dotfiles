@@ -39,6 +39,10 @@
       url = "github:gbprod/cutlass.nvim";
       flake = false;
     };
+    telescope-tabs = {
+      url = "github:LukasPietzschmann/telescope-tabs";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:

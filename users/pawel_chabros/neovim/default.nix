@@ -25,6 +25,10 @@ let
       name = "cutlass";
       src = inputs.cutlass;
     };
+    telescope-tabs = pkgs.vimUtils.buildVimPlugin {
+      name = "telescope-tabs";
+      src = inputs.telescope-tabs;
+    };
   };
 in {
   programs.neovim = {
@@ -168,6 +172,13 @@ in {
         type = "lua";
         config = ''
           ${builtins.readFile ./config/plugins/telescope-nvim.lua}
+        '';
+      }
+      {
+        plugin = telescope-tabs;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/telescope-tabs.lua}
         '';
       }
       {
