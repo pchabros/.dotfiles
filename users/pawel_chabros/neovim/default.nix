@@ -87,17 +87,17 @@ in {
         '';
       }
       {
-        plugin = mini-nvim;
-        type = "lua";
-        config = ''
-          require("mini.ai").setup()
-        '';
-      }
-      {
         plugin = cutlass;
         type = "lua";
         config = ''
           require("cutlass").setup({ cut_key = "z" })
+        '';
+      }
+      {
+        plugin = mini-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/mini-nvim.lua}
         '';
       }
       {
@@ -140,6 +140,13 @@ in {
         type = "lua";
         config = ''
           ${builtins.readFile ./config/plugins/mini-bufremove.lua}
+        '';
+      }
+      {
+        plugin = mini-indentscope;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/mini-indentscope.lua}
         '';
       }
       {
@@ -255,6 +262,7 @@ in {
         '';
       }
       neotest-jest
+      neotest-python
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [

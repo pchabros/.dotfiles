@@ -27,3 +27,4 @@ opt.tabstop = 2
 opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 50
+opt.iskeyword:append("-")
