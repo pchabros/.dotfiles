@@ -3,13 +3,7 @@
     tmux = {
       enable = true;
       terminal = "xterm-256color";
-      plugins = with pkgs.tmuxPlugins; [
-        copycat
-        extrakto
-        nord
-        resurrect
-        tmux-fzf
-      ];
+      plugins = with pkgs.tmuxPlugins; [ copycat extrakto resurrect tmux-fzf ];
     };
   };
   xdg.configFile = {
