@@ -10,6 +10,11 @@ map("n", "[b", ":bprevious<cr>", { desc = "Previous buffer" })
 map("n", "]b", ":bnext<cr>", { desc = "Next buffer" })
 map("n", "Q", ":bdelete<cr>", { desc = "Delete buffer" })
 
+-- tabs
+map("n", "[t", ":tabprevious<cr>", { desc = "Previous tab" })
+map("n", "]t", ":tabnext<cr>", { desc = "Next tab" })
+map("n", "<leader>nt", "<cmd>tabnew<cr>", { desc = "New tab" })
+
 -- escape
 map("i", "jk", "<esc>")
 map("i", "kj", "<esc>")

@@ -7,7 +7,9 @@ require("auto-session").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>ss", require("auto-session.session-lens").search_session, {
+vim.keymap.set("n", "<leader>fs", require("auto-session.session-lens").search_session, {
   noremap = true,
   desc = "Find session",
 })
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
