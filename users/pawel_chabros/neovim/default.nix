@@ -168,6 +168,13 @@ in {
         '';
       }
       {
+        plugin = lspsaga-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/lspsaga-nvim.lua}
+        '';
+      }
+      {
         plugin = telescope-nvim;
         type = "lua";
         config = ''
@@ -278,18 +285,20 @@ in {
     ];
     extraPackages = with pkgs; [
       beautysh
-      black
       emmet-ls
       luajitPackages.jsregexp
+      mypy
       nil
       nixfmt
-      nodePackages.pyright
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
+      nodePackages_latest.pyright
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
       python311Packages.python-lsp-server
       ripgrep
+      ruff
+      ruff-lsp
       shellcheck
       stylua
       sumneko-lua-language-server
