@@ -15,6 +15,8 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 wk.register({ c = { name = "Code" } }, { prefix = "<leader>" })
+wk.register({ c = { name = "Workspace" } }, { prefix = "<leader>" })
+
 set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
@@ -25,6 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     set("n", "gD", vim.lsp.buf.declaration, opts)
     set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
     set("n", "H", vim.lsp.buf.hover, opts)
+    set("n", "<leader>co", ":OrganizeImports<CR>", { desc = "Organize imports" })
     set("n", "gi", vim.lsp.buf.implementation, opts)
     set("n", "<space>cs", vim.lsp.buf.signature_help, opts)
     set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -57,7 +60,29 @@ lspconfig.tsserver.setup({})
 lspconfig.angularls.setup({})
 lspconfig.nil_ls.setup({})
 lspconfig.pylsp.setup({})
-lspconfig.pyright.setup({})
+lspconfig.ruff_lsp.setup({})
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+lspconfig.tsserver.setup({
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    },
+  },
+})
+
+vim.diagnostic.config({
+  update_in_insert = true,
+})
 
 -- diagnostic icons
 local signs = {
