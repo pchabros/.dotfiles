@@ -28,3 +28,5 @@ opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 50
 opt.iskeyword:append("-")
+opt.laststatus = 0
+opt.statusline = "%#LineNr#"

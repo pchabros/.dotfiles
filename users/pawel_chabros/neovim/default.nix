@@ -210,13 +210,6 @@ in {
         '';
       }
       {
-        plugin = lualine-nvim;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/lualine-nvim.lua}
-        '';
-      }
-      {
         plugin = noice-nvim;
         type = "lua";
         config = ''
