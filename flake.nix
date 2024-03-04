@@ -14,6 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    sessionx.url = "github:omerxx/tmux-sessionx";
     # Neovim
     mini-indentscope = {
       url = "github:echasnovski/mini.indentscope";
