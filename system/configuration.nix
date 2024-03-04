@@ -91,6 +91,7 @@ in {
       slurp
       spotify
       teams-for-linux
+      tldr
       tmux-sessionizer
       tree
       wl-clipboard
