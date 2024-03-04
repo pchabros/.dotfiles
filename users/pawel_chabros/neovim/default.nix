@@ -168,13 +168,6 @@ in {
         '';
       }
       {
-        plugin = lspsaga-nvim;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/lspsaga-nvim.lua}
-        '';
-      }
-      {
         plugin = telescope-nvim;
         type = "lua";
         config = ''
