@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    sessionx.url = "github:omerxx/tmux-sessionx";
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
     # Neovim
     mini-indentscope = {
       url = "github:echasnovski/mini.indentscope";
@@ -51,6 +51,7 @@
       system = "x86_64-linux";
       username = "pawel_chabros";
       lib = nixpkgs.lib;
+      sessionx = inputs.tmux-sessionx.packages.${system}.default;
     in {
       nixosConfigurations.nixos = lib.nixosSystem {
         inherit system;
@@ -61,7 +62,9 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit inputs username; };
+            home-manager.extraSpecialArgs = {
+              inherit inputs username sessionx;
+            };
             home-manager.users.${username}.imports =
               [ ./users/${username}/home.nix ];
           }

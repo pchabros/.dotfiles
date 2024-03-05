@@ -83,8 +83,8 @@ in {
       gimp
       grim
       libreoffice
-      nodejs
       nodePackages.nodemon
+      nodejs
       openfortivpn
       playerctl
       rocketchat-desktop
@@ -92,7 +92,6 @@ in {
       spotify
       teams-for-linux
       tldr
-      tmux-sessionizer
       tree
       wl-clipboard
     ];
