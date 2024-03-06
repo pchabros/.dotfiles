@@ -9,7 +9,7 @@ symbol = ' '
 format = '[$symbol($version )]($style)'
 
 [git_branch]
-truncation_length = 8
+truncation_length = 16
 truncation_symbol = ''
 
 [nix_shell]

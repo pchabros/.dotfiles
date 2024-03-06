@@ -2,17 +2,17 @@
 vim.g.mapleader = " "
 
 -- split
-map("n", "<leader>v", ":vsplit<cr>", { desc = "Split vertical" })
-map("n", "<leader>h", ":split<cr>", { desc = "Split horizontal" })
+map("n", "<leader>v", "<cmd>vsplit<cr>", { desc = "Split vertical" })
+map("n", "<leader>h", "<cmd>split<cr>", { desc = "Split horizontal" })
 
 -- buffers
-map("n", "[b", ":bprevious<cr>", { desc = "Previous buffer" })
-map("n", "]b", ":bnext<cr>", { desc = "Next buffer" })
-map("n", "Q", ":bdelete<cr>", { desc = "Delete buffer" })
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "Q", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 
 -- tabs
-map("n", "[t", ":tabprevious<cr>", { desc = "Previous tab" })
-map("n", "]t", ":tabnext<cr>", { desc = "Next tab" })
+map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map("n", "<leader>nt", "<cmd>tabnew<cr>", { desc = "New tab" })
 
 -- escape
@@ -30,23 +30,21 @@ map("n", "l", "k")
 map("n", "k", "j")
 map("n", "j", "h")
 
--- move faster vertically
-map("n", "K", "10j")
-map("n", "L", "10k")
+-- move lines
+map("n", "K", ":m .+1<CR>==", { silent = true })
+map("n", "L", ":m .-2<CR>==", { silent = true })
+map("v", "K", ":m '>+1<CR>gv=gv", { silent = true })
+map("v", "L", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- move outside bracket/quote in normal mode
 map("i", ";;", "<Esc>la")
 map("i", "jj", "<Esc>i")
 
--- move highlighted lines
-map("v", "K", ":m '>+1<CR>gv=gv")
-map("v", "L", ":m '<-2<CR>gv=gv")
-
 -- don't jump to the next after pressing *
-map("n", "*", ":keepjumps normal! mi*`i<cr>")
+map("n", "*", "<cmd>keepjumps normal! mi*`i<cr>")
 
 -- remove highlight with one key
-map("n", "h", ":noh<cr>")
+map("n", "h", "<cmd>noh<cr>")
 
 -- smart paste
 map("x", "P", '"_dp')
