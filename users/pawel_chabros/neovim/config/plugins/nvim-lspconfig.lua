@@ -61,6 +61,8 @@ lspconfig.angularls.setup({})
 lspconfig.nil_ls.setup({})
 lspconfig.pylsp.setup({})
 lspconfig.ruff_lsp.setup({})
+lspconfig.r_language_server.setup({})
+lspconfig.tailwindcss.setup({})
 
 local function organize_imports()
   local params = {

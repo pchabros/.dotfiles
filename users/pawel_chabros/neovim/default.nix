@@ -283,11 +283,13 @@ in {
       nodePackages_latest.typescript-language-server
       python311Packages.python-lsp-server
       ripgrep
+      rPackages.languageserver
       ruff
       ruff-lsp
       shellcheck
       stylua
       sumneko-lua-language-server
+      tailwindcss-language-server
       vscode-langservers-extracted
       wl-clipboard
     ];
