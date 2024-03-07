@@ -62,29 +62,8 @@ alias d='dirs -v'
 for index ({1...9}) alias "$index"="cd +${index}"; unset index
 
 alias r='radian'
-alias r3='$HOME/.local/lib/R-3.6.3/bin/R'
-alias rs3='$HOME/.local/lib/R-3.6.3/bin/Rscript'
 
 alias rsh="Rscript -e 'shiny::runApp(launch.browser = TRUE)'"
-rmd() {
-  r_command="rmarkdown::render('${1}')"
-  Rscript -e $r_command
-}
-rpi() {
-  local package="$(pwd | awk -F '/' '{print $NF}')"
-  Rscript -e 'roxygen2::roxygenize()'
-  cd ..
-  R CMD INSTALL --no-multiarch --with-keep.source $package
-  cd $package
-}
-alias rpb="Rscript -e 'devtools::build()'"
-alias rpc="Rscript -e 'devtools::check(document = FALSE)'"
-nvimr() {
-  Rscript -e 'renv::settings$ignored.packages("nvimcom")'
-  Rscript -e 'install.packages("devtools")'
-  Rscript -e 'devtools::install("~/.config/nvim/plugged/Nvim-R/R/nvimcom")'
-  Rscript -e 'install.packages("languageserver")'
-}
 
 alias ng='npx -p @angular/cli@latest ng'
 

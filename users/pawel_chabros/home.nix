@@ -3,6 +3,7 @@
     ./alacritty
     ./avizo
     ./bat
+    ./btop
     ./direnv
     ./email
     ./firefox
