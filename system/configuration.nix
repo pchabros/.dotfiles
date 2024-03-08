@@ -23,7 +23,7 @@ in {
     gc = {
       automatic = true;
       randomizedDelaySec = "14m";
-      options = "--delete-older-than 10d";
+      options = "--delete-older-than 4d";
     };
   };
 
@@ -127,10 +127,24 @@ in {
       wireplumber.enable = true;
     };
     blueman.enable = true;
-    xremap.config.keymap = [{
-      name = "Global";
-      remap = { "CapsLock" = "Shift-Semicolon"; };
-    }];
+    xremap.config = {
+      modmap = [{
+        remap = {
+          "CapsLock" = {
+            alone = [ "Shift_L" "Semicolon" ];
+            held = "Alt_L";
+          };
+          "Enter" = {
+            alone = "Enter";
+            held = "Ctrl_L";
+          };
+          "Tab" = {
+            alone = "Tab";
+            held = "Super_L";
+          };
+        };
+      }];
+    };
   };
 
   sound = {
