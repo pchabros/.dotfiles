@@ -7,6 +7,7 @@ set("n", "<leader><space>", builtin.git_files, { desc = "Git files" })
 set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 set("n", "<leader>/", builtin.live_grep, { desc = "Grep files" })
 set("n", "<leader>fb", builtin.buffers, { desc = "Find buffer" })
+set("n", "<leader>fw", builtin.grep_string, { desc = "Grep word" })
 
 local truncate_large_files = function(filepath, bufnr, opts)
   local max_size = 10000
@@ -24,7 +25,6 @@ local truncate_large_files = function(filepath, bufnr, opts)
     end
   end)
 end
-
 
 require("telescope").setup({
   defaults = {
