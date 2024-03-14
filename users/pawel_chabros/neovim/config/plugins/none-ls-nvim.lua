@@ -8,15 +8,15 @@ require("null-ls").setup({
     code_actions.refactoring,
     code_actions.shellcheck,
     diagnostics.eslint_d.with({ diagnostics_format = "#{m} " }),
-    diagnostics.mypy,
+    -- diagnostics.mypy,
     diagnostics.shellcheck,
     diagnostics.yamllint,
     diagnostics.zsh,
-    formatting.beautysh,
     formatting.nixfmt,
     -- formatting.prettierd, -- not updated to Angular v17
     formatting.prettier,
     formatting.ruff_format,
+    formatting.shfmt,
     formatting.stylua,
   },
   on_attach = function(client, bufnr)

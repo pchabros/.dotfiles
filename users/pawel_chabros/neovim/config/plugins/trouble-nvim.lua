@@ -1,10 +1,10 @@
 require("trouble").setup({
-	use_diagnostic_signs = true,
-	action_keys = {
-		hover = "H",
-		next = "k",
-		previous = "l",
-	},
+  use_diagnostic_signs = true,
+  action_keys = {
+    hover = "T",
+    next = "k",
+    previous = "l",
+  },
 })
 
 map("n", "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", { desc = "Document Diagnostics (Trouble)" })

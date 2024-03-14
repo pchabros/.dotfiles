@@ -270,7 +270,6 @@ in {
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
-      beautysh
       emmet-ls
       luajitPackages.jsregexp
       mypy
@@ -286,6 +285,7 @@ in {
       ruff
       ruff-lsp
       shellcheck
+      shfmt
       stylua
       sumneko-lua-language-server
       tailwindcss-language-server

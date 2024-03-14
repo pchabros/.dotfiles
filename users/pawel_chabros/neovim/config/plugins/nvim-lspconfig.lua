@@ -12,6 +12,10 @@ lsp.on_attach(function(client, bufnr)
   if client.server_capabilities.completion then
     require("completion").on_attach(client, bufnr)
   end
+  if client.name == "ruff_lsp" then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
 end)
 
 wk.register({ c = { name = "Code" } }, { prefix = "<leader>" })
@@ -25,8 +29,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local opts = { buffer = ev.buf }
     set("n", "gD", vim.lsp.buf.declaration, opts)
-    set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-    set("n", "H", vim.lsp.buf.hover, opts)
+    set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to definition" })
+    set("n", "H", vim.lsp.buf.hover, { buffer = ev.buf, silent = true })
     set("n", "<leader>co", ":OrganizeImports<CR>", { desc = "Organize imports" })
     set("n", "gi", vim.lsp.buf.implementation, opts)
     set("n", "<space>cs", vim.lsp.buf.signature_help, opts)
@@ -56,10 +60,15 @@ lspconfig.html.setup({
 })
 lspconfig.cssls.setup({})
 lspconfig.emmet_ls.setup({})
-lspconfig.tsserver.setup({})
 lspconfig.angularls.setup({})
 lspconfig.nil_ls.setup({})
-lspconfig.pylsp.setup({})
+lspconfig.pyright.setup({
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+  },
+})
 lspconfig.ruff_lsp.setup({})
 lspconfig.tailwindcss.setup({})
 
