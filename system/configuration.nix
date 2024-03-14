@@ -82,9 +82,10 @@ in {
       dolphin
       gimp
       grim
+      keepass
       libreoffice
-      nodePackages.nodemon
       nodejs
+      nodePackages.nodemon
       openfortivpn
       playerctl
       rocketchat-desktop
