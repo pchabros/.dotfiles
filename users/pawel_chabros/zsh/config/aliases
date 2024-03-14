@@ -29,6 +29,7 @@ alias lg='lazygit'
 
 alias di='docker image'
 alias dc='docker container'
+alias dl='docker container ls'
 alias dcb='docker compose build'
 alias dcu='docker compose up'
 dcr() {
@@ -45,16 +46,9 @@ alias hdr='npx hardhat run scripts/deploy.js --network rinkeby'
 
 alias cd='z'
 
-alias pu='paru'
-alias prc='pacman -Rcns'
-alias prs='pacman -Runs'
-
 alias nv='nvim'
 alias zh='zathura'
 alias open='xdg-open'
-
-alias res-norm='xrandr --output DP-1 --mode 3440x1440'
-alias res-pres='xrandr --output DP-1 --mode 1920x1080'
 
 alias tree='tree -C'
 
