@@ -259,6 +259,13 @@ in {
         '';
       }
       {
+        plugin = firenvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/firenvim.lua}
+        '';
+      }
+      {
         plugin = neotest;
         type = "lua";
         config = ''
