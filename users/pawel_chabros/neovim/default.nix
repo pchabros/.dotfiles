@@ -112,6 +112,13 @@ in {
         '';
       }
       {
+        plugin = nvim-treesitter-textobjects;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/nvim-treesitter-textobjects.lua}
+        '';
+      }
+      {
         plugin = git-worktree-nvim;
         type = "lua";
         config = ''
@@ -284,6 +291,7 @@ in {
       nixfmt
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
+      nodePackages_latest.prettier
       nodePackages_latest.pyright
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server

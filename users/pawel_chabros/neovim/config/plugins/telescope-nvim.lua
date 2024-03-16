@@ -32,10 +32,10 @@ require("telescope").setup({
     file_ignore_patterns = { ".Rd$", ".RDS$" },
     mappings = {
       i = {
-        ["<C-k>"] = function(...)
+        ["K"] = function(...)
           return require("telescope.actions").cycle_history_next(...)
         end,
-        ["<C-l>"] = function(...)
+        ["L"] = function(...)
           return require("telescope.actions").cycle_history_prev(...)
         end,
       },
