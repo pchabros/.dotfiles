@@ -57,7 +57,7 @@ in {
         plugin = nvim-highlight-colors;
         type = "lua";
         config = ''
-          require('nvim-highlight-colors').setup({})
+          require('nvim-highlight-colors').setup()
         '';
       }
       {
@@ -71,7 +71,7 @@ in {
         plugin = nvim-autopairs;
         type = "lua";
         config = ''
-          require('nvim-autopairs').setup({})
+          require('nvim-autopairs').setup()
         '';
       }
       {
@@ -265,18 +265,25 @@ in {
           ${builtins.readFile ./config/plugins/iron-nvim.lua}
         '';
       }
-      {
-        plugin = firenvim;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/firenvim.lua}
-        '';
-      }
+      # {
+      #   plugin = firenvim;
+      #   type = "lua";
+      #   config = ''
+      #     ${builtins.readFile ./config/plugins/firenvim.lua}
+      #   '';
+      # }
       {
         plugin = neotest;
         type = "lua";
         config = ''
           ${builtins.readFile ./config/plugins/neotest.lua}
+        '';
+      }
+      {
+        plugin = rustaceanvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/rustaceanvim.lua}
         '';
       }
       neotest-jest

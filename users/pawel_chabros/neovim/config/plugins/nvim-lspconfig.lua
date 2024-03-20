@@ -6,6 +6,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local set = vim.keymap.set
 
+lsp.format_on_save({
+  servers = {
+    ["rust-analyzer"] = { "rust" },
+  },
+})
+
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
   client.server_capabilities.semanticTokensProvider = nil
