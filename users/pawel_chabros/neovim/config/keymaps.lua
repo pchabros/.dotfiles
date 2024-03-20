@@ -14,6 +14,8 @@ map("n", "Q", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
 map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map("n", "<leader>nt", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "T[", "<cmd>tabmove -1<cr>")
+map("n", "T]", "<cmd>tabmove +1<cr>")
 
 -- escape
 map("i", "jk", "<esc>")

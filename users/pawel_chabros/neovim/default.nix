@@ -98,6 +98,14 @@ in {
         '';
       }
       {
+        plugin = todo-comments-nvim;
+        type = "lua";
+        config = ''
+          require("todo-comments").setup()
+        '';
+      }
+
+      {
         plugin = mini-nvim;
         type = "lua";
         config = ''
@@ -123,6 +131,13 @@ in {
         type = "lua";
         config = ''
           ${builtins.readFile ./config/plugins/git-worktree-nvim.lua}
+        '';
+      }
+      {
+        plugin = harpoon2;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/harpoon2.lua}
         '';
       }
       {
