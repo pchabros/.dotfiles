@@ -128,23 +128,27 @@ in {
       wireplumber.enable = true;
     };
     blueman.enable = true;
-    xremap.config = {
-      modmap = [{
-        remap = {
-          "CapsLock" = {
-            alone = [ "Shift_L" "Semicolon" ];
-            held = "Alt_L";
+    xremap = {
+      withWlroots = true;
+      watch = true;
+      config = {
+        modmap = [{
+          remap = {
+            "CapsLock" = {
+              alone = [ "Shift_L" "Semicolon" ];
+              held = "Alt_L";
+            };
+            "Enter" = {
+              alone = "Enter";
+              held = "Ctrl_L";
+            };
+            "Tab" = {
+              alone = "Tab";
+              held = "Super_L";
+            };
           };
-          "Enter" = {
-            alone = "Enter";
-            held = "Ctrl_L";
-          };
-          "Tab" = {
-            alone = "Tab";
-            held = "Super_L";
-          };
-        };
-      }];
+        }];
+      };
     };
   };
 
