@@ -6,8 +6,8 @@ map("n", "<leader>v", "<cmd>vsplit<cr>", { desc = "Split vertical" })
 map("n", "<leader>h", "<cmd>split<cr>", { desc = "Split horizontal" })
 
 -- buffers
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "[y", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+map("n", "]y", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "Q", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 
 -- tabs

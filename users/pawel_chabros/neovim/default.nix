@@ -134,12 +134,13 @@ in {
         '';
       }
       {
-        plugin = harpoon2;
+        plugin = vim-bookmarks;
         type = "lua";
         config = ''
-          ${builtins.readFile ./config/plugins/harpoon2.lua}
+          ${builtins.readFile ./config/plugins/vim-bookmarks.lua}
         '';
       }
+      telescope-vim-bookmarks-nvim
       {
         plugin = auto-session;
         type = "lua";
