@@ -8,7 +8,6 @@ map("n", "<leader>h", "<cmd>split<cr>", { desc = "Split horizontal" })
 -- buffers
 map("n", "[y", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "]y", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "Q", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 
 -- tabs
 map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous tab" })

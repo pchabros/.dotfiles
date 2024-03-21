@@ -16,6 +16,7 @@
     ./lazygit
     ./lf
     ./neovim
+    ./qutebrowser
     ./starship
     ./tmux
     ./wlogout

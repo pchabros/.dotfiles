@@ -329,6 +329,7 @@ in {
       tailwindcss-language-server
       vscode-langservers-extracted
       wl-clipboard
+      yamllint
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./config/utils.lua}

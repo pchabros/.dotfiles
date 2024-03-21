@@ -1,3 +1,3 @@
 require("mini.bufremove").setup()
 
-vim.keymap.set({ "n" }, "q", MiniBufremove.delete)
+vim.keymap.set({ "n" }, "Q", MiniBufremove.delete)
