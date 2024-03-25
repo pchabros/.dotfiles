@@ -49,13 +49,14 @@
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      hostname = "nixos";
       username = "pawel_chabros";
       lib = nixpkgs.lib;
       sessionx = inputs.tmux-sessionx.packages.${system}.default;
     in {
-      nixosConfigurations.nixos = lib.nixosSystem {
+      nixosConfigurations.${hostname} = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs hostname; };
         modules = [
           inputs.xremap.nixosModules.default
           ./system/configuration.nix

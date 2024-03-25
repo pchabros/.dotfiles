@@ -3,7 +3,7 @@
     enable = true;
     profiles.${username} = {
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        angular-devtools
+        # angular-devtools
         darkreader
         firenvim
       ];

@@ -4,7 +4,7 @@
       enable = true;
       initExtra = builtins.readFile ./config/.zshrc;
       dotDir = ".config/zsh";
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       autocd = true;
@@ -61,7 +61,6 @@
     };
     eza = {
       enable = true;
-      enableAliases = true;
       git = true;
       icons = true;
     };

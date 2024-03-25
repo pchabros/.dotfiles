@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, hostname, ... }:
 
 let
   clone-for-worktrees = pkgs.writeScriptBin "clone-for-worktrees"
@@ -31,7 +31,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = hostname;
   networking.wireless = {
     enable = true;
     networks = {
