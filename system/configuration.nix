@@ -171,7 +171,7 @@ in {
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
     };
-    systemPackages = with pkgs; [ wget ];
+    systemPackages = with pkgs; [ devenv wget ];
     pathsToLink = [ "/share/zsh" ];
   };
 
