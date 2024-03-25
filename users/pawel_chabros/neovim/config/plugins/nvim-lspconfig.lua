@@ -55,6 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+lspconfig.bashls.setup({})
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
 })
@@ -66,8 +67,17 @@ lspconfig.html.setup({
 })
 lspconfig.cssls.setup({})
 lspconfig.emmet_ls.setup({})
+lspconfig.yamlls.setup({})
 lspconfig.angularls.setup({})
-lspconfig.nil_ls.setup({})
+lspconfig.nil_ls.setup({
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { "nixfmt" },
+      },
+    },
+  },
+})
 lspconfig.pyright.setup({
   settings = {
     pyright = {
@@ -94,6 +104,22 @@ lspconfig.tsserver.setup({
       description = "Organize Imports",
     },
   },
+})
+
+lspconfig.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+  settings = {
+    codeActionOnSave = {
+      enable = true,
+      mode = "all"
+    },
+  }
 })
 
 vim.diagnostic.config({

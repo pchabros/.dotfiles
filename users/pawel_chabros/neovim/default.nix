@@ -281,13 +281,6 @@ in {
           ${builtins.readFile ./config/plugins/iron-nvim.lua}
         '';
       }
-      # {
-      #   plugin = firenvim;
-      #   type = "lua";
-      #   config = ''
-      #     ${builtins.readFile ./config/plugins/firenvim.lua}
-      #   '';
-      # }
       {
         plugin = neotest;
         type = "lua";
@@ -309,9 +302,9 @@ in {
     extraPackages = with pkgs; [
       emmet-ls
       luajitPackages.jsregexp
-      mypy
       nil
       nixfmt
+      nodePackages_latest.bash-language-server
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
@@ -329,7 +322,7 @@ in {
       tailwindcss-language-server
       vscode-langservers-extracted
       wl-clipboard
-      yamllint
+      yaml-language-server
     ];
     extraLuaConfig = ''
       ${builtins.readFile ./config/utils.lua}

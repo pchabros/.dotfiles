@@ -6,21 +6,14 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
   sources = {
     code_actions.refactoring,
-    code_actions.shellcheck,
-    diagnostics.eslint_d.with({ diagnostics_format = "#{m} " }),
-    -- diagnostics.mypy,
-    diagnostics.shellcheck,
-    diagnostics.yamllint,
-    diagnostics.zsh,
-    formatting.nixfmt,
+    code_actions.gitrebase,
+    code_actions.gitsigns,
     -- formatting.prettierd, -- not updated to Angular v17
     formatting.prettier,
-    formatting.ruff_format,
     formatting.shfmt,
-    formatting.stylua,
   },
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_clear_autocmds({
         group = augroup,
         buffer = bufnr,
@@ -29,7 +22,7 @@ require("null-ls").setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
+          vim.lsp.buf.format({ async = false })
         end,
       })
     end
