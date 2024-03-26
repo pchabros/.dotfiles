@@ -46,6 +46,7 @@
         "<Alt-i>" = "hint inputs";
         "<Alt-Shift-i>" = "hint inputs --first";
         "<Alt-o>" = "hint links";
+        "<Alt-b>" = "hint buttons";
         ":" = "cmd-set-text :";
         "/" = "cmd-set-text /";
         "n" = "search-next";
@@ -53,8 +54,8 @@
         "." = "cmd-repeat-last";
         "r" = "reload -f";
         "u" = "undo";
-        "yy"= "yank";
-        "yu"= "yank url";
+        "yy" = "yank";
+        "yu" = "yank url";
         "<Return>" = "selection-follow";
       };
       caret = {
@@ -113,6 +114,79 @@
       ${builtins.readFile ./config/nord-qutebrowser.py}
       c.tabs.padding = {'bottom': 12, 'left': 10, 'right': 6, 'top': 12}
       c.statusbar.padding = {'top': 6, 'bottom': 6, 'left': 4, 'right': 4}
+      c.hints.selectors = {
+        "all": [
+          'a',
+          'area',
+          'textarea',
+          'select',
+          'input:not([type="hidden"])',
+          'button',
+          'frame',
+          'iframe',
+          'img',
+          'link',
+          'summary',
+          '[contenteditable]:not([contenteditable="false"])',
+          '[onclick]',
+          '[onmousedown]',
+          '[role="link"]',
+          '[role="option"]',
+          '[role="button"]',
+          '[role="tab"]',
+          '[role="checkbox"]',
+          '[role="menuitem"]',
+          '[role="menuitemcheckbox"]',
+          '[role="menuitemradio"]',
+          '[role="treeitem"]',
+          '[aria-haspopup]',
+          '[ng-click]',
+          '[ngClick]',
+          '[data-ng-click]',
+          '[x-ng-click]',
+          '[tabindex]:not([tabindex="-1"])',
+        ],
+        "buttons": [
+          'button',
+          '[role="button"]',
+        ],
+        "links": [
+          'a[href]',
+          'area[href]',
+          'link[href]',
+          '[role="link"]',
+          '[href]',
+        ],
+        "images": [
+          'img',
+        ],
+        "media": [
+          'audio',
+          'img',
+          'video',
+        ],
+        "url": [
+          '[src]',
+          '[href]',
+        ],
+        "inputs": [
+          'input[type="text"]',
+          'input[type="date"]',
+          'input[type="datetime-local"]',
+          'input[type="email"]',
+          'input[type="month"]',
+          'input[type="number"]',
+          'input[type="password"]',
+          'input[type="search"]',
+          'input[type="tel"]',
+          'input[type="time"]',
+          'input[type="url"]',
+          'input[type="week"]',
+          'input:not([type])',
+          '[contenteditable]:not([contenteditable="false"])',
+          'textarea',
+        ],
+      };
     '';
   };
 }
