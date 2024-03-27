@@ -141,22 +141,6 @@
         "type": "github"
       }
     },
-    "git-conflict": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705921321,
-        "narHash": "sha256-D/6JiJKoiT2yI3LjaQwAGPD9PQOEisCdSxKU0Oz4aGc=",
-        "owner": "akinsho",
-        "repo": "git-conflict.nvim",
-        "rev": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akinsho",
-        "repo": "git-conflict.nvim",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -682,7 +666,6 @@
       "inputs": {
         "cutlass": "cutlass",
         "flash": "flash",
-        "git-conflict": "git-conflict",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "indent-blankline-nvim": "indent-blankline-nvim",

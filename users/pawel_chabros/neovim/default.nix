@@ -1,25 +1,13 @@
 { pkgs, inputs, ... }:
 let
   vimPlugins = pkgs.vimPlugins // {
-    git-conflict = pkgs.vimUtils.buildVimPlugin {
-      name = "git-conflict";
-      src = inputs.git-conflict;
-    };
     mini-indentscope = pkgs.vimUtils.buildVimPlugin {
       name = "mini-indentscope";
       src = inputs.mini-indentscope;
     };
-    indent-blankline-nvim = pkgs.vimUtils.buildVimPlugin {
-      name = "indent-blankline-nvim";
-      src = inputs.indent-blankline-nvim;
-    };
     mini-bufremove = pkgs.vimUtils.buildVimPlugin {
       name = "mini-bufremove";
       src = inputs.mini-bufremove;
-    };
-    flash = pkgs.vimUtils.buildVimPlugin {
-      name = "flash";
-      src = inputs.flash;
     };
     cutlass = pkgs.vimUtils.buildVimPlugin {
       name = "cutlass";
@@ -40,7 +28,7 @@ in {
       cmp-path
       cmp_luasnip
       dressing-nvim
-      git-conflict
+      git-conflict-nvim
       lazygit-nvim
       lens-vim
       lsp-zero-nvim
@@ -156,10 +144,10 @@ in {
         '';
       }
       {
-        plugin = flash;
+        plugin = flash-nvim;
         type = "lua";
         config = ''
-          ${builtins.readFile ./config/plugins/flash.lua}
+          ${builtins.readFile ./config/plugins/flash-nvim.lua}
         '';
       }
       {

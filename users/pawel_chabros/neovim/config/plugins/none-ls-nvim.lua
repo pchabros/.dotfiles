@@ -6,8 +6,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
   sources = {
     code_actions.refactoring,
-    code_actions.gitrebase,
-    code_actions.gitsigns,
     -- formatting.prettierd, -- not updated to Angular v17
     formatting.prettier,
     formatting.shfmt,

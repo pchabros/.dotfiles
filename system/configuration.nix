@@ -88,6 +88,7 @@ in {
       nodePackages.nodemon
       openfortivpn
       playerctl
+      radianWrapper
       rocketchat-desktop
       slurp
       spotify

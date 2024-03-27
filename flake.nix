@@ -24,10 +24,6 @@
       url = "github:echasnovski/mini.bufremove";
       flake = false;
     };
-    git-conflict = {
-      url = "github:akinsho/git-conflict.nvim";
-      flake = false;
-    };
     flash = {
       url = "github:folke/flash.nvim";
       flake = false;
