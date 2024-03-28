@@ -41,27 +41,45 @@
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      hostname = "nixos";
       username = "pawel_chabros";
       lib = nixpkgs.lib;
       sessionx = inputs.tmux-sessionx.packages.${system}.default;
-    in {
-      nixosConfigurations.${hostname} = lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs hostname; };
-        modules = [
-          inputs.xremap.nixosModules.default
-          ./system/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs username sessionx;
-            };
-            home-manager.users.${username}.imports =
-              [ ./users/${username}/home.nix ];
-          }
-        ];
+
+      configs = {
+        nixos = {
+          main-monitor = "HDMI-A-1";
+          side-monitor = "DP-1";
+          version = "23.05";
+        };
+        solaris = {
+          main-monitor = "DP-1";
+          side-monitor = "HDMI-A-1";
+          version = "23.11";
+        };
       };
+      buildNixOS = hostname:
+        { main-monitor, side-monitor, version }:
+        let is-laptop = hostname == "nixos";
+        in lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs hostname version; };
+          modules = [
+            inputs.xremap.nixosModules.default
+            ./system/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs username sessionx is-laptop main-monitor
+                  side-monitor;
+              };
+              home-manager.users.${username}.imports =
+                [ ./users/${username}/home.nix ];
+            }
+          ];
+        };
+    in {
+      nixosConfigurations = lib.mapAttrs buildNixOS configs;
+
     };
 }
