@@ -1,16 +1,16 @@
-{
+{ lib, is-laptop, main-monitor, side-monitor, ... }: {
   programs.wpaperd = {
     enable = true;
     settings = {
-      HDMI-A-1 = {
+      ${main-monitor} = {
         path = ./pictures/3440x1440;
         duration = "5m";
       };
-      DP-1 = {
+      ${side-monitor} = {
         path = ./pictures/1440x2560;
         duration = "5m";
       };
-      eDP-1 = {
+      eDP-1 = lib.mkIf is-laptop {
         path = ./pictures/1920x1200;
         duration = "5m";
       };

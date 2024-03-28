@@ -4,6 +4,7 @@ local set = vim.keymap.set
 wk.register({ b = { name = "Bookmark" } }, { prefix = "<leader>" })
 
 vim.g.bookmark_sign = ""
+vim.g.bookmark_no_default_key_mappings = 1
 
 set("n", "<leader>ba", "<cmd>BookmarkToggle<CR>", { desc = "Add" })
 set("n", "[b", "<cmd>BookmarkPrev<CR>", { desc = "Previous bookmark" })

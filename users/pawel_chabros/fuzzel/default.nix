@@ -16,7 +16,7 @@ let
     pkill fuzzel
     cliphist list | dmenu | cliphist decode | wl-copy
   '';
-  colors = config.colorScheme.colors;
+  colors = config.colorScheme.palette;
   transparency = {
     _95 = "E6";
     _100 = "FF";

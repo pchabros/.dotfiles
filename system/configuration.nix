@@ -1,20 +1,12 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, pkgs, hostname, ... }:
+{ inputs, pkgs, hostname, version, ... }:
 
 let
   clone-for-worktrees = pkgs.writeScriptBin "clone-for-worktrees"
     (builtins.readFile
       ../users/pawel_chabros/git/aliases/clone-for-worktrees.sh);
 in {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./${hostname}/hardware-configuration.nix ];
 
-  # Enable flakes
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -27,34 +19,26 @@ in {
     };
   };
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = hostname;
-  networking.wireless = {
-    enable = true;
-    networks = {
-      "WLAN1-105ND1".pskRaw =
-        "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
-      "Redmi Note 7".pskRaw =
-        "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
-    };
+  networking = {
+    hostName = hostname;
+    wireless = if hostname == "nixos" then {
+      enable = true;
+      networks = {
+        "WLAN1-105ND1".pskRaw =
+          "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
+        "Redmi Note 7".pskRaw =
+          "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
+      };
+    } else
+      { };
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  # networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pl_PL.UTF-8";
     LC_IDENTIFICATION = "pl_PL.UTF-8";
@@ -67,10 +51,8 @@ in {
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Configure console keymap
   console.keyMap = "pl2";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pawel_chabros = {
     isNormalUser = true;
     initialPassword = "123";
@@ -115,7 +97,8 @@ in {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "$HOME/.local/bin/starthl";
+          command =
+            "$HOME/.dotfiles/users/pawel_chabros/hyprland/config/starthl";
           user = "pawel_chabros";
         };
         default_session = initial_session;
@@ -158,11 +141,8 @@ in {
     mediaKeys.enable = true;
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment = {
     localBinInPath = true;
     sessionVariables = {
@@ -208,30 +188,5 @@ in {
     };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = version;
 }
