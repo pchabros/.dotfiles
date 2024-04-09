@@ -4,6 +4,7 @@
     ./avizo
     ./bat
     ./btop
+    ./chromium
     ./direnv
     ./email
     ./firefox
