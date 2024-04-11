@@ -14,7 +14,7 @@
         widgets = [ "url" "keypress" ];
       };
       tabs = {
-        favicons.scale = 1.3;
+        favicons.scale = 1.1;
         indicator.width = 0;
         max_width = 200;
         title.format_pinned = "";
