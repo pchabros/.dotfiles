@@ -92,7 +92,13 @@ in {
           require("todo-comments").setup()
         '';
       }
-
+      {
+        plugin = diffview-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/diffview-nvim.lua}
+        '';
+      }
       {
         plugin = mini-nvim;
         type = "lua";

@@ -1,4 +1,6 @@
 local builtin = require("telescope.builtin")
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 local set = vim.keymap.set
 local wk = require("which-key")
 
@@ -6,7 +8,8 @@ wk.register({ f = { name = "Telescope" } }, { prefix = "<leader>" })
 set("n", "<leader><space>", builtin.git_files, { desc = "Git files" })
 set("n", "<leader>ff", builtin.find_files, { desc = "All files" })
 set("n", "<leader>/", builtin.live_grep, { desc = "Grep files" })
-set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
+set("n", "<leader>fb", builtin.git_branches, { desc = "Branch" })
+set("n", "<leader>fc", builtin.git_commits, { desc = "Commit" })
 set("n", "<leader>fw", builtin.grep_string, { desc = "Grep word" })
 set("n", "<leader>fo", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
 
@@ -50,4 +53,28 @@ require("telescope").setup({
       },
     },
   },
+  pickers = {
+    git_commits = {
+      mappings = {
+        i = {
+          ["<C-o>"] = function()
+            local entry = action_state.get_selected_entry()
+            actions.close(vim.api.nvim_get_current_buf())
+            vim.cmd(("DiffviewOpen %s^!"):format(entry.value))
+          end,
+        },
+      },
+    },
+    git_branches = {
+      mappings = {
+        i = {
+          ["<C-o>"] = function()
+            local entry = action_state.get_selected_entry()
+            actions.close(vim.api.nvim_get_current_buf())
+            vim.cmd(("DiffviewOpen %s.."):format(entry.value))
+          end,
+        },
+      },
+    },
+  }
 })
