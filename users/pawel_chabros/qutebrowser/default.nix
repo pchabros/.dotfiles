@@ -14,10 +14,12 @@
         widgets = [ "url" "keypress" ];
       };
       tabs = {
-        favicons.scale = 1.1;
         indicator.width = 0;
         max_width = 200;
-        title.format_pinned = "";
+        title = {
+          format = " {current_title}";
+          format_pinned = "";
+        };
       };
     };
     enableDefaultBindings = false;
@@ -112,7 +114,7 @@
     };
     extraConfig = ''
       ${builtins.readFile ./config/nord-qutebrowser.py}
-      c.tabs.padding = {'bottom': 12, 'left': 10, 'right': 6, 'top': 12}
+      c.tabs.padding = {'bottom': 10, 'left': 10, 'right': 6, 'top': 10}
       c.statusbar.padding = {'top': 6, 'bottom': 6, 'left': 4, 'right': 4}
       c.hints.selectors = {
         "all": [
