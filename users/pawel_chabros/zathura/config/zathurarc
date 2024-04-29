@@ -1,0 +1,34 @@
+set selection-clipboard clipboard
+set scroll-full-overlap 0.2
+set scroll-page-aware true
+set window-title-basename true
+set adjust-open width
+set statusbar-home-tilde true
+set vertical-center true
+set synctex true
+set font "CaskaydiaCove Nerd Font Mono bold 10"
+set zoom-step 3
+set scroll-step 200
+set smooth-scroll true
+set recolor true
+set recolor-darkcolor "#d8dee9"
+set recolor-lightcolor "#373e4d"
+set statusbar-bg "#434c5e"
+set default-bg "#2e3440"
+
+map [normal] l scroll up
+map [normal] k scroll down
+map [normal] \; scroll right
+map [normal] j scroll left
+
+map [fullscreen] l scroll up
+map [fullscreen] k scroll down
+map [fullscreen] \; scroll right
+map [fullscreen] j scroll left
+
+map [index] l navigate_index up
+map [index] k navigate_index down
+map [index] j navigate_index collapse
+map [index] \; navigate_index expand
+map [presentation] k navigate next
+map [presentation] l navigate previous

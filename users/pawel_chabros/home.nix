@@ -22,6 +22,7 @@
     ./tmux
     ./wlogout
     ./wpaperd
+    ./zathura
     ./zsh
     inputs.nix-colors.homeManagerModules.default
   ];
