@@ -1,10 +1,7 @@
 { inputs, pkgs, hostname, version, ... }:
 
 {
-  imports = [
-    ./${hostname}/hardware-configuration.nix
-    ./scripts
-  ];
+  imports = [ ./${hostname}/hardware-configuration.nix ./scripts ];
 
   nix = {
     package = pkgs.nixFlakes;
@@ -64,8 +61,8 @@
       grim
       keepass
       libreoffice
-      nodejs
       nodePackages.nodemon
+      nodejs
       openfortivpn
       playerctl
       radianWrapper
@@ -76,6 +73,7 @@
       tldr
       tree
       wl-clipboard
+      xdg-utils
     ];
   };
 
@@ -169,7 +167,13 @@
     };
     zsh.enable = true;
   };
-  xdg.portal.wlr.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   systemd.user.services.kanshi = {
     description = "kanshi daemon";
