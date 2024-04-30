@@ -33,6 +33,7 @@ in {
       lens-vim
       lsp-zero-nvim
       luasnip
+      markdown-preview-nvim
       nui-nvim
       nvim-notify
       nvim-ts-autotag
