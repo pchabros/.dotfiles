@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, main-monitor, ... }:
 let
   appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
     pkill fuzzel
@@ -27,7 +27,7 @@ in {
     enable = true;
     settings = {
       main = {
-        output = "HDMI-A-1";
+        output = main-monitor;
         font = "JetBrainsMono Nerd Font:pixelsize=14,monospace:pixelsize=14";
         prompt = "󰄾 ";
         exit-on-keyboard-focus-loss = "no";
