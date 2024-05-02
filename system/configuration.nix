@@ -1,7 +1,16 @@
-{ inputs, pkgs, hostname, version, ... }:
+{
+  inputs,
+  pkgs,
+  hostname,
+  version,
+  ...
+}:
 
 {
-  imports = [ ./${hostname}/hardware-configuration.nix ./scripts ];
+  imports = [
+    ./${hostname}/hardware-configuration.nix
+    ./scripts
+  ];
 
   nix = {
     package = pkgs.nixFlakes;
@@ -20,16 +29,17 @@
 
   networking = {
     hostName = hostname;
-    wireless = if hostname == "nixos" then {
-      enable = true;
-      networks = {
-        "WLAN1-105ND1".pskRaw =
-          "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
-        "Redmi Note 7".pskRaw =
-          "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
-      };
-    } else
-      { };
+    wireless =
+      if hostname == "nixos" then
+        {
+          enable = true;
+          networks = {
+            "WLAN1-105ND1".pskRaw = "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
+            "Redmi Note 7".pskRaw = "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
+          };
+        }
+      else
+        { };
   };
 
   time.timeZone = "Europe/Warsaw";
@@ -52,7 +62,13 @@
   users.users.pawel_chabros = {
     isNormalUser = true;
     initialPassword = "123";
-    extraGroups = [ "networkmanager" "wheel" "audio" "openfortivpn" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "openfortivpn"
+      "docker"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       discord
@@ -78,23 +94,26 @@
   };
 
   security = {
-    sudo.extraRules = [{
-      groups = [ "openfortivpn" ];
-      commands = [
-        "/etc/profiles/per-user/pawel_chabros/bin/openfortivpn"
-        "${pkgs.openfortivpn}/bin/openfortivpn"
-      ];
-    }];
+    sudo.extraRules = [
+      {
+        groups = [ "openfortivpn" ];
+        commands = [
+          "/etc/profiles/per-user/pawel_chabros/bin/openfortivpn"
+          "${pkgs.openfortivpn}/bin/openfortivpn"
+        ];
+      }
+    ];
     rtkit.enable = true;
   };
 
   services = {
+    blueman.enable = true;
+    dbus.enable = true;
     greetd = {
       enable = true;
       settings = rec {
         initial_session = {
-          command =
-            "$HOME/.dotfiles/users/pawel_chabros/hyprland/config/starthl";
+          command = "$HOME/.dotfiles/users/pawel_chabros/hyprland/config/starthl";
           user = "pawel_chabros";
         };
         default_session = initial_session;
@@ -107,54 +126,64 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    blueman.enable = true;
     xremap = {
       withWlroots = true;
       watch = true;
       config = {
-        modmap = [{
-          remap = {
-            "CapsLock" = {
-              alone = [ "Shift_L" "Semicolon" ];
-              held = "Alt_L";
+        modmap = [
+          {
+            remap = {
+              "CapsLock" = {
+                alone = [
+                  "Shift_L"
+                  "Semicolon"
+                ];
+                held = "Alt_L";
+              };
+              "Enter" = {
+                alone = "Enter";
+                held = "Ctrl_L";
+              };
+              "Tab" = {
+                alone = "Tab";
+                held = "Super_L";
+              };
             };
-            "Enter" = {
-              alone = "Enter";
-              held = "Ctrl_L";
-            };
-            "Tab" = {
-              alone = "Tab";
-              held = "Super_L";
-            };
-          };
-        }];
+          }
+        ];
       };
     };
   };
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
+  sound.mediaKeys.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment = {
     localBinInPath = true;
     sessionVariables = {
-      GDK_BACKEND = "wayland";
+      # GDK_BACKEND = pkgs.lib.mkForce "wayland";
       MOZ_DBUS_REMOTE = "1";
-      MOZ_ENABLE_WAYLAND = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
     };
-    systemPackages = with pkgs; [ devenv wget ];
+    systemPackages = with pkgs; [
+      devenv
+      wget
+    ];
     pathsToLink = [ "/share/zsh" ];
   };
 
   fonts.packages = with pkgs; [
     corefonts
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "JetBrainsMono"
+      ];
+    })
     recursive
     roboto-mono
     vistafonts
@@ -163,16 +192,39 @@
   programs = {
     hyprland = {
       enable = true;
+      xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
     zsh.enable = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg = {
+    # mime = {
+    #   enable = true;
+    #   defaultApplications = {
+    #     "default-web-browser" = "qutebrowser.desktop";
+    #     "text/html" = "qutebrowser.desktop";
+    #   };
+    # };
+    portal = {
+      enable = true;
+      # wlr.enable = true;
+      # xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        # xdg-desktop-portal-wlr
+      ];
+      config.Hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+          "gnome"
+        ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+        "org.freedesktop.impl.portal.Screencast" = [ "gnome" ];
+      };
+    };
   };
 
   systemd.user.services.kanshi = {

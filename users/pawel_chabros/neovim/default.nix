@@ -298,7 +298,7 @@ in {
       emmet-ls
       luajitPackages.jsregexp
       nil
-      nixfmt
+      nixfmt-rfc-style
       nodePackages_latest.bash-language-server
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
