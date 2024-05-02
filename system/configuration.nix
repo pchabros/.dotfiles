@@ -162,12 +162,11 @@
   environment = {
     localBinInPath = true;
     sessionVariables = {
-      # GDK_BACKEND = pkgs.lib.mkForce "wayland";
       MOZ_DBUS_REMOTE = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_RENDERER_ALLOW_SOFTWARE = "1";
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
     };
     systemPackages = with pkgs; [
       devenv
@@ -192,28 +191,24 @@
   programs = {
     hyprland = {
       enable = true;
-      xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
     zsh.enable = true;
   };
 
   xdg = {
-    # mime = {
-    #   enable = true;
-    #   defaultApplications = {
-    #     "default-web-browser" = "qutebrowser.desktop";
-    #     "text/html" = "qutebrowser.desktop";
-    #   };
-    # };
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "default-web-browser" = "qutebrowser.desktop";
+        "text/html" = "qutebrowser.desktop";
+      };
+    };
     portal = {
       enable = true;
-      # wlr.enable = true;
-      # xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
-        # xdg-desktop-portal-wlr
       ];
       config.Hyprland = {
         default = [
