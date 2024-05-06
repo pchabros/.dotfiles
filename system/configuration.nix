@@ -108,7 +108,7 @@
 
   services = {
     blueman.enable = true;
-    dbus.enable = true;
+    # dbus.enable = true;
     greetd = {
       enable = true;
       settings = rec {
@@ -161,13 +161,6 @@
 
   environment = {
     localBinInPath = true;
-    sessionVariables = {
-      MOZ_DBUS_REMOTE = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      NIXOS_OZONE_WL = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_RENDERER_ALLOW_SOFTWARE = "1";
-    };
     systemPackages = with pkgs; [
       devenv
       wget
@@ -197,28 +190,11 @@
   };
 
   xdg = {
-    mime = {
-      enable = true;
-      defaultApplications = {
-        "default-web-browser" = "qutebrowser.desktop";
-        "text/html" = "qutebrowser.desktop";
-      };
-    };
     portal = {
       enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
       ];
-      config.Hyprland = {
-        default = [
-          "hyprland"
-          "gtk"
-          "gnome"
-        ];
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-        "org.freedesktop.impl.portal.Screencast" = [ "gnome" ];
-      };
     };
   };
 
