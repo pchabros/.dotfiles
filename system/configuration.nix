@@ -73,6 +73,7 @@
     packages = with pkgs; [
       discord
       dolphin
+      fd
       gimp
       grim
       keepass
@@ -82,6 +83,7 @@
       openfortivpn
       playerctl
       radianWrapper
+      ripgrep
       rocketchat-desktop
       slurp
       spotify

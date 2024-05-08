@@ -12,8 +12,6 @@
         EDITOR = "nvim";
         VISUAL = "nvim";
         TERM = "xterm-256color";
-        FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git'";
-        FZF_CTRL_T_COMMAND = "$FZF_DEFAULT_COMMAND";
         ZSH_TMUX_AUTOSTART = true;
         ZSH_TMUX_CONFIG = "$HOME/.config/tmux/tmux.conf";
       };
