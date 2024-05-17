@@ -35,6 +35,7 @@ in {
       luasnip
       markdown-preview-nvim
       nui-nvim
+      nvim-gdb
       nvim-notify
       nvim-ts-autotag
       nvim-web-devicons
