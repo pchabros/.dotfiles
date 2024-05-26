@@ -167,6 +167,9 @@
 
   environment = {
     localBinInPath = true;
+    sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
     systemPackages = with pkgs; [
       devenv
       wget

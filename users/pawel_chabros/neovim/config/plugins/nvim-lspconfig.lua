@@ -87,6 +87,7 @@ lspconfig.pyright.setup({
 })
 lspconfig.ruff_lsp.setup({})
 lspconfig.tailwindcss.setup({})
+lspconfig.hls.setup({})
 
 local function organize_imports()
   local params = {
