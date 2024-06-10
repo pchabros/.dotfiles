@@ -88,6 +88,7 @@ lspconfig.pyright.setup({
 lspconfig.ruff_lsp.setup({})
 lspconfig.tailwindcss.setup({})
 lspconfig.hls.setup({})
+lspconfig.r_language_server.setup({})
 
 local function organize_imports()
   local params = {
@@ -108,7 +109,6 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.eslint.setup({
-  --- ...
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
