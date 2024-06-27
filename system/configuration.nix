@@ -90,6 +90,7 @@
       teams-for-linux
       tldr
       tree
+      whatsapp-for-linux
       wl-clipboard
       xdg-utils
     ];
