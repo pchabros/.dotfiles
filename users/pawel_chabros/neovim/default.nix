@@ -55,6 +55,7 @@ in {
         type = "lua";
         config = ''
           vim.cmd("colorscheme nord")
+          vim.cmd("hi WinSeparator guifg=#373e4d")
         '';
       }
       {
@@ -304,10 +305,10 @@ in {
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
-      nodePackages_latest.pyright
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
       python311Packages.python-lsp-server
+      pyright
       ripgrep
       ruff
       ruff-lsp

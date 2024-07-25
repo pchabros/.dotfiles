@@ -28,9 +28,10 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware = {
+    alsa.enablePersistence = true;
     cpu.intel.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
     bluetooth.enable = true;
-    opengl.enable = true;
+    graphics.enable = true;
   };
 }

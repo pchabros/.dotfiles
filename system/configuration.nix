@@ -162,8 +162,6 @@
     '';
   };
 
-  sound.mediaKeys.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   environment = {
@@ -202,9 +200,7 @@
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
     };
   };
 
