@@ -1,10 +1,18 @@
-{ lib, is-laptop, main-monitor, side-monitor, ... }: {
+{
+  lib,
+  is-laptop,
+  main-monitor,
+  side-monitor,
+  ...
+}:
+{
   services.kanshi = {
     enable = true;
     systemdTarget = "";
-    profiles = {
-      profile-1 = {
-        outputs = [
+    settings = [
+      {
+        profile.name = "monitors";
+        profile.outputs = [
           {
             criteria = main-monitor;
             status = "enable";
@@ -23,13 +31,19 @@
             status = "disable";
           })
         ];
-      };
-      profile-2 = lib.mkIf is-laptop {
-        outputs = [{
-          criteria = "eDP-1";
-          status = "enable";
-        }];
-      };
-    };
+      }
+      # TODO: check how it works on PC
+      # lib.mkIf
+      # is-laptop
+      {
+        profile.name = "laptop";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+          }
+        ];
+      }
+    ];
   };
 }
