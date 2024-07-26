@@ -14,6 +14,7 @@
     ./git
     ./gtk
     ./hyprland
+    ./hyprpaper
     ./kanshi
     ./lazygit
     ./lf
@@ -22,7 +23,7 @@
     ./starship
     ./tmux
     ./wlogout
-    ./wpaperd
+    # ./wpaperd
     ./zathura
     ./zsh
     inputs.nix-colors.homeManagerModules.default

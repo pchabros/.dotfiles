@@ -76,6 +76,7 @@
       fd
       gimp
       grim
+      hyprpaper
       keepass
       libreoffice
       nodePackages.nodemon
