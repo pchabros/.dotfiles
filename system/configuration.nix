@@ -195,6 +195,7 @@
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
     zsh.enable = true;
+    xonsh.enable = true;
   };
 
   xdg = {
