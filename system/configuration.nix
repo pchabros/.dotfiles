@@ -76,6 +76,7 @@
       fd
       gimp
       grim
+      hyprcursor
       hyprpaper
       keepass
       libreoffice
