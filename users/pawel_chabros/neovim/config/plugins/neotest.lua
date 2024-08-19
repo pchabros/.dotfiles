@@ -4,6 +4,11 @@ local set = vim.keymap.set
 neotest.setup({
   ...,
   adapters = {
+    require("neotest-python")({
+      env = { DJANGO_SETTINGS_MODULE = "app.settings" },
+      dap = { justMyCode = false },
+      runner = "django",
+    }),
     require("neotest-jest")({
       jestCommand = function()
         return require("neotest-jest.jest-util").getJestCommand(vim.fn.expand("%:p:h")) .. " --watch"

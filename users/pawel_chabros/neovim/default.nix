@@ -18,7 +18,8 @@ let
       src = inputs.telescope-tabs;
     };
   };
-in {
+in
+{
   programs.neovim = {
     enable = true;
     vimdiffAlias = true;
@@ -35,7 +36,8 @@ in {
       luasnip
       markdown-preview-nvim
       nui-nvim
-      nvim-gdb
+      # nvim-gdb
+      nvim-nio
       nvim-notify
       nvim-ts-autotag
       nvim-web-devicons
@@ -43,6 +45,15 @@ in {
       vim-nix
       vim-tmux-navigator
       which-key-nvim
+      {
+        plugin = nvim-dap;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/nvim-dap.lua}
+        '';
+      }
+      nvim-dap-ui
+      nvim-dap-python
       {
         plugin = nvim-highlight-colors;
         type = "lua";
@@ -307,8 +318,8 @@ in {
       nodePackages_latest.prettier
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
-      python311Packages.python-lsp-server
       pyright
+      python312Packages.python-lsp-server
       ripgrep
       ruff
       ruff-lsp
