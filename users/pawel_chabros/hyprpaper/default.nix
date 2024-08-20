@@ -1,8 +1,8 @@
 { main-monitor, side-monitor, ... }:
 let
-  main = toString ./pictures/3440x1440/sluuht7tf7n51.png;
-  side = toString ./pictures/1440x2560/7076046.jpg;
-  laptop = toString ./pictures/1920x1200/1920x1080-nord-theme-based-wallpapers-v0-0mwe138ullm81.webp;
+  main = "~/.config/wallpapers/3440x1440/sluuht7tf7n51.png";
+  side = "~/.config/wallpapers/1440x2560/7076046.jpg";
+  laptop = "~/.config/wallpapers/1920x1200/1920x1080-nord-theme-based-wallpapers-v0-0mwe138ullm81.webp";
 in
 {
   services.hyprpaper = {
@@ -21,5 +21,8 @@ in
         "eDP-1,${laptop}"
       ];
     };
+  };
+  xdg.configFile.wallpapers = {
+    source = ./pictures;
   };
 }
