@@ -74,19 +74,21 @@
       discord
       dolphin
       fd
+      firefox-devedition
       gimp
       grim
       hyprcursor
       hyprpaper
       keepass
       libreoffice
-      nodePackages.nodemon
       nodejs
+      nodePackages.nodemon
       openfortivpn
       playerctl
       radianWrapper
       ripgrep
       rocketchat-desktop
+      simplex-chat-desktop
       slurp
       spotify
       teams-for-linux
