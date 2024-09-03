@@ -39,12 +39,12 @@ in
       # nvim-gdb
       nvim-nio
       nvim-notify
-      nvim-ts-autotag
       nvim-web-devicons
       plenary-nvim
       vim-nix
       vim-tmux-navigator
       which-key-nvim
+      tagalong-vim
       {
         plugin = nvim-dap;
         type = "lua";
