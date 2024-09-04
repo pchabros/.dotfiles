@@ -45,6 +45,7 @@ in
       vim-tmux-navigator
       which-key-nvim
       tagalong-vim
+      targets-vim
       {
         plugin = nvim-dap;
         type = "lua";
