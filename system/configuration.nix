@@ -74,7 +74,6 @@
       discord
       dolphin
       fd
-      firefox-devedition
       gimp
       grim
       hyprcursor
@@ -113,8 +112,29 @@
     rtkit.enable = true;
   };
 
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "hp-envy_4500_series";
+        location = "Home";
+        deviceUri = "usb://HP/ENVY%204500%20series?serial=CN4AG121B905X4&interface=1";
+        model = "HP/hp-envy_4500_series.ppd.gz";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+    ensureDefaultPrinter = "hp-envy_4500_series";
+  };
+
   services = {
     blueman.enable = true;
+    printing = {
+      enable = true;
+      drivers = [
+        pkgs.hplip
+      ];
+    };
     # dbus.enable = true;
     greetd = {
       enable = true;
