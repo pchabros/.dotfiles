@@ -38,6 +38,7 @@
           sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
         };
       }];
+      # TODO: add `https://github.com/donnemartin/gitsome`
       zplug = {
         enable = true;
         plugins = [

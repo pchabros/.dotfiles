@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   hostname,
   version,
@@ -74,6 +73,7 @@
       discord
       dolphin
       fd
+      firefox-devedition
       gimp
       grim
       hyprcursor
@@ -84,7 +84,6 @@
       nodePackages.nodemon
       openfortivpn
       playerctl
-      radianWrapper
       ripgrep
       rocketchat-desktop
       simplex-chat-desktop
@@ -131,11 +130,9 @@
     blueman.enable = true;
     printing = {
       enable = true;
-      drivers = [
-        pkgs.hplip
-      ];
+      drivers = [ pkgs.hplip ];
     };
-    # dbus.enable = true;
+    dbus.enable = true;
     greetd = {
       enable = true;
       settings = rec {
@@ -152,6 +149,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       wireplumber.enable = true;
+      jack.enable = true;
     };
     xremap = {
       withWlroots = true;
@@ -186,6 +184,11 @@
     '';
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment = {
@@ -216,17 +219,10 @@
   programs = {
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      xwayland.enable = true;
     };
     zsh.enable = true;
     xonsh.enable = true;
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    };
   };
 
   systemd.user.services.kanshi = {

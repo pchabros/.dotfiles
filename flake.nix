@@ -2,15 +2,10 @@
   description = "System configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
     };
     xremap.url = "github:xremap/nix-flake";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -42,7 +37,8 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       username = "pawel_chabros";
@@ -61,12 +57,21 @@
           version = "23.11";
         };
       };
-      buildNixOS = hostname:
-        { main-monitor, side-monitor, version }:
-        let is-laptop = hostname == "nixos";
-        in lib.nixosSystem {
+      buildNixOS =
+        hostname:
+        {
+          main-monitor,
+          side-monitor,
+          version,
+        }:
+        let
+          is-laptop = hostname == "nixos";
+        in
+        lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs hostname version; };
+          specialArgs = {
+            inherit inputs hostname version;
+          };
           modules = [
             inputs.xremap.nixosModules.default
             ./system/configuration.nix
@@ -74,16 +79,21 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs username sessionx is-laptop main-monitor
-                  side-monitor;
+                inherit
+                  inputs
+                  username
+                  sessionx
+                  is-laptop
+                  main-monitor
+                  side-monitor
+                  ;
               };
-              home-manager.users.${username}.imports =
-                [ ./users/${username}/home.nix ];
+              home-manager.users.${username}.imports = [ ./users/${username}/home.nix ];
             }
           ];
         };
-    in {
+    in
+    {
       nixosConfigurations = lib.mapAttrs buildNixOS configs;
-
     };
 }
