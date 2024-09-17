@@ -2,9 +2,9 @@
   pkgs,
   hostname,
   version,
+  devenv-latest,
   ...
 }:
-
 {
   imports = [
     ./${hostname}/hardware-configuration.nix
@@ -197,7 +197,7 @@
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     systemPackages = with pkgs; [
-      devenv
+      devenv-latest
       wget
     ];
     pathsToLink = [ "/share/zsh" ];

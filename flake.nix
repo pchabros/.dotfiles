@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    devenv.url = "github:cachix/devenv";
     xremap.url = "github:xremap/nix-flake";
     nix-colors.url = "github:misterio77/nix-colors";
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
@@ -43,6 +44,7 @@
       system = "x86_64-linux";
       username = "pawel_chabros";
       lib = nixpkgs.lib;
+      devenv-latest = inputs.devenv.packages.${system}.default;
       sessionx = inputs.tmux-sessionx.packages.${system}.default;
 
       configs = {
@@ -70,7 +72,7 @@
         lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs hostname version;
+            inherit inputs hostname version devenv-latest;
           };
           modules = [
             inputs.xremap.nixosModules.default
