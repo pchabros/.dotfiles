@@ -1,6 +1,7 @@
 {
   pkgs,
   hostname,
+  username,
   version,
   devenv-latest,
   ...
@@ -15,6 +16,7 @@
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
+      trusted-users = root ${username}
     '';
     gc = {
       automatic = true;

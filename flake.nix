@@ -72,7 +72,7 @@
         lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs hostname version devenv-latest;
+            inherit inputs hostname username version devenv-latest;
           };
           modules = [
             inputs.xremap.nixosModules.default
