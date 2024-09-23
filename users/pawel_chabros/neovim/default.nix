@@ -317,8 +317,8 @@ in
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
-      nodePackages_latest.typescript
-      nodePackages_latest.typescript-language-server
+      # nodePackages_latest.typescript
+      # nodePackages_latest.typescript-language-server
       pyright
       python312Packages.python-lsp-server
       ripgrep
