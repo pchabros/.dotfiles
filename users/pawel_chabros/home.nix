@@ -5,7 +5,6 @@
     ./bat
     ./btop
     ./chromium
-    ./default_apps
     ./direnv
     ./email
     ./firefox
