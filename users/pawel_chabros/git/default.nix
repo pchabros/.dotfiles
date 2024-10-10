@@ -8,6 +8,9 @@
         "includeIf \"gitdir:~/.dotfiles/\"" = {
           path = "${./config/config-personal}";
         };
+        "includeIf \"gitdir:~/wd/\"" = {
+          path = "${./config/config-personal}";
+        };
         "includeIf \"gitdir:~/\"" = { path = "${./config/config-anx}"; };
       } else {
         "includeIf \"gitdir:~/\"" = { path = "${./config/config-personal}"; };
