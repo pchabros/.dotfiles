@@ -64,11 +64,13 @@
     isNormalUser = true;
     initialPassword = "123";
     extraGroups = [
-      "networkmanager"
-      "wheel"
       "audio"
-      "openfortivpn"
       "docker"
+      "lp"
+      "networkmanager"
+      "openfortivpn"
+      "scanner"
+      "wheel"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -76,14 +78,15 @@
       dolphin
       fd
       firefox-devedition
+      freerdp3
       gimp
       grim
       hyprcursor
       hyprpaper
       keepass
       libreoffice
-      nodejs
       nodePackages.nodemon
+      nodejs
       openfortivpn
       playerctl
       ripgrep
@@ -113,19 +116,25 @@
     rtkit.enable = true;
   };
 
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "hp-envy_4500_series";
-        location = "Home";
-        deviceUri = "usb://HP/ENVY%204500%20series?serial=CN4AG121B905X4&interface=1";
-        model = "HP/hp-envy_4500_series.ppd.gz";
-        ppdOptions = {
-          PageSize = "A4";
-        };
-      }
-    ];
-    ensureDefaultPrinter = "hp-envy_4500_series";
+  hardware = {
+    sane = {
+      enable = true;
+      extraBackends = [ pkgs.hplipWithPlugin ];
+    };
+    printers = {
+      ensurePrinters = [
+        {
+          name = "hp-envy_4500_series";
+          location = "Home";
+          deviceUri = "usb://HP/ENVY%204500%20series?serial=CN4AG121B905X4&interface=1";
+          model = "HP/hp-envy_4500_series.ppd.gz";
+          ppdOptions = {
+            PageSize = "A4";
+          };
+        }
+      ];
+      ensureDefaultPrinter = "hp-envy_4500_series";
+    };
   };
 
   services = {
@@ -211,10 +220,7 @@
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
-    systemPackages = with pkgs; [
-      devenv-latest
-      wget
-    ];
+    systemPackages = (with pkgs; [ wget ]) ++ [ devenv-latest ];
     pathsToLink = [ "/share/zsh" ];
   };
 
