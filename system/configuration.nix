@@ -83,10 +83,11 @@
       grim
       hyprcursor
       hyprpaper
+      insomnia
       keepass
       libreoffice
-      nodePackages.nodemon
       nodejs
+      nodePackages.nodemon
       openfortivpn
       playerctl
       ripgrep
