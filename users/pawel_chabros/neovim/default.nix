@@ -56,6 +56,13 @@ in
       nvim-dap-ui
       nvim-dap-python
       {
+        plugin = nvim-nu;
+        type = "lua";
+        config = ''
+          require('nu').setup()
+        '';
+      }
+      {
         plugin = nvim-highlight-colors;
         type = "lua";
         config = ''

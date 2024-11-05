@@ -58,12 +58,6 @@
         ];
       };
     };
-    eza = {
-      enable = true;
-      git = true;
-      icons = true;
-    };
-    zoxide.enable = true;
   };
   xdg.configFile = { "zsh/aliases".text = builtins.readFile ./config/aliases; };
 }
