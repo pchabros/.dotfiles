@@ -258,7 +258,7 @@
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-      "insecure-registries" = [ "http://192.168.115.184:5000" ];
+      "insecure-registries" = [ "docker.registry.anx:5000" ];
     };
   };
 
