@@ -1,5 +1,7 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [
+    # ./wpaperd
     ./alacritty
     ./avizo
     ./bat
@@ -7,6 +9,7 @@
     ./chromium
     ./direnv
     ./email
+    ./eza
     ./firefox
     ./fuzzel
     ./fzf
@@ -18,12 +21,13 @@
     ./lazygit
     ./lf
     ./neovim
+    ./nushell
     ./qutebrowser
     ./starship
     ./tmux
     ./wlogout
-    # ./wpaperd
     ./zathura
+    ./zoxide
     ./zsh
     inputs.nix-colors.homeManagerModules.default
   ];
