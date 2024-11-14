@@ -26,6 +26,7 @@
     ./starship
     ./tmux
     ./wlogout
+    ./yazi
     ./zathura
     ./zoxide
     ./zsh
