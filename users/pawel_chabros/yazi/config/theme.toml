@@ -1,0 +1,9 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+[manager]
+border_style = { fg = "black", dim = true }
+
+[status]
+mode_normal = { hidden = false }
+mode_select = { hidden = false }
+mode_unset = { hidden = false }
