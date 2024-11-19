@@ -20,7 +20,7 @@ let
     docx2txt
     nbconvert
   ];
-  perlDependencies = with pkgs.perl536Packages; [ ImageExifTool ];
+  perlDependencies = with pkgs.perl540Packages; [ ImageExifTool ];
 in
 {
   home.packages = systemDependencies ++ pythonDependencies ++ perlDependencies;

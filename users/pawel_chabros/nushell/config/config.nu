@@ -5,8 +5,6 @@ $env.config = {
   }
 }
 
-$env.NU_LIB_DIRS = /home/pawel_chabros/.dotfiles/users/pawel_chabros/nushell/config/scripts/
-
 alias gfa = git fetch --all
 alias gp = git push
 alias gpf = git push --force-with-lease
