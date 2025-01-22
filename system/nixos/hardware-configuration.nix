@@ -45,6 +45,6 @@
       enable = true;
       powerOnBoot = false;
     };
-    opengl.enable = true;
+    graphics.enable = true;
   };
 }

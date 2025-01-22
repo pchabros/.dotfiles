@@ -25,8 +25,13 @@
     };
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    tmp.cleanOnBoot = true;
+  };
 
   networking = {
     hostName = hostname;
@@ -75,15 +80,12 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       discord
-      dolphin
       fd
       firefox-devedition
       freerdp3
-      gimp
       grim
       hyprcursor
       hyprpaper
-      insomnia
       keepass
       libreoffice
       nodejs
@@ -92,14 +94,12 @@
       playerctl
       ripgrep
       rocketchat-desktop
-      simplex-chat-desktop
       slurp
       spotify
       teams-for-linux
       tldr
       tree
       ueberzugpp
-      whatsapp-for-linux
       wl-clipboard
       xdg-utils
     ];
@@ -229,10 +229,7 @@
   fonts.packages = with pkgs; [
     corefonts
     (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-      ];
+      fonts = [ "JetBrainsMono" ];
     })
     recursive
     roboto-mono
@@ -245,7 +242,6 @@
       xwayland.enable = true;
     };
     zsh.enable = true;
-    xonsh.enable = true;
   };
 
   systemd.user.services.kanshi = {
