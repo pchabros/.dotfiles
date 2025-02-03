@@ -87,7 +87,6 @@ lspconfig.pyright.setup({
 })
 lspconfig.ruff_lsp.setup({})
 lspconfig.tailwindcss.setup({})
-lspconfig.hls.setup({})
 lspconfig.nushell.setup({})
 lspconfig.r_language_server.setup({})
 

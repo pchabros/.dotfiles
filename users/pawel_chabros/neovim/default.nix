@@ -46,6 +46,9 @@ in
       which-key-nvim
       tagalong-vim
       targets-vim
+      haskell-tools-nvim
+      # TODO: install kulala
+      kulala.nvim
       {
         plugin = nvim-dap;
         type = "lua";
@@ -340,5 +343,8 @@ in
       ${builtins.readFile ./config/options.lua}
       ${builtins.readFile ./config/plugins/git.lua}
     '';
+  };
+  xdg.configFile = {
+    "nvim/after".source = ./config/after;
   };
 }

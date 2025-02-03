@@ -91,6 +91,7 @@
       nodejs
       nodePackages.nodemon
       openfortivpn
+      pavucontrol
       playerctl
       ripgrep
       rocketchat-desktop

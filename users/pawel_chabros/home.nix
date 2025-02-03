@@ -8,7 +8,6 @@
     ./btop
     ./chromium
     ./direnv
-    ./email
     ./eza
     ./firefox
     ./fuzzel
@@ -19,7 +18,6 @@
     ./hyprpaper
     ./kanshi
     ./lazygit
-    ./lf
     ./neovim
     ./nushell
     ./qutebrowser
