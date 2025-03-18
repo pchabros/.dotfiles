@@ -60,4 +60,3 @@ alias r='radian'
 alias rsh="Rscript -e 'shiny::runApp(launch.browser = TRUE)'"
 
 alias ng='npx -p @angular/cli@latest ng'
-

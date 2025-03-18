@@ -88,6 +88,7 @@
       hyprpaper
       keepass
       libreoffice
+      marp-cli
       nodejs
       nodePackages.nodemon
       openfortivpn

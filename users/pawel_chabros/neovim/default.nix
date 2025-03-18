@@ -48,7 +48,7 @@ in
       targets-vim
       haskell-tools-nvim
       # TODO: install kulala
-      kulala.nvim
+      # kulala.nvim
       {
         plugin = nvim-dap;
         type = "lua";
