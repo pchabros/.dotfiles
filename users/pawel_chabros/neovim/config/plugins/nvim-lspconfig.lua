@@ -65,7 +65,11 @@ lspconfig.html.setup({
     provideFormatter = false,
   },
 })
-lspconfig.cssls.setup({})
+lspconfig.cssls.setup({
+  init_options = {
+    provideFormatter = false
+  }
+})
 lspconfig.emmet_ls.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.angularls.setup({})
