@@ -77,7 +77,7 @@ end
 
 dapui.setup()
 
-wk.register({ d = { name = "Debug" } }, { prefix = "<leader>d" })
+wk.add({ "<leader>d", group = "Debug" })
 
 set("n", "<leader>db", dap.toggle_breakpoint, { desc = " Breakpoint" })
 set("n", "<leader>dc", dap.continue, { desc = " Continue" })

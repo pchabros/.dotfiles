@@ -24,8 +24,10 @@ lsp.on_attach(function(client, bufnr)
   end
 end)
 
-wk.register({ c = { name = "Code" } }, { prefix = "<leader>" })
-wk.register({ c = { name = "Workspace" } }, { prefix = "<leader>" })
+wk.add({
+  { "<leader>c", group = "Code" },
+  { "<leader>w", group = "Workspace" }
+})
 
 set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })

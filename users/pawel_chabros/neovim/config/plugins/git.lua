@@ -2,7 +2,7 @@ local wk = require("which-key")
 
 require('git-conflict').setup()
 
-wk.register({ g = { name = "Git " } }, { prefix = "<leader>" })
+wk.add({ { "<leader>g", group = "Git " } })
 map("n", "<leader>gg", ":LazyGit<cr>", { desc = "Lazy UI" })
 map("n", "<leader>gf", ":LazyGitFilter<cr>", { desc = "Lazy filter" })
 map("n", "<leader>go", ":GitConflictChooseOurs <cr>", { desc = " Ours" })

@@ -1,7 +1,7 @@
 local wk = require("which-key")
 local set = vim.keymap.set
 
-wk.register({ b = { name = "Bookmark" } }, { prefix = "<leader>" })
+wk.add({ { "<leader>b", group = "Bookmark" } })
 
 vim.g.bookmark_sign = ""
 vim.g.bookmark_no_default_key_mappings = 1

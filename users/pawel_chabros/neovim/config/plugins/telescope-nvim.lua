@@ -4,7 +4,7 @@ local action_state = require('telescope.actions.state')
 local set = vim.keymap.set
 local wk = require("which-key")
 
-wk.register({ f = { name = "Telescope" } }, { prefix = "<leader>" })
+wk.add({ { "<leader>f", group = "Telescope" } })
 set("n", "<leader><space>", builtin.git_files, { desc = "Git files" })
 set("n", "<leader>ff", builtin.find_files, { desc = "All files" })
 set("n", "<leader>/", builtin.live_grep, { desc = "Grep files" })
