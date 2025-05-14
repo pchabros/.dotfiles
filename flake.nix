@@ -36,6 +36,10 @@
       url = "github:LukasPietzschmann/telescope-tabs";
       flake = false;
     };
+    csvview = {
+      url = "github:hat0uma/csvview.nvim";
+      flake = false;
+    };
   };
 
   outputs =

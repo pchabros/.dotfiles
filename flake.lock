@@ -96,6 +96,22 @@
         "type": "github"
       }
     },
+    "csvview": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745052723,
+        "narHash": "sha256-n3hWRaW+NizjBS1HIXGXijOGgsCThaN7Xsgi52M4XZ0=",
+        "owner": "hat0uma",
+        "repo": "csvview.nvim",
+        "rev": "6eb9c7293d35c40a71ec1eb9c653d80e8de5a2e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hat0uma",
+        "repo": "csvview.nvim",
+        "type": "github"
+      }
+    },
     "cutlass": {
       "flake": false,
       "locked": {
@@ -993,6 +1009,7 @@
     },
     "root": {
       "inputs": {
+        "csvview": "csvview",
         "cutlass": "cutlass",
         "devenv": "devenv",
         "flash": "flash",

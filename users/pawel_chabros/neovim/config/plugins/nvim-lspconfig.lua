@@ -73,6 +73,7 @@ lspconfig.cssls.setup({
 lspconfig.emmet_ls.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.angularls.setup({})
+lspconfig.statix.setup({})
 lspconfig.nil_ls.setup({
   settings = {
     ['nil'] = {

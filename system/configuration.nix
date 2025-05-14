@@ -35,17 +35,7 @@
 
   networking = {
     hostName = hostname;
-    wireless =
-      if hostname == "nixos" then
-        {
-          enable = true;
-          networks = {
-            "WLAN1-105ND1".pskRaw = "6fbe04f1ae9259eaed7c81fbcece51aefc3d823a15513efcbb04385eb04a2684";
-            "Redmi Note 7".pskRaw = "b6505b31c60c5c9d2dda1697f7b978d2d7e245b2dc488ef01631dcff4ae48ef0";
-          };
-        }
-      else
-        { };
+    networkmanager.enable = true;
   };
 
   time.timeZone = "Europe/Warsaw";
@@ -89,8 +79,6 @@
       keepass
       libreoffice
       marp-cli
-      nodejs
-      nodePackages.nodemon
       openfortivpn
       pavucontrol
       playerctl
@@ -99,6 +87,7 @@
       slurp
       spotify
       teams-for-linux
+      thunderbird
       tldr
       tree
       ueberzugpp
@@ -243,6 +232,7 @@
       enable = true;
       xwayland.enable = true;
     };
+    nm-applet.enable = true;
     zsh.enable = true;
   };
 

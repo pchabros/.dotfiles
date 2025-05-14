@@ -17,6 +17,10 @@ let
       name = "telescope-tabs";
       src = inputs.telescope-tabs;
     };
+    csvview = pkgs.vimUtils.buildVimPlugin {
+      name = "csvview";
+      src = inputs.csvview;
+    };
   };
 in
 {
@@ -58,6 +62,14 @@ in
       }
       nvim-dap-ui
       nvim-dap-python
+
+      {
+        plugin = nvim-dbee;
+        type = "lua";
+        config = ''
+          require('dbee').setup()
+        '';
+      }
       {
         plugin = nvim-highlight-colors;
         type = "lua";
@@ -108,6 +120,13 @@ in
         type = "lua";
         config = ''
           require("todo-comments").setup()
+        '';
+      }
+      {
+        plugin = csvview;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/csvview.lua}
         '';
       }
       {
@@ -315,6 +334,7 @@ in
       emmet-ls
       luajitPackages.jsregexp
       nil
+      statix
       nixfmt-rfc-style
       nodePackages_latest.bash-language-server
       nodePackages_latest.eslint_d
