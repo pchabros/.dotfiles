@@ -50,7 +50,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
     set("n", "gr", vim.lsp.buf.references, opts)
     set("n", "<space>cf", function()
-      vim.lsp.buf.format({ async = true })
+      vim.lsp.buf.format({
+        async = true,
+        filter = function(client) return client.name ~= "ts_ls" end,
+      })
     end, { desc = "Format" })
   end,
 })
@@ -124,7 +127,8 @@ lspconfig.eslint.setup({
       enable = true,
       mode = "all"
     },
-  }
+    format = false,
+  },
 })
 
 vim.diagnostic.config({
