@@ -82,7 +82,7 @@ lspconfig.nil_ls.setup({
   settings = {
     ['nil'] = {
       formatting = {
-        command = { "nixfmt" },
+        command = { "alejandra" },
       },
     },
   },
@@ -132,6 +132,9 @@ lspconfig.eslint.setup({
     format = false,
   },
 })
+
+lspconfig.dockerls.setup({})
+lspconfig.docker_compose_language_service.setup({})
 
 vim.diagnostic.config({
   update_in_insert = true,

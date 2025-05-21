@@ -1,29 +1,33 @@
-{ pkgs, inputs, ... }:
-let
-  vimPlugins = pkgs.vimPlugins // {
-    mini-indentscope = pkgs.vimUtils.buildVimPlugin {
-      name = "mini-indentscope";
-      src = inputs.mini-indentscope;
-    };
-    mini-bufremove = pkgs.vimUtils.buildVimPlugin {
-      name = "mini-bufremove";
-      src = inputs.mini-bufremove;
-    };
-    cutlass = pkgs.vimUtils.buildVimPlugin {
-      name = "cutlass";
-      src = inputs.cutlass;
-    };
-    telescope-tabs = pkgs.vimUtils.buildVimPlugin {
-      name = "telescope-tabs";
-      src = inputs.telescope-tabs;
-    };
-    csvview = pkgs.vimUtils.buildVimPlugin {
-      name = "csvview";
-      src = inputs.csvview;
-    };
-  };
-in
 {
+  pkgs,
+  inputs,
+  ...
+}: let
+  vimPlugins =
+    pkgs.vimPlugins
+    // {
+      mini-indentscope = pkgs.vimUtils.buildVimPlugin {
+        name = "mini-indentscope";
+        src = inputs.mini-indentscope;
+      };
+      mini-bufremove = pkgs.vimUtils.buildVimPlugin {
+        name = "mini-bufremove";
+        src = inputs.mini-bufremove;
+      };
+      cutlass = pkgs.vimUtils.buildVimPlugin {
+        name = "cutlass";
+        src = inputs.cutlass;
+      };
+      telescope-tabs = pkgs.vimUtils.buildVimPlugin {
+        name = "telescope-tabs";
+        src = inputs.telescope-tabs;
+      };
+      csvview = pkgs.vimUtils.buildVimPlugin {
+        name = "csvview";
+        src = inputs.csvview;
+      };
+    };
+in {
   programs.neovim = {
     enable = true;
     vimdiffAlias = true;
@@ -331,17 +335,17 @@ in
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
+      alejandra
+      docker-compose-language-service
+      dockerfile-language-server-nodejs
       emmet-ls
       luajitPackages.jsregexp
       nil
-      statix
       nixfmt-rfc-style
       nodePackages_latest.bash-language-server
       nodePackages_latest.eslint_d
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
-      # nodePackages_latest.typescript
-      # nodePackages_latest.typescript-language-server
       pyright
       python312Packages.python-lsp-server
       ripgrep
@@ -349,6 +353,7 @@ in
       ruff-lsp
       shellcheck
       shfmt
+      statix
       stylua
       sumneko-lua-language-server
       tailwindcss-language-server
