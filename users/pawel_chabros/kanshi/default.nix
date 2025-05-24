@@ -4,8 +4,7 @@
   main-monitor,
   side-monitor,
   ...
-}:
-{
+}: {
   services.kanshi = {
     enable = true;
     systemdTarget = "";
@@ -17,14 +16,14 @@
             criteria = main-monitor;
             status = "enable";
             mode = "3440x1440@50";
-            position = "0,0";
+            position = "1440,0";
           }
           {
             criteria = side-monitor;
             status = "enable";
             mode = "2560x1440@60";
-            position = "3440,0";
-            transform = "270";
+            position = "0,0";
+            transform = "90";
           }
           (lib.mkIf is-laptop {
             criteria = "eDP-1";
@@ -32,9 +31,6 @@
           })
         ];
       }
-      # TODO: check how it works on PC
-      # lib.mkIf
-      # is-laptop
       {
         profile.name = "laptop";
         profile.outputs = [
