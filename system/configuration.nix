@@ -81,6 +81,7 @@
       openfortivpn
       pavucontrol
       playerctl
+      redisinsight
       ripgrep
       rocketchat-desktop
       slurp
