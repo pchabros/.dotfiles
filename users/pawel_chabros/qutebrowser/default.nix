@@ -7,11 +7,11 @@
         preferred_color_scheme = "dark";
         darkmode.enabled = true;
       };
-      fonts.default_family = [ "JetBrainsMono Nerd Font" ];
+      fonts.default_family = ["JetBrainsMono Nerd Font"];
       statusbar = {
         show = "always";
         position = "bottom";
-        widgets = [ "url" "keypress" ];
+        widgets = ["url" "keypress"];
       };
       tabs = {
         indicator.width = 0;
@@ -110,7 +110,7 @@
         "n" = "prompt-accept no";
         "y" = "prompt-accept yes";
       };
-      insert = { "<Escape>" = "mode-leave"; };
+      insert = {"<Escape>" = "mode-leave";};
     };
     extraConfig = ''
       ${builtins.readFile ./config/nord-qutebrowser.py}

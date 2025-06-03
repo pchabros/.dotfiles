@@ -3,37 +3,38 @@
   lib,
   modulesPath,
   ...
-}:
-{
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
+  boot = {
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "thunderbolt"
+      "nvme"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
+    ];
+    initrd.kernelModules = [];
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/b42ebc3b-505d-46a6-9990-2d4e455c7ec6";
+      fsType = "ext4";
+    };
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "thunderbolt"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/b42ebc3b-505d-46a6-9990-2d4e455c7ec6";
-    fsType = "ext4";
+    "/boot" = {
+      device = "/dev/disk/by-uuid/7CD3-E9E2";
+      fsType = "vfat";
+    };
+    "/share" = {
+      device = "/dev/disk/by-uuid/3253-5810";
+      fsType = "vfat";
+    };
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7CD3-E9E2";
-    fsType = "vfat";
-  };
-  fileSystems."/share" = {
-    device = "/dev/disk/by-uuid/3253-5810";
-    fsType = "vfat";
-  };
-
-  swapDevices = [ ];
+  swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;
 

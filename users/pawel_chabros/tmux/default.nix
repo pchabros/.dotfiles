@@ -1,9 +1,13 @@
-{ pkgs, sessionx, ... }: {
+{
+  pkgs,
+  sessionx,
+  ...
+}: {
   programs = {
     tmux = {
       enable = true;
       terminal = "xterm-256color";
-      plugins = with pkgs.tmuxPlugins; [ copycat extrakto sessionx resurrect ];
+      plugins = with pkgs.tmuxPlugins; [copycat extrakto sessionx resurrect];
     };
   };
   xdg.configFile = {

@@ -1,1 +1,1 @@
-{ services.avizo.enable = true; }
+{services.avizo.enable = true;}

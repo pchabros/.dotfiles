@@ -42,49 +42,49 @@
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      username = "pawel_chabros";
-      lib = nixpkgs.lib;
-      devenv-latest = inputs.devenv.packages.${system}.default;
-      sessionx = inputs.tmux-sessionx.packages.${system}.default;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    username = "pawel_chabros";
+    inherit (nixpkgs) lib;
+    devenv-latest = inputs.devenv.packages.${system}.default;
+    sessionx = inputs.tmux-sessionx.packages.${system}.default;
 
-      configs = {
-        nixos = {
-          main-monitor = "HDMI-A-1";
-          side-monitor = "DP-1";
-          version = "23.05";
-        };
-        solaris = {
-          main-monitor = "DP-1";
-          side-monitor = "HDMI-A-1";
-          version = "23.11";
-        };
+    configs = {
+      nixos = {
+        main-monitor = "HDMI-A-1";
+        side-monitor = "DP-1";
+        version = "23.05";
       };
-      buildNixOS =
-        hostname:
-        {
-          main-monitor,
-          side-monitor,
-          version,
-        }:
-        let
-          is-laptop = hostname == "nixos";
-        in
-        lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs hostname username version devenv-latest;
-          };
-          modules = [
-            inputs.xremap.nixosModules.default
-            ./system/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.extraSpecialArgs = {
+      solaris = {
+        main-monitor = "DP-1";
+        side-monitor = "HDMI-A-1";
+        version = "23.11";
+      };
+    };
+    buildNixOS = hostname: {
+      main-monitor,
+      side-monitor,
+      version,
+    }: let
+      is-laptop = hostname == "nixos";
+    in
+      lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs hostname username version devenv-latest;
+        };
+        modules = [
+          inputs.xremap.nixosModules.default
+          ./system/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              extraSpecialArgs = {
                 inherit
                   inputs
                   username
@@ -94,12 +94,12 @@
                   side-monitor
                   ;
               };
-              home-manager.users.${username}.imports = [ ./users/${username}/home.nix ];
-            }
-          ];
-        };
-    in
-    {
-      nixosConfigurations = lib.mapAttrs buildNixOS configs;
-    };
+              users.${username}.imports = [./users/${username}/home.nix];
+            };
+          }
+        ];
+      };
+  in {
+    nixosConfigurations = lib.mapAttrs buildNixOS configs;
+  };
 }

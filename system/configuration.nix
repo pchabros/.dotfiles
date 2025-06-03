@@ -5,8 +5,7 @@
   version,
   devenv-latest,
   ...
-}:
-{
+}: {
   imports = [
     ./${hostname}/hardware-configuration.nix
     ./scripts
@@ -99,7 +98,7 @@
   security = {
     sudo.extraRules = [
       {
-        groups = [ "openfortivpn" ];
+        groups = ["openfortivpn"];
         commands = [
           "/etc/profiles/per-user/pawel_chabros/bin/openfortivpn"
           "${pkgs.openfortivpn}/bin/openfortivpn"
@@ -112,7 +111,7 @@
   hardware = {
     sane = {
       enable = true;
-      extraBackends = [ pkgs.hplipWithPlugin ];
+      extraBackends = [pkgs.hplipWithPlugin];
     };
     printers = {
       ensurePrinters = [
@@ -134,7 +133,7 @@
     blueman.enable = true;
     printing = {
       enable = true;
-      drivers = [ pkgs.hplip ];
+      drivers = [pkgs.hplip];
     };
     dbus.enable = true;
     greetd = {
@@ -191,17 +190,17 @@
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
     };
     mime = {
       enable = true;
       defaultApplications = {
-        "default-web-browser" = [ "firefox-devedition.desktop" ];
-        "text/html" = [ "firefox-devedition.desktop" ];
-        "x-scheme-handler/http" = [ "firefox-devedition.desktop" ];
-        "x-scheme-handler/https" = [ "firefox-devedition.desktop" ];
-        "x-scheme-handler/about" = [ "firefox-devedition.desktop" ];
-        "x-scheme-handler/unknown" = [ "firefox-devedition.desktop" ];
+        "default-web-browser" = ["firefox-devedition.desktop"];
+        "text/html" = ["firefox-devedition.desktop"];
+        "x-scheme-handler/http" = ["firefox-devedition.desktop"];
+        "x-scheme-handler/https" = ["firefox-devedition.desktop"];
+        "x-scheme-handler/about" = ["firefox-devedition.desktop"];
+        "x-scheme-handler/unknown" = ["firefox-devedition.desktop"];
       };
     };
   };
@@ -213,14 +212,14 @@
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
-    systemPackages = (with pkgs; [ wget ]) ++ [ devenv-latest ];
-    pathsToLink = [ "/share/zsh" ];
+    systemPackages = (with pkgs; [wget]) ++ [devenv-latest];
+    pathsToLink = ["/share/zsh"];
   };
 
   fonts.packages = with pkgs; [
     corefonts
     (nerdfonts.override {
-      fonts = [ "JetBrainsMono" ];
+      fonts = ["JetBrainsMono"];
     })
     recursive
     roboto-mono
@@ -247,7 +246,7 @@
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-      "insecure-registries" = [ "docker.registry.anx:5000" ];
+      "insecure-registries" = ["docker.registry.anx:5000"];
     };
   };
 

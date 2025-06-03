@@ -1,1 +1,1 @@
-{ home.file.".xonshrc".text = builtins.readFile ./config/.xonshrc; }
+{home.file.".xonshrc".text = builtins.readFile ./config/.xonshrc;}

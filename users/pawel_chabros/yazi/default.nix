@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   systemDependencies = with pkgs; [
     # unarchiver
     android-tools
@@ -20,9 +19,8 @@ let
     docx2txt
     nbconvert
   ];
-  perlDependencies = with pkgs.perl540Packages; [ ImageExifTool ];
-in
-{
+  perlDependencies = with pkgs.perl540Packages; [ImageExifTool];
+in {
   home.packages = systemDependencies ++ pythonDependencies ++ perlDependencies;
   programs.yazi.enable = true;
   xdg.configFile = {
