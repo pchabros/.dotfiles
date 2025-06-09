@@ -2,9 +2,9 @@
   description = "System configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     devenv.url = "github:cachix/devenv";
@@ -30,10 +30,6 @@
     };
     cutlass = {
       url = "github:gbprod/cutlass.nvim";
-      flake = false;
-    };
-    telescope-tabs = {
-      url = "github:LukasPietzschmann/telescope-tabs";
       flake = false;
     };
     csvview = {

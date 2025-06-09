@@ -18,7 +18,7 @@ lsp.on_attach(function(client, bufnr)
   if client.server_capabilities.completion then
     require("completion").on_attach(client, bufnr)
   end
-  if client.name == "ruff_lsp" then
+  if client.name == "ruff" then
     -- Disable hover in favor of Pyright
     client.server_capabilities.hoverProvider = false
   end
@@ -94,7 +94,7 @@ lspconfig.pyright.setup({
     },
   },
 })
-lspconfig.ruff_lsp.setup({})
+lspconfig.ruff.setup({})
 lspconfig.tailwindcss.setup({})
 lspconfig.nushell.setup({})
 lspconfig.r_language_server.setup({})

@@ -18,10 +18,6 @@
         name = "cutlass";
         src = inputs.cutlass;
       };
-      telescope-tabs = pkgs.vimUtils.buildVimPlugin {
-        name = "telescope-tabs";
-        src = inputs.telescope-tabs;
-      };
       csvview = pkgs.vimUtils.buildVimPlugin {
         name = "csvview";
         src = inputs.csvview;
@@ -233,13 +229,6 @@ in {
         '';
       }
       {
-        plugin = telescope-tabs;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/telescope-tabs.lua}
-        '';
-      }
-      {
         plugin = undotree;
         type = "lua";
         config = ''
@@ -350,7 +339,6 @@ in {
       python312Packages.python-lsp-server
       ripgrep
       ruff
-      ruff-lsp
       shellcheck
       shfmt
       statix

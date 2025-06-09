@@ -2,7 +2,7 @@
   programs = {
     zsh = {
       enable = true;
-      initExtra = builtins.readFile ./config/.zshrc;
+      initContent = builtins.readFile ./config/.zshrc;
       dotDir = ".config/zsh";
       autosuggestion.enable = true;
       enableCompletion = true;
