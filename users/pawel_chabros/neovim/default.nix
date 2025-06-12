@@ -158,13 +158,6 @@ in {
         '';
       }
       {
-        plugin = git-worktree-nvim;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/git-worktree-nvim.lua}
-        '';
-      }
-      {
         plugin = vim-bookmarks;
         type = "lua";
         config = ''

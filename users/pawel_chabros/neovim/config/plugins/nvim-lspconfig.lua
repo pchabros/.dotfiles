@@ -1,5 +1,4 @@
 local lsp = require("lsp-zero")
-local lspconfig = require("lspconfig")
 local wk = require("which-key")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -60,81 +59,106 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-lspconfig.bashls.setup({})
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-})
-lspconfig.html.setup({
-  capabilities = capabilities,
-  init_options = {
-    provideFormatter = false,
+local configs = {
+  angularls = {},
+  bashls = {},
+  cssls = {
+    capabilities = capabilities,
+    init_options = {
+      provideFormatter = false,
+    },
   },
-})
-lspconfig.cssls.setup({
-  init_options = {
-    provideFormatter = false
-  }
-})
-lspconfig.emmet_ls.setup({})
-lspconfig.yamlls.setup({})
-lspconfig.angularls.setup({})
-lspconfig.nil_ls.setup({
-  settings = {
-    ['nil'] = {
-      formatting = {
-        command = { "alejandra" },
+  docker_compose_language_service = {},
+  dockerls = {},
+  emmet_ls = {},
+  eslint = {
+    on_attach = function(_, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "LspEslintFixAll",
+      })
+    end,
+    settings = {
+      codeActionOnSave = {
+        enable = true,
+        mode = "all"
+      },
+      format = false,
+    },
+  },
+  html = {
+    capabilities = capabilities,
+    init_options = {
+      provideFormatter = false,
+    },
+  },
+  lua_ls = {
+    capabilities = capabilities,
+    on_init = function(client)
+      local path = client.workspace_folders[1].name
+      if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then return end
+      client.config.settings.Lua = vim.tbl_deep_extend(
+        'force',
+        client.config.settings.Lua,
+        {
+          runtime = { version = 'LuaJIT' },
+          workspace = {
+            checkThirdParty = false,
+            library = { vim.env.VIMRUNTIME }
+          }
+        }
+      )
+    end,
+    settings = { Lua = {} }
+  },
+  nil_ls = {
+    settings = {
+      ['nil'] = {
+        formatting = { command = { "alejandra" } },
+        nix = {
+          maxMemoryMB = 8192,
+          flake = {
+            autoArchive = true,
+            autoEvalInputs = true,
+          }
+        }
       },
     },
   },
-})
-lspconfig.pyright.setup({
-  settings = {
-    pyright = {
-      disableOrganizeImports = true,
+  nushell = {},
+  pyright = {
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
     },
   },
-})
-lspconfig.ruff.setup({})
-lspconfig.tailwindcss.setup({})
-lspconfig.nushell.setup({})
-lspconfig.r_language_server.setup({})
+  r_language_server = {},
+  ruff = {},
+  tailwindcss = {},
+  ts_ls = {
+    commands = {
+      OrganizeImports = {
+        function()
+          local params = {
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+            title =
+            "",
+          }
+          vim.lsp.buf.execute_command(params)
+        end,
+        description = "Organize Imports",
+      },
+    },
+  },
+  yamlls = {},
+}
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-    title = "",
-  }
-  vim.lsp.buf.execute_command(params)
+for language, config in pairs(configs) do
+  vim.lsp.config(language, config)
+  vim.lsp.enable(language)
 end
-
-lspconfig.tsserver.setup({
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    },
-  },
-})
-
-lspconfig.eslint.setup({
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
-  settings = {
-    codeActionOnSave = {
-      enable = true,
-      mode = "all"
-    },
-    format = false,
-  },
-})
-
-lspconfig.dockerls.setup({})
-lspconfig.docker_compose_language_service.setup({})
 
 vim.diagnostic.config({
   update_in_insert = true,
