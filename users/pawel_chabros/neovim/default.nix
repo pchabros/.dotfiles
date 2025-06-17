@@ -62,7 +62,6 @@ in {
       }
       nvim-dap-ui
       nvim-dap-python
-
       {
         plugin = nvim-dbee;
         type = "lua";
