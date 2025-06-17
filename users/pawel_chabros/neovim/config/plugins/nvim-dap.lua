@@ -41,6 +41,7 @@ local set_python_dap = function()
       request = 'launch',
       name = "Launch file",
       program = "${file}",
+      console = "internalConsole",
     },
     {
       type = 'python',
@@ -82,6 +83,8 @@ wk.add({ "<leader>d", group = "Debug" })
 set("n", "<leader>db", dap.toggle_breakpoint, { desc = " Breakpoint" })
 set("n", "<leader>dc", dap.continue, { desc = " Continue" })
 set("n", "<leader>df", dap_python.test_method, { desc = "Test method" })
+set("n", "<leader>dC", dap_python.test_class, { desc = "Test class" })
+set("n", "<leader>ds", dap_python.debug_selection, { desc = "Debug selection" })
 set("n", "<leader>du", dapui.toggle, { desc = "UI" })
 set('n', '<leader>dd', dap.clear_breakpoints, { desc = "Clear breakpoints" })
 set('n', '<leader>dr', dap.restart, { desc = "󰜉 Restart" })
