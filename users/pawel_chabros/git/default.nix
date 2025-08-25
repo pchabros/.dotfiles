@@ -9,19 +9,24 @@
       delta.enable = true;
       aliases = {cwt = "!clone-for-worktrees";};
       extraConfig =
-        if is-laptop
-        then {
-          "includeIf \"gitdir:~/.dotfiles/\"" = {
-            path = "${./config/config-personal}";
-          };
-          "includeIf \"gitdir:~/wd/\"" = {
-            path = "${./config/config-personal}";
-          };
-          "includeIf \"gitdir:~/\"" = {path = "${./config/config-anx}";};
+        {
+          rerere.enabled = true;
         }
-        else {
-          "includeIf \"gitdir:~/\"" = {path = "${./config/config-personal}";};
-        };
+        // (
+          if is-laptop
+          then {
+            "includeIf \"gitdir:~/.dotfiles/\"" = {
+              path = "${./config/config-personal}";
+            };
+            "includeIf \"gitdir:~/wd/\"" = {
+              path = "${./config/config-personal}";
+            };
+            "includeIf \"gitdir:~/\"" = {path = "${./config/config-anx}";};
+          }
+          else {
+            "includeIf \"gitdir:~/\"" = {path = "${./config/config-personal}";};
+          }
+        );
     };
     gh = {
       enable = true;
