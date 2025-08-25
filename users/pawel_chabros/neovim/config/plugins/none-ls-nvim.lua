@@ -1,9 +1,12 @@
+local null_ls = require("null-ls")
+local helpers = require("null-ls.helpers")
+local methods = require("null-ls.methods")
 local formatting = require("null-ls").builtins.formatting
 local diagnostics = require("null-ls").builtins.diagnostics
 local code_actions = require("null-ls").builtins.code_actions
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require("null-ls").setup({
+null_ls.setup({
   sources = {
     code_actions.refactoring,
     code_actions.statix,
@@ -31,3 +34,18 @@ require("null-ls").setup({
     end
   end,
 })
+
+local nginx_config_formatter = helpers.make_builtin({
+  name = "nginx_config_formatter",
+  method = methods.internal.FORMATTING,
+  filetypes = { "nginx" },
+  generator_opts = {
+    command = "nginxfmt",
+    args = { "$FILENAME" },
+    to_temp_file = true,
+    from_temp_file = true,
+  },
+  factory = helpers.formatter_factory,
+})
+
+null_ls.register(nginx_config_formatter)

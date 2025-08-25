@@ -320,6 +320,7 @@ in {
       dockerfile-language-server-nodejs
       emmet-ls
       luajitPackages.jsregexp
+      nginx-config-formatter
       nginx-language-server
       nil
       nixfmt-rfc-style
