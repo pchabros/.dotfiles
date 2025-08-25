@@ -111,6 +111,7 @@ local configs = {
     end,
     settings = { Lua = {} }
   },
+  nginx_language_server = {},
   nil_ls = {
     settings = {
       ['nil'] = {
@@ -143,8 +144,7 @@ local configs = {
           local params = {
             command = "_typescript.organizeImports",
             arguments = { vim.api.nvim_buf_get_name(0) },
-            title =
-            "",
+            title = "",
           }
           vim.lsp.buf.execute_command(params)
         end,

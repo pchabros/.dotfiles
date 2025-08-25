@@ -51,8 +51,7 @@ in {
       tagalong-vim
       targets-vim
       haskell-tools-nvim
-      # TODO: install kulala
-      # kulala.nvim
+      rest-nvim
       {
         plugin = nvim-dap;
         type = "lua";
@@ -321,6 +320,7 @@ in {
       dockerfile-language-server-nodejs
       emmet-ls
       luajitPackages.jsregexp
+      nginx-language-server
       nil
       nixfmt-rfc-style
       nodePackages_latest.bash-language-server
