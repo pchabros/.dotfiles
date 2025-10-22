@@ -1,31 +1,17 @@
 {pkgs, ...}: {
   users.users.pawel_chabros = {
-    extraGroups = [
-      "openfortivpn"
-    ];
     packages = with pkgs; [
-      freerdp3
       keepass
-      libreoffice
-      openfortivpn
-      redisinsight
-      rocketchat-desktop
       teams-for-linux
       thunderbird
+      websocat
     ];
   };
-
-  security.sudo.extraRules = [
-    {
-      groups = ["openfortivpn"];
-      commands = [
-        "/etc/profiles/per-user/pawel_chabros/bin/openfortivpn"
-        "${pkgs.openfortivpn}/bin/openfortivpn"
-      ];
-    }
-  ];
-
   services = {
     blueman.enable = true;
+  };
+  networking.wg-quick.interfaces = {
+    qrk1.configFile = "/home/pawel_chabros/.config/vscode/pchabros1.conf";
+    # qrk2.configFile = "/home/pawel_chabros/.config/vscode/pchabros2.conf";
   };
 }

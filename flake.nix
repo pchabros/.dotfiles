@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv";
     xremap.url = "github:xremap/nix-flake";
     nix-colors.url = "github:misterio77/nix-colors";
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
@@ -46,14 +45,13 @@
     system = "x86_64-linux";
     username = "pawel_chabros";
     inherit (nixpkgs) lib;
-    devenv-latest = inputs.devenv.packages.${system}.default;
     sessionx = inputs.tmux-sessionx.packages.${system}.default;
 
     configs = {
       nixos = {
         main-monitor = "HDMI-A-1";
-        side-monitor = "DP-1";
-        version = "23.05";
+        side-monitor = "DP-2";
+        version = "25.05";
       };
       solaris = {
         main-monitor = "DP-1";
@@ -71,7 +69,7 @@
       lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs hostname username version devenv-latest;
+          inherit inputs hostname username version;
         };
         modules = [
           inputs.xremap.nixosModules.default

@@ -127,6 +127,7 @@ local configs = {
     },
   },
   nushell = {},
+  postgres_lsp = {},
   pyright = {
     settings = {
       pyright = {
@@ -136,7 +137,13 @@ local configs = {
   },
   r_language_server = {},
   ruff = {},
-  tailwindcss = {},
+  tailwindcss = {
+    settings = {
+      tailwindCSS = {
+        classFunctions = { "cva", "cx" },
+      },
+    },
+  },
   ts_ls = {
     commands = {
       OrganizeImports = {

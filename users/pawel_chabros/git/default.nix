@@ -21,7 +21,7 @@
             "includeIf \"gitdir:~/wd/\"" = {
               path = "${./config/config-personal}";
             };
-            "includeIf \"gitdir:~/\"" = {path = "${./config/config-anx}";};
+            "includeIf \"gitdir:~/\"" = {path = "${./config/config-qrk}";};
           }
           else {
             "includeIf \"gitdir:~/\"" = {path = "${./config/config-personal}";};

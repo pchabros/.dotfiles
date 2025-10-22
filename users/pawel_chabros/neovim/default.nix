@@ -47,6 +47,9 @@ in {
       plenary-nvim
       vim-nix
       vim-tmux-navigator
+      vim-dadbod
+      vim-dadbod-ui
+      vim-dadbod-completion
       which-key-nvim
       tagalong-vim
       targets-vim
@@ -325,9 +328,11 @@ in {
       nil
       nixfmt-rfc-style
       nodePackages_latest.bash-language-server
-      nodePackages_latest.eslint_d
+      nodePackages_latest.eslint
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
+      postgres-lsp
+      postgresql
       pyright
       python312Packages.python-lsp-server
       ripgrep

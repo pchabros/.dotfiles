@@ -3,7 +3,6 @@
   hostname,
   username,
   version,
-  devenv-latest,
   ...
 }: {
   nix = {
@@ -73,6 +72,7 @@
       hyprcursor
       hyprpaper
       marp-cli
+      nautilus
       pavucontrol
       playerctl
       ripgrep
@@ -188,7 +188,7 @@
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
-    systemPackages = (with pkgs; [wget]) ++ [devenv-latest];
+    systemPackages = with pkgs; [wget];
     pathsToLink = ["/share/zsh"];
   };
 
