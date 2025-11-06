@@ -322,6 +322,7 @@ in {
       docker-compose-language-service
       dockerfile-language-server-nodejs
       emmet-ls
+      gitlab-ci-ls
       luajitPackages.jsregexp
       nginx-config-formatter
       nginx-language-server

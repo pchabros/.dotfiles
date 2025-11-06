@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xremap.url = "github:xremap/nix-flake";
     nix-colors.url = "github:misterio77/nix-colors";
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
@@ -40,6 +44,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    sops-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -73,6 +78,7 @@
         };
         modules = [
           inputs.xremap.nixosModules.default
+          sops-nix.nixosModules.sops
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           {

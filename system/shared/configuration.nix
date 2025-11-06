@@ -65,6 +65,7 @@
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      age
       discord
       fd
       firefox-devedition
@@ -222,6 +223,15 @@
     enable = true;
     daemon.settings = {
       "insecure-registries" = ["docker.registry.anx:5000"];
+    };
+  };
+
+  sops = {
+    defaultSopsFile = ../../secrets/env.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    secrets."neovim/gitlab/token" = {
+      owner = username;
     };
   };
 
