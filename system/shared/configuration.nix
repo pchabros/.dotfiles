@@ -207,6 +207,7 @@
       enable = true;
       xwayland.enable = true;
     };
+    nix-ld.enable = true;
     nm-applet.enable = true;
     zsh.enable = true;
   };
