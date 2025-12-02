@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs = {
     zsh = {
       enable = true;
       initContent = builtins.readFile ./config/.zshrc;
-      dotDir = ".config/zsh";
+      dotDir = "${config.home.homeDirectory}/.config/.zsh";
       autosuggestion.enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;

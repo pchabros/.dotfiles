@@ -199,7 +199,7 @@
     nerd-fonts.jetbrains-mono
     recursive
     roboto-mono
-    vistafonts
+    vista-fonts
   ];
 
   programs = {

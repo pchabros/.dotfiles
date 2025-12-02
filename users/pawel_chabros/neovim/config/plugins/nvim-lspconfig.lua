@@ -139,6 +139,7 @@ local configs = {
       },
     },
   },
+  tombi = {},
   ts_ls = {
     commands = {
       OrganizeImports = {

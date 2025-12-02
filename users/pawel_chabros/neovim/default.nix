@@ -320,7 +320,7 @@ in {
     extraPackages = with pkgs; [
       alejandra
       docker-compose-language-service
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
       emmet-ls
       gitlab-ci-ls
       luajitPackages.jsregexp
@@ -332,7 +332,7 @@ in {
       nodePackages_latest.eslint
       nodePackages_latest.nodejs
       nodePackages_latest.prettier
-      postgres-lsp
+      postgres-language-server
       postgresql
       pyright
       python312Packages.python-lsp-server
@@ -342,8 +342,9 @@ in {
       shfmt
       statix
       stylua
-      sumneko-lua-language-server
+      lua-language-server
       tailwindcss-language-server
+      tombi
       vscode-langservers-extracted
       wl-clipboard
       yaml-language-server
