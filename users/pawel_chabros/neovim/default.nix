@@ -55,6 +55,7 @@ in {
       targets-vim
       haskell-tools-nvim
       rest-nvim
+      vim-easy-align
       {
         plugin = nvim-dap;
         type = "lua";
@@ -64,6 +65,12 @@ in {
       }
       nvim-dap-ui
       nvim-dap-python
+      {
+        plugin = cornelis;
+        config = ''
+          ${builtins.readFile ./config/plugins/cornelis.vim}
+        '';
+      }
       {
         plugin = nvim-dbee;
         type = "lua";
@@ -318,7 +325,9 @@ in {
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
+      haskellPackages.agda-language-server
       alejandra
+      cornelis
       docker-compose-language-service
       dockerfile-language-server
       emmet-ls
