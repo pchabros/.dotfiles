@@ -21,9 +21,16 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      limine = {
         enable = true;
-        configurationLimit = 5;
+        maxGenerations = 5;
+        style = {
+          interface = {
+            brandingColor = 0;
+            helpHidden = true;
+            resolution = "3440x1440";
+          };
+        };
       };
       timeout = 1;
     };
@@ -76,6 +83,7 @@
       nautilus
       pavucontrol
       playerctl
+      sbctl
       ripgrep
       slurp
       spotify
