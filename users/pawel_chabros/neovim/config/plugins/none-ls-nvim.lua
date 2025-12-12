@@ -11,8 +11,7 @@ null_ls.setup({
     code_actions.refactoring,
     code_actions.statix,
     diagnostics.statix,
-    -- formatting.prettierd, -- not updated to Angular v17
-    formatting.prettier,
+    formatting.prettierd,
     formatting.shfmt,
   },
   on_attach = function(client, bufnr)
