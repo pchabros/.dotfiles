@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local configs = {
   agda_ls = {},
-  angularls = {},
+  -- angularls = {},
   bashls = {},
   cssls = {
     capabilities = capabilities,

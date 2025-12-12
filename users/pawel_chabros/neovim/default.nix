@@ -325,7 +325,7 @@ in {
       FixCursorHold-nvim
     ];
     extraPackages = with pkgs; [
-      haskellPackages.agda-language-server
+      # haskellPackages.agda-language-server
       alejandra
       cornelis
       docker-compose-language-service
@@ -340,9 +340,9 @@ in {
       nodePackages_latest.bash-language-server
       nodePackages_latest.eslint
       nodePackages_latest.nodejs
-      nodePackages_latest.prettier
       postgres-language-server
       postgresql
+      prettierd
       pyright
       python312Packages.python-lsp-server
       ripgrep
