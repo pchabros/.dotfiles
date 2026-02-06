@@ -45,6 +45,7 @@ in {
       nvim-notify
       nvim-web-devicons
       plenary-nvim
+      vim-just
       vim-nix
       vim-tmux-navigator
       vim-dadbod

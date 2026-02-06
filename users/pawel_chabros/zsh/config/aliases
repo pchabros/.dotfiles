@@ -35,16 +35,9 @@ dcr() {
   docker compose run --rm "$1" sh -c "$2"
 }
 
-alias hc='npx hardhat compile'
-alias hn='npx hardhat node'
-alias ht='npx hardhat test'
-alias hr='npx hardhat run scripts/run.js'
-alias hd='npx hardhat run scripts/deploy.js'
-alias hdl='npx hardhat run scripts/deploy.js --network localhost'
-alias hdr='npx hardhat run scripts/deploy.js --network rinkeby'
-
 alias cd='z'
 
+alias j='just'
 alias nv='nvim'
 alias zh='zathura'
 alias open='xdg-open'
@@ -53,9 +46,5 @@ alias tree='tree -C'
 
 alias d='dirs -v'
 for index ({1...9}) alias "$index"="cd +${index}"; unset index
-
-alias r='radian'
-
-alias rsh="Rscript -e 'shiny::runApp(launch.browser = TRUE)'"
 
 alias ng='npx -p @angular/cli@latest ng'

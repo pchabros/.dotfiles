@@ -83,14 +83,15 @@
       nautilus
       pavucontrol
       playerctl
-      sbctl
       ripgrep
+      sbctl
       slurp
       spotify
       thunderbird
       tldr
       tree
       ueberzugpp
+      unzip
       wl-clipboard
       xdg-utils
     ];
