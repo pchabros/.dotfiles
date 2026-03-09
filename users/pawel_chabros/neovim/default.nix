@@ -345,7 +345,8 @@ in {
       postgresql
       prettierd
       pyright
-      python312Packages.python-lsp-server
+      python3Packages.python-lsp-server
+      python3Packages.pylsp-mypy
       ripgrep
       ruff
       shellcheck

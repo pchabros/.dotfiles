@@ -132,6 +132,11 @@ local configs = {
       },
     },
   },
+  pyls = {
+    plugins = {
+      pyls_mypy = { enabled = true }
+    }
+  },
   r_language_server = {},
   ruff = {},
   tailwindcss = {
