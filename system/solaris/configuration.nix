@@ -1,4 +1,9 @@
-{
+{pkgs, ...}: {
+  users.users.pawel_chabros = {
+    packages = with pkgs; [
+      electrum
+    ];
+  };
   services = {
     udev.extraRules = ''
       # CMSIS-DAP for microbit
