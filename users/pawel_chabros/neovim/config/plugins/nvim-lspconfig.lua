@@ -69,6 +69,7 @@ local configs = {
       provideFormatter = false,
     },
   },
+  clangd = {},
   docker_compose_language_service = {},
   dockerls = {},
   emmet_ls = {},
