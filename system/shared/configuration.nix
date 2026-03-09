@@ -79,6 +79,7 @@
       grim
       hyprcursor
       hyprpaper
+      libreoffice
       marp-cli
       nautilus
       pavucontrol

@@ -7,7 +7,6 @@
     packages = with pkgs; [
       clamav
       keepass
-      libreoffice
       teams-for-linux
       thunderbird
       websocat
