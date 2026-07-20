@@ -237,14 +237,5 @@
     };
   };
 
-  sops = {
-    defaultSopsFile = ../../secrets/env.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
-    secrets."neovim/gitlab/token" = {
-      owner = username;
-    };
-  };
-
   system.stateVersion = version;
 }

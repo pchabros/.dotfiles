@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  username,
   ...
 }: {
   users.users.pawel_chabros = {
@@ -18,6 +19,14 @@
       daemon.enable = true;
       scanner.enable = true;
       updater.enable = true;
+    };
+  };
+  sops = {
+    defaultSopsFile = ../../secrets/env.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    secrets."neovim/gitlab/token" = {
+      owner = username;
     };
   };
   programs.zsh.shellInit = ''

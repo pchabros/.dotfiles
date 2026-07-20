@@ -8,4 +8,5 @@
       };
     };
   };
+  home.file.".mozilla/firefox/profiles.ini".force = true;
 }
