@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -7,6 +7,6 @@
         "gfx.webrender.all" = true;
       };
     };
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
-  home.file.".mozilla/firefox/profiles.ini".force = true;
 }

@@ -27,6 +27,8 @@ in {
   programs.neovim = {
     enable = true;
     vimdiffAlias = true;
+    withRuby = false;
+    withPython3 = true;
     plugins = with vimPlugins; [
       cmp-buffer
       cmp-nvim-lsp
@@ -68,15 +70,9 @@ in {
       nvim-dap-python
       {
         plugin = cornelis;
+        type = "viml";
         config = ''
           ${builtins.readFile ./config/plugins/cornelis.vim}
-        '';
-      }
-      {
-        plugin = nvim-dbee;
-        type = "lua";
-        config = ''
-          require('dbee').setup()
         '';
       }
       {
@@ -314,13 +310,6 @@ in {
           ${builtins.readFile ./config/plugins/neotest.lua}
         '';
       }
-      {
-        plugin = rustaceanvim;
-        type = "lua";
-        config = ''
-          ${builtins.readFile ./config/plugins/rustaceanvim.lua}
-        '';
-      }
       neotest-jest
       neotest-python
       FixCursorHold-nvim
@@ -333,14 +322,20 @@ in {
       dockerfile-language-server
       emmet-ls
       gitlab-ci-ls
+      luaPackages.tree-sitter-cli
+      haskell-language-server
+      haskellPackages.hoogle
+      haskellPackages.fast-tags
+      haskellPackages.haskell-debug-adapter
+      haskellPackages.ghci-dap
       luajitPackages.jsregexp
       nginx-config-formatter
       nginx-language-server
       nil
-      nixfmt-rfc-style
-      nodePackages_latest.bash-language-server
-      nodePackages_latest.eslint
-      nodePackages_latest.nodejs
+      nixfmt
+      bash-language-server
+      eslint
+      nodejs
       postgres-language-server
       postgresql
       prettierd
@@ -360,7 +355,7 @@ in {
       wl-clipboard
       yaml-language-server
     ];
-    extraLuaConfig = ''
+    initLua = ''
       ${builtins.readFile ./config/utils.lua}
       ${builtins.readFile ./config/autocmds.lua}
       ${builtins.readFile ./config/keymaps.lua}

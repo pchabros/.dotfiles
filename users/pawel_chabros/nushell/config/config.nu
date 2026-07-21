@@ -22,7 +22,6 @@ def dcr [container: string, command: string] {
   docker compose run --rm $container sh -c $command
 }
 
-alias ya = yazi
 alias nv = nvim
 alias zh = zathura
 alias r = radian

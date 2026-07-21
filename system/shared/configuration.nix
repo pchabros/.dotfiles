@@ -26,7 +26,6 @@
         maxGenerations = 5;
         style = {
           interface = {
-            brandingColor = 0;
             helpHidden = true;
             resolution = "3440x1440";
           };

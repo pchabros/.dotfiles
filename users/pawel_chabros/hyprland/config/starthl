@@ -4,4 +4,4 @@ cd ~ || exit
 
 dbus-launch --sh-syntax --exit-with-session
 
-exec Hyprland
+exec start-hyprland

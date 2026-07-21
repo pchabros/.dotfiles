@@ -9,6 +9,7 @@
       package = pkgs.gnome-themes-extra;
       name = "Adwaita";
     };
+    gtk4.theme = null;
   };
   home.pointerCursor = {
     gtk.enable = true;
