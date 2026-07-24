@@ -1,40 +1,5 @@
 {
-  pkgs,
-  config,
-  username,
-  ...
-}: {
-  users.users.pawel_chabros = {
-    packages = with pkgs; [
-      clamav
-      keepass
-      teams-for-linux
-      thunderbird
-      websocat
-    ];
-  };
   services = {
     blueman.enable = true;
-    clamav = {
-      daemon.enable = true;
-      scanner.enable = true;
-      updater.enable = true;
-    };
-  };
-  sops = {
-    defaultSopsFile = ../../secrets/env.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
-    secrets."neovim/gitlab/token" = {
-      owner = username;
-    };
-  };
-  programs.zsh.shellInit = ''
-    export GITLAB_VIM_URL='https://gitlab.quark.local/'
-    export GITLAB_TOKEN=$(cat ${config.sops.secrets."neovim/gitlab/token".path})
-  '';
-  networking.wg-quick.interfaces = {
-    qrk1.configFile = "/home/pawel_chabros/.config/vscode/pchabros1.conf";
-    # qrk2.configFile = "/home/pawel_chabros/.config/vscode/pchabros2.conf";
   };
 }

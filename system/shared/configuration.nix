@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   hostname,
   username,
   version,
@@ -72,6 +73,7 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       age
+      clamav
       discord
       fd
       firefox-devedition
@@ -126,6 +128,12 @@
       drivers = [pkgs.hplip];
     };
     dbus.enable = true;
+    clamav = {
+      daemon.enable = true;
+      scanner.enable = true;
+      updater.enable = true;
+    };
+    kolide-launcher.enable = true;
     greetd = {
       enable = true;
       settings = rec {
@@ -193,6 +201,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  age = {
+    identityPaths = ["/home/${username}/.ssh/id_ed25519"];
+    secrets.kolide = {
+      file = ../../secrets/kolide.age;
+      mode = "0600";
+    };
+  };
+
   environment = {
     localBinInPath = true;
     sessionVariables = {
@@ -200,6 +216,10 @@
     };
     systemPackages = with pkgs; [wget];
     pathsToLink = ["/share/zsh"];
+    etc."kolide-k2/secret" = {
+      mode = "0600";
+      text = config.age.secrets.kolide.path;
+    };
   };
 
   fonts.packages = with pkgs; [

@@ -7,8 +7,9 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
+    kolide-launcher = {
+      url = "github:/kolide/nix-agent/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xremap.url = "github:xremap/nix-flake";
@@ -44,7 +45,8 @@
   outputs = {
     nixpkgs,
     home-manager,
-    sops-nix,
+    agenix,
+    kolide-launcher,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -78,7 +80,11 @@
         };
         modules = [
           inputs.xremap.nixosModules.default
-          sops-nix.nixosModules.sops
+          agenix.nixosModules.default
+          {
+            environment.systemPackages = [agenix.packages.${system}.default];
+          }
+          kolide-launcher.nixosModules.kolide-launcher
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           {
