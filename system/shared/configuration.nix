@@ -89,6 +89,7 @@
       playerctl
       ripgrep
       sbctl
+      slack
       slurp
       spotify
       thunderbird
