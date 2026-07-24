@@ -130,6 +130,7 @@
       enable = true;
       drivers = [pkgs.hplip];
     };
+    udisks2.enable = true;
     dbus.enable = true;
     clamav = {
       daemon.enable = true;
@@ -217,7 +218,7 @@
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
-    systemPackages = with pkgs; [wget];
+    systemPackages = with pkgs; [wget udiskie];
     pathsToLink = ["/share/zsh"];
     etc."kolide-k2/secret" = {
       mode = "0600";
