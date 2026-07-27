@@ -35,6 +35,7 @@
       timeout = 1;
     };
     tmp.cleanOnBoot = true;
+    plymouth.enable = true;
   };
 
   networking = {
@@ -78,7 +79,6 @@
       clamav
       discord
       fd
-      firefox-devedition
       grim
       hyprcursor
       hyprpaper
@@ -253,12 +253,7 @@
     };
   };
 
-  virtualisation.docker = {
-    enable = true;
-    daemon.settings = {
-      "insecure-registries" = ["docker.registry.anx:5000"];
-    };
-  };
+  virtualisation.docker.enable = true;
 
   system.stateVersion = version;
 }

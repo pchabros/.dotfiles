@@ -8,7 +8,7 @@
     ./chromium
     ./direnv
     ./eza
-    ./firefox
+    # ./firefox # TODO: fix
     ./fuzzel
     ./fzf
     ./git

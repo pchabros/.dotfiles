@@ -57,8 +57,8 @@
     configs = {
       nixos = {
         main-monitor = "HDMI-A-1";
-        side-monitor = "DP-1";
-        version = "25.05";
+        side-monitor = "DP-2";
+        version = "23.11"; # TODO: Try to fix for "26.05"
       };
       solaris = {
         main-monitor = "DP-1";
