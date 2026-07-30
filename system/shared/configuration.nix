@@ -77,6 +77,7 @@
       _1password-cli
       age
       clamav
+      claude-code
       discord
       fd
       grim

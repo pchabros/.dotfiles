@@ -5,12 +5,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local set = vim.keymap.set
 
-lsp.format_on_save({
-  servers = {
-    ["rust-analyzer"] = { "rust" },
-  },
-})
-
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
   client.server_capabilities.semanticTokensProvider = nil
@@ -28,8 +22,8 @@ wk.add({
   { "<leader>w", group = "Workspace" }
 })
 
-set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Previous diagnostic" })
+set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Next diagnostic" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -162,7 +156,23 @@ local configs = {
       },
     },
   },
-  yamlls = {},
+  yamlls = require("yaml-companion").setup({
+    keys = {
+      include_values = true,
+    },
+    modeline = {
+      auto_add = {
+        on_attach = true,
+      },
+      overwrite_existing = true,
+      validate_urls = true,
+    },
+    cluster_crds = {
+      fallback = true,
+      auto_apply = "lsp",
+    },
+  }),
+  helm_ls = {},
 }
 
 for language, config in pairs(configs) do
@@ -172,16 +182,12 @@ end
 
 vim.diagnostic.config({
   update_in_insert = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+  },
 })
-
--- diagnostic icons
-local signs = {
-  Error = "",
-  Warn = "",
-  Hint = "",
-  Info = "",
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end

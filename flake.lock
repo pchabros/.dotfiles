@@ -909,7 +909,8 @@
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_2",
         "tmux-sessionx": "tmux-sessionx",
-        "xremap": "xremap"
+        "xremap": "xremap",
+        "yaml-companion-nvim": "yaml-companion-nvim"
       }
     },
     "systems": {
@@ -1065,6 +1066,22 @@
         "owner": "k0kubun",
         "ref": "v0.10.11",
         "repo": "xremap",
+        "type": "github"
+      }
+    },
+    "yaml-companion-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784019874,
+        "narHash": "sha256-mz/DypHWY/wMK0M/eg9YUg7XAGGckcFu3Mc9MYiSwLE=",
+        "owner": "mosheavni",
+        "repo": "yaml-companion.nvim",
+        "rev": "93a5f121a78d535b9451609d1c54fdde6ce3c8b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mosheavni",
+        "repo": "yaml-companion.nvim",
         "type": "github"
       }
     }

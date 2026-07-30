@@ -26,12 +26,21 @@ in {
           "hyprland/workspaces"
         ];
         modules-right = [
+          "battery"
           "tray"
           "clock"
         ];
         tray = {
           "icon-size" = 16;
           spacing = 8;
+        };
+        battery = {
+          format = "{capacity}%";
+          format-charging = "⚡ {capacity}%";
+          states = {
+            warning = 30;
+            critical = 15;
+          };
         };
       };
     };

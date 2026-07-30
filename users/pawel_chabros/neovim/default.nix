@@ -22,6 +22,10 @@
         name = "csvview";
         src = inputs.csvview;
       };
+      yaml-companion-nvim = pkgs.vimUtils.buildVimPlugin {
+        name = "yaml-companion-nvim";
+        src = inputs.yaml-companion-nvim;
+      };
     };
 in {
   programs.neovim = {
@@ -59,6 +63,8 @@ in {
       haskell-tools-nvim
       rest-nvim
       vim-easy-align
+      SchemaStore-nvim
+      yaml-companion-nvim
       {
         plugin = nvim-dap;
         type = "lua";
@@ -328,6 +334,8 @@ in {
       haskellPackages.fast-tags
       haskellPackages.haskell-debug-adapter
       haskellPackages.ghci-dap
+      helm-ls
+      kube-linter
       luajitPackages.jsregexp
       nginx-config-formatter
       nginx-language-server

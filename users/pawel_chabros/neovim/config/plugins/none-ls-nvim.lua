@@ -10,6 +10,7 @@ null_ls.setup({
   sources = {
     code_actions.refactoring,
     code_actions.statix,
+    -- diagnostics.kube_linter, -- TODO: Comment out after `none-ls` update
     diagnostics.statix,
     formatting.prettierd,
     formatting.shfmt,

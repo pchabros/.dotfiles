@@ -40,6 +40,11 @@
       url = "github:hat0uma/csvview.nvim";
       flake = false;
     };
+    yaml-companion-nvim = {
+      # TODO: try to use nixpkgs version after update
+      url = "github:mosheavni/yaml-companion.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
