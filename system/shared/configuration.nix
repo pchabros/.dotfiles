@@ -126,6 +126,10 @@
   };
 
   services = {
+    openvpn.servers.work = {
+      config = "config /etc/openvpn/Pawel.Chabros.ovpn";
+      updateResolvConf = true;
+    };
     printing = {
       enable = true;
       drivers = [pkgs.hplip];
