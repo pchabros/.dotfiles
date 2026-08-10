@@ -1,5 +1,5 @@
 local install_parser_and_enable_features = function(event)
-  local lang = event.match
+  local lang = vim.treesitter.language.get_lang(event.match) or event.match
   local ok, _ = pcall(vim.treesitter.start, event.buf, lang)
   if not ok then return end
 end

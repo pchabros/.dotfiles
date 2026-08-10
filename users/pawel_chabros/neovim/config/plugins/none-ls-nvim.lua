@@ -12,8 +12,11 @@ null_ls.setup({
     code_actions.statix,
     -- diagnostics.kube_linter, -- TODO: Comment out after `none-ls` update
     diagnostics.statix,
+    diagnostics.terraform_validate,
+    diagnostics.trivy,
     formatting.prettierd,
     formatting.shfmt,
+    formatting.terraform_fmt,
   },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
