@@ -73,11 +73,7 @@
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      _1password-gui
-      _1password-cli
-      age
       clamav
-      claude-code
       discord
       fd
       grim
@@ -90,10 +86,8 @@
       playerctl
       ripgrep
       sbctl
-      slack
       slurp
       spotify
-      thunderbird
       tldr
       tree
       ueberzugpp
@@ -127,10 +121,6 @@
   };
 
   services = {
-    openvpn.servers.work = {
-      config = "config /etc/openvpn/Pawel.Chabros.ovpn";
-      updateResolvConf = true;
-    };
     printing = {
       enable = true;
       drivers = [pkgs.hplip];
@@ -142,7 +132,6 @@
       scanner.enable = true;
       updater.enable = true;
     };
-    kolide-launcher.enable = true;
     greetd = {
       enable = true;
       settings = rec {
@@ -190,33 +179,12 @@
     };
   };
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
-    };
-    mime = {
-      enable = true;
-      defaultApplications = {
-        "default-web-browser" = ["firefox-devedition.desktop"];
-        "text/html" = ["firefox-devedition.desktop"];
-        "x-scheme-handler/http" = ["firefox-devedition.desktop"];
-        "x-scheme-handler/https" = ["firefox-devedition.desktop"];
-        "x-scheme-handler/about" = ["firefox-devedition.desktop"];
-        "x-scheme-handler/unknown" = ["firefox-devedition.desktop"];
-      };
-    };
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  age = {
-    identityPaths = ["/home/${username}/.ssh/id_ed25519"];
-    secrets.kolide = {
-      file = ../../secrets/kolide.age;
-      mode = "0600";
-    };
-  };
 
   environment = {
     localBinInPath = true;
@@ -225,10 +193,6 @@
     };
     systemPackages = with pkgs; [wget udiskie];
     pathsToLink = ["/share/zsh"];
-    etc."kolide-k2/secret" = {
-      mode = "0600";
-      text = config.age.secrets.kolide.path;
-    };
   };
 
   fonts.packages = with pkgs; [
