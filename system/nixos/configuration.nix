@@ -30,6 +30,6 @@
 
   environment.etc."kolide-k2/secret" = {
     mode = "0600";
-    text = config.age.secrets.kolide.path;
+    source = config.age.secrets.kolide.path;
   };
 }
