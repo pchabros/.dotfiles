@@ -36,6 +36,7 @@
     };
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
+    kernelParams = ["quiet" "splash"];
   };
 
   networking = {
