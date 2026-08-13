@@ -20,6 +20,13 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*nginx*.conf", "*/nginx/*.conf" },
+  callback = function()
+    vim.bo.filetype = "nginx"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
   callback = function()
