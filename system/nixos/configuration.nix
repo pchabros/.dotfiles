@@ -5,8 +5,6 @@
   ...
 }: {
   users.users.pawel_chabros.packages = with pkgs; [
-    _1password-gui
-    _1password-cli
     age
     claude-code
     slack
