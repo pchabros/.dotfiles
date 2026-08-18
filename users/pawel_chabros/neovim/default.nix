@@ -358,11 +358,6 @@ in {
       stylua
       lua-language-server
       tailwindcss-language-server
-      (terraform.withPlugins (p: [
-        p.hashicorp_aws
-        p.hashicorp_azurerm
-        p.hashicorp_tls
-      ]))
       terraform-ls
       trivy
       tombi

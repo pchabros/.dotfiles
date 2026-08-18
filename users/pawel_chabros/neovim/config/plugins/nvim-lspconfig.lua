@@ -140,7 +140,9 @@ local configs = {
       },
     },
   },
-  terraformls = {},
+  terraformls = {
+    root_markers = { "terraform.tf", ".git" },
+  },
   tombi = {},
   ts_ls = {
     commands = {
