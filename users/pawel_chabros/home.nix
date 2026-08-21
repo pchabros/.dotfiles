@@ -17,6 +17,7 @@
     ./hyprpaper
     ./kanshi
     ./lazygit
+    ./mako
     ./neovim
     ./nushell
     ./qutebrowser

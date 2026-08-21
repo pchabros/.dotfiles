@@ -18,7 +18,7 @@
       {id = "dhlnjfhjjbminbjbegeiijdakdkamjoi";}
     ];
     commandLineArgs = [
-      "--enable-features=VaapiVideoDecoder,VaapiVideoEncoder"
+      "--enable-features=VaapiVideoDecoder,VaapiVideoEncoder,SystemNotifications"
       "--ozone-platform=wayland"
     ];
   };
