@@ -375,5 +375,6 @@ in {
   };
   xdg.configFile = {
     "nvim/after".source = ./config/after;
+    "nvim/snippets".source = ./config/snippets;
   };
 }
