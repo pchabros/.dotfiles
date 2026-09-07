@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     set("n", "<space>cf", function()
       vim.lsp.buf.format({
         async = true,
-        filter = function(client) return client.name ~= "ts_ls" end,
+        filter = function(client) return client.name ~= "ts_ls" and client.name ~= "gopls" end,
       })
     end, { desc = "Format" })
   end,
@@ -77,6 +77,8 @@ local configs = {
     },
   },
   gitlab_ci_ls = {},
+  gopls = {},
+  golangci_lint_ls = {},
   html = {
     capabilities = capabilities,
     init_options = {

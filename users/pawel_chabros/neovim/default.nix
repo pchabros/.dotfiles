@@ -328,6 +328,10 @@ in {
       dockerfile-language-server
       emmet-ls
       gitlab-ci-ls
+      go
+      gopls
+      gotools
+      golangci-lint
       luaPackages.tree-sitter-cli
       haskell-language-server
       haskellPackages.hoogle

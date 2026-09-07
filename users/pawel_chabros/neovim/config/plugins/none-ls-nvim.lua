@@ -14,6 +14,7 @@ null_ls.setup({
     diagnostics.statix,
     diagnostics.terraform_validate,
     diagnostics.trivy,
+    formatting.goimports,
     formatting.prettierd,
     formatting.shfmt,
     formatting.terraform_fmt,
@@ -30,7 +31,7 @@ null_ls.setup({
         callback = function()
           vim.lsp.buf.format({
             async = false,
-            filter = function(client) return client.name ~= "ts_ls" end,
+            filter = function(client) return client.name ~= "ts_ls" and client.name ~= "gopls" end,
           })
         end,
       })

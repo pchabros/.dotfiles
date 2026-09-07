@@ -8,6 +8,8 @@
     age
     claude-code
     slack
+    microsoft-edge
+    teams-for-linux
   ];
   services = {
     openvpn.servers.work = {

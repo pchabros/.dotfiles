@@ -6,7 +6,7 @@
 }: let
   conf = {
     personal = "/home/${username}/.dotfiles/users/${username}/git/config/config-personal";
-    qrk = "/home/${username}/.dotfiles/users/${username}/git/config/config-qrk";
+    solid = "/home/${username}/.dotfiles/users/${username}/git/config/config-solid";
   };
 in {
   programs = {
@@ -27,7 +27,9 @@ in {
             "includeIf \"gitdir:~/wd/\"" = {
               path = conf.personal;
             };
-            "includeIf \"gitdir:~/\"" = {path = conf.qrk;};
+            "includeIf \"gitdir:~/wd/solid-bio/\"" = {
+              path = conf.solid;
+            };
           }
           else {
             "includeIf \"gitdir:~/\"" = {path = conf.personal;};
