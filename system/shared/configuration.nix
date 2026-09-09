@@ -88,6 +88,7 @@
       playerctl
       ripgrep
       sbctl
+      simple-scan
       slurp
       spotify
       tldr
@@ -186,7 +187,22 @@
     extraPortals = with pkgs; [xdg-desktop-portal-gtk];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        simple-scan = prev.simple-scan.overrideAttrs (old: {
+          nativeBuildInputs = (old.nativeBuildInputs or []) ++ [prev.makeWrapper];
+          postInstall =
+            (old.postInstall or "")
+            + ''
+              wrapProgram $out/bin/simple-scan \
+                --prefix LD_LIBRARY_PATH : "${prev.hplipWithPlugin}/lib/sane"
+            '';
+        });
+      })
+    ];
+  };
 
   environment = {
     localBinInPath = true;
