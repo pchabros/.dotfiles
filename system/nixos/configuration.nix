@@ -1,7 +1,9 @@
 {
   pkgs,
   config,
+  system,
   username,
+  agenix,
   ...
 }: {
   users.users.pawel_chabros.packages = with pkgs; [
@@ -16,6 +18,8 @@
     enable = true;
     powerOnBoot = false;
   };
+
+  programs.globalprotect-openconnect.enable = true;
 
   services = {
     openvpn.servers.work = {
@@ -34,8 +38,11 @@
     };
   };
 
-  environment.etc."kolide-k2/secret" = {
-    mode = "0600";
-    source = config.age.secrets.kolide.path;
+  environment = {
+    systemPackages = [agenix.packages.${system}.default];
+    etc."kolide-k2/secret" = {
+      mode = "0600";
+      source = config.age.secrets.kolide.path;
+    };
   };
 }

@@ -12,6 +12,7 @@
       url = "github:/kolide/nix-agent/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
     xremap.url = "github:xremap/nix-flake";
     nix-colors.url = "github:misterio77/nix-colors";
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
@@ -52,6 +53,7 @@
     home-manager,
     agenix,
     kolide-launcher,
+    globalprotect-openconnect,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -81,15 +83,13 @@
       lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs hostname username version;
+          inherit inputs system hostname username version agenix;
         };
         modules = [
           inputs.xremap.nixosModules.default
           agenix.nixosModules.default
-          {
-            environment.systemPackages = [agenix.packages.${system}.default];
-          }
           kolide-launcher.nixosModules.kolide-launcher
+          globalprotect-openconnect.nixosModules.default
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           {
