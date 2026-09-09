@@ -11,6 +11,12 @@
     microsoft-edge
     teams-for-linux
   ];
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   services = {
     openvpn.servers.work = {
       config = "config /etc/openvpn/Pawel.Chabros.ovpn";
