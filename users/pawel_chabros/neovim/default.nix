@@ -362,12 +362,15 @@ in {
       stylua
       lua-language-server
       tailwindcss-language-server
+      terraform
       terraform-ls
-      trivy
+      (tflint.withPlugins (p: [p.tflint-ruleset-aws]))
       tombi
+      trivy
       vscode-langservers-extracted
       wl-clipboard
       yaml-language-server
+      zizmor
     ];
     initLua = ''
       ${builtins.readFile ./config/utils.lua}
@@ -381,4 +384,9 @@ in {
     "nvim/after".source = ./config/after;
     "nvim/snippets".source = ./config/snippets;
   };
+  home.file.".tflint.hcl".text = ''
+    plugin "aws" {
+      enabled = true
+    }
+  '';
 }

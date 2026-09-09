@@ -145,6 +145,9 @@ local configs = {
   terraformls = {
     root_markers = { "terraform.tf", ".git" },
   },
+  tflint = {
+    root_markers = { "terraform.tf", ".git" },
+  },
   tombi = {},
   ts_ls = {
     commands = {
@@ -178,6 +181,7 @@ local configs = {
     },
   }),
   helm_ls = {},
+  zizmor = {},
 }
 
 for language, config in pairs(configs) do
