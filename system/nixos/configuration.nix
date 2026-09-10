@@ -9,8 +9,9 @@
   users.users.pawel_chabros.packages = with pkgs; [
     age
     claude-code
-    slack
+    firefox
     microsoft-edge
+    slack
     teams-for-linux
   ];
 
