@@ -46,6 +46,10 @@
       url = "github:mosheavni/yaml-companion.nvim";
       flake = false;
     };
+    vsrocq-nvim = {
+      url = "github:tomtomjhj/vsrocq.nvim";
+      flake = false;
+    };
   };
 
   outputs = {

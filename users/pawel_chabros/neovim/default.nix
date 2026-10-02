@@ -26,6 +26,10 @@
         name = "yaml-companion-nvim";
         src = inputs.yaml-companion-nvim;
       };
+      vsrocq-nvim = pkgs.vimUtils.buildVimPlugin {
+        name = "vsrocq-nvim";
+        src = inputs.vsrocq-nvim;
+      };
     };
 in {
   programs.neovim = {
@@ -38,6 +42,14 @@ in {
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
+      Coqtail
+      {
+        plugin = vsrocq-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/vsrocq-nvim.lua}
+        '';
+      }
       dressing-nvim
       git-conflict-nvim
       lazygit-nvim
@@ -332,6 +344,7 @@ in {
       gopls
       gotools
       golangci-lint
+      golangci-lint-langserver
       luaPackages.tree-sitter-cli
       haskell-language-server
       haskellPackages.hoogle

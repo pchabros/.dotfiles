@@ -182,6 +182,7 @@ local configs = {
   }),
   helm_ls = {},
   zizmor = {},
+  vsrocq = {},
 }
 
 for language, config in pairs(configs) do

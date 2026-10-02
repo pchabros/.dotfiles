@@ -1010,6 +1010,7 @@
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_3",
         "tmux-sessionx": "tmux-sessionx",
+        "vsrocq-nvim": "vsrocq-nvim",
         "xremap": "xremap",
         "yaml-companion-nvim": "yaml-companion-nvim"
       }
@@ -1131,6 +1132,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vsrocq-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762599695,
+        "narHash": "sha256-2Hyzuc8ovNloUCrRn54EHN7DgKceNzSuMBVhOZtFHI8=",
+        "owner": "tomtomjhj",
+        "repo": "vsrocq.nvim",
+        "rev": "dfa0e5a9e6b9fbd065fc6d9e1ec53e28f3dc11c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tomtomjhj",
+        "repo": "vsrocq.nvim",
         "type": "github"
       }
     },
