@@ -339,6 +339,8 @@ in {
       docker-compose-language-service
       dockerfile-language-server
       emmet-ls
+      gcc
+      gdb
       gitlab-ci-ls
       go
       gopls

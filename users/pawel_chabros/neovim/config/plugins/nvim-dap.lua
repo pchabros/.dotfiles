@@ -63,6 +63,48 @@ vim.api.nvim_create_autocmd({ "DirChanged", "BufEnter" }, {
   callback = function() set_python_dap() end,
 })
 
+dap.adapters.gdb = {
+  type = 'executable',
+  command = 'gdb',
+  args = { '--interpreter=dap', '--eval-command', 'set print pretty on' },
+}
+
+local function build_and_run()
+  local root = vim.fn.getcwd()
+  local makefile = root .. '/Makefile'
+  if vim.fn.filereadable(makefile) == 0 then
+    vim.notify('No Makefile in project root', vim.log.levels.ERROR, { title = 'Build failed' })
+    return dap.ABORT
+  end
+  local result = vim.fn.system({ 'make', '-C', root })
+  if vim.v.shell_error ~= 0 then
+    vim.notify(result, vim.log.levels.ERROR, { title = 'Build failed' })
+    return dap.ABORT
+  end
+  local target
+  for line in io.lines(makefile) do
+    local t = line:match('^([%w._%-/]+)%s*:')
+    if t and t:sub(1, 1) ~= '.' then
+      target = t
+      break
+    end
+  end
+  return root .. '/' .. target
+end
+
+dap.configurations.c = {
+  {
+    name = 'Build & launch',
+    type = 'gdb',
+    request = 'launch',
+    program = build_and_run,
+    cwd = '${workspaceFolder}',
+    stopAtBeginningOfMainSubprogram = false,
+  },
+}
+
+dap.configurations.cpp = dap.configurations.c
+
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
