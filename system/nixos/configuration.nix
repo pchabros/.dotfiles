@@ -10,8 +10,6 @@
     age
     claude-code
     firefox
-    man-pages
-    man-pages-posix
     microsoft-edge
     slack
     teams-for-linux
@@ -49,7 +47,11 @@
   };
 
   environment = {
-    systemPackages = [agenix.packages.${system}.default];
+    systemPackages = with pkgs; [
+      agenix.packages.${system}.default
+      man-pages
+      man-pages-posix
+    ];
     etc."kolide-k2/secret" = {
       mode = "0600";
       source = config.age.secrets.kolide.path;

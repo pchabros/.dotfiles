@@ -708,6 +708,22 @@
         "type": "github"
       }
     },
+    "man-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784233441,
+        "narHash": "sha256-FEqIxJozwxQ6wDJyDthqou8g4xvUaAJRPxFcp9dSH8o=",
+        "owner": "moniquelive",
+        "repo": "man.nvim",
+        "rev": "0096996b2e466acb47d8b8ca430e7ea7e9f2d22e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moniquelive",
+        "repo": "man.nvim",
+        "type": "github"
+      }
+    },
     "mini-bufremove": {
       "flake": false,
       "locked": {
@@ -1005,6 +1021,7 @@
         "home-manager": "home-manager_2",
         "indent-blankline-nvim": "indent-blankline-nvim",
         "kolide-launcher": "kolide-launcher",
+        "man-nvim": "man-nvim",
         "mini-bufremove": "mini-bufremove",
         "mini-indentscope": "mini-indentscope",
         "nix-colors": "nix-colors",

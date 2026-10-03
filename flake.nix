@@ -50,6 +50,10 @@
       url = "github:tomtomjhj/vsrocq.nvim";
       flake = false;
     };
+    man-nvim = {
+      url = "github:moniquelive/man.nvim";
+      flake = false;
+    };
   };
 
   outputs = {

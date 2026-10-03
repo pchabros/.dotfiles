@@ -30,6 +30,10 @@
         name = "vsrocq-nvim";
         src = inputs.vsrocq-nvim;
       };
+      man-nvim = pkgs.vimUtils.buildVimPlugin {
+        name = "man-nvim";
+        src = inputs.man-nvim;
+      };
     };
 in {
   programs.neovim = {
@@ -242,6 +246,13 @@ in {
         type = "lua";
         config = ''
           ${builtins.readFile ./config/plugins/telescope-nvim.lua}
+        '';
+      }
+      {
+        plugin = man-nvim;
+        type = "lua";
+        config = ''
+          ${builtins.readFile ./config/plugins/man-nvim.lua}
         '';
       }
       {
