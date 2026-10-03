@@ -10,6 +10,8 @@
     age
     claude-code
     firefox
+    man-pages
+    man-pages-posix
     microsoft-edge
     slack
     teams-for-linux
@@ -18,6 +20,13 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
+  };
+
+  boot.extraModprobeConfig = "options btusb enable_autosuspend=n";
+
+  documentation = {
+    dev.enable = true;
+    man.cache.enable = true;
   };
 
   programs.globalprotect-openconnect.enable = true;

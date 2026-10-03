@@ -3,6 +3,8 @@ source "$HOME/.config/zsh/aliases"
 autoload -Uz compinit
 zmodload zsh/complist
 
+export MANPAGER='nvim +Man!'
+
 bindkey -M menuselect j vi-backward-char
 bindkey -M menuselect k vi-down-line-or-history
 bindkey -M menuselect l vi-up-line-or-history
