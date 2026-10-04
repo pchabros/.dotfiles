@@ -63,7 +63,11 @@ local configs = {
       provideFormatter = false,
     },
   },
-  clangd = {},
+  clangd = {
+    on_attach = function(_, bufnr)
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end,
+  },
   docker_compose_language_service = {},
   dockerls = {},
   emmet_ls = {},
@@ -189,6 +193,8 @@ for language, config in pairs(configs) do
   vim.lsp.config(language, config)
   vim.lsp.enable(language)
 end
+
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#6E7A92" })
 
 vim.diagnostic.config({
   update_in_insert = true,

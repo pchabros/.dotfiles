@@ -11,6 +11,7 @@ null_ls.setup({
     code_actions.refactoring,
     code_actions.statix,
     -- diagnostics.kube_linter, -- TODO: Comment out after `none-ls` update
+    diagnostics.cppcheck.with({ extra_args = { "--std=c23" } }),
     diagnostics.statix,
     diagnostics.terraform_validate,
     diagnostics.trivy,
