@@ -147,10 +147,10 @@ local configs = {
     },
   },
   terraformls = {
-    root_markers = { "terraform.tf", ".git" },
+    root_markers = { { ".terraform.lock.hcl", ".terraform" }, { ".git", ".terraform-version" } },
   },
   tflint = {
-    root_markers = { "terraform.tf", ".git" },
+    root_markers = { { ".terraform.lock.hcl", ".terraform" }, { ".git", ".terraform-version" } },
   },
   tombi = {},
   ts_ls = {

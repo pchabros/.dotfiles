@@ -394,6 +394,7 @@ in {
       (tflint.withPlugins (p: [p.tflint-ruleset-aws]))
       tombi
       trivy
+      typescript-language-server
       vscode-langservers-extracted
       wl-clipboard
       yaml-language-server
