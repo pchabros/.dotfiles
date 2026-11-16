@@ -1,5 +1,6 @@
 local dap = require('dap')
 local dap_python = require('dap-python')
+local dap_go = require('dap-go')
 local dapui = require("dapui")
 local wk = require("which-key")
 local set = vim.keymap.set
@@ -105,6 +106,8 @@ dap.configurations.c = {
 
 dap.configurations.cpp = dap.configurations.c
 
+dap_go.setup()
+
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
@@ -125,6 +128,7 @@ wk.add({ "<leader>d", group = "Debug" })
 set("n", "<leader>db", dap.toggle_breakpoint, { desc = " Breakpoint" })
 set("n", "<leader>dc", dap.continue, { desc = " Continue" })
 set("n", "<leader>df", dap_python.test_method, { desc = "Test method" })
+set("n", "<leader>dt", dap_go.debug_test, { desc = "Debug Go test" })
 set("n", "<leader>dC", dap_python.test_class, { desc = "Test class" })
 set("n", "<leader>ds", dap_python.debug_selection, { desc = "Debug selection" })
 set("n", "<leader>du", dapui.toggle, { desc = "UI" })

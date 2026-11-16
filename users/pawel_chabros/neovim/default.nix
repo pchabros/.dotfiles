@@ -90,6 +90,7 @@ in {
       }
       nvim-dap-ui
       nvim-dap-python
+      nvim-dap-go
       {
         plugin = cornelis;
         type = "viml";
@@ -348,6 +349,7 @@ in {
       alejandra
       cornelis
       cppcheck
+      delve
       docker-compose-language-service
       dockerfile-language-server
       emmet-ls
