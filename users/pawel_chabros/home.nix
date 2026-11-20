@@ -20,7 +20,6 @@
     ./mako
     ./neovim
     ./nushell
-    ./qutebrowser
     ./starship
     ./tmux
     ./wlogout
