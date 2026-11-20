@@ -33,7 +33,7 @@ end
 require("telescope").setup({
   defaults = {
     buffer_previewer_maker = truncate_large_files,
-    file_ignore_patterns = { ".Rd$", ".RDS$" },
+    file_ignore_patterns = { ".Rd$", ".RDS$", "^%.git/" },
     mappings = {
       i = {
         ["K"] = function(...)
@@ -54,6 +54,9 @@ require("telescope").setup({
     },
   },
   pickers = {
+    find_files = {
+      hidden = true,
+    },
     git_commits = {
       mappings = {
         i = {
